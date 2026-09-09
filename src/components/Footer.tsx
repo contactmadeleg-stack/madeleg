@@ -35,13 +35,13 @@ export default function Footer() {
         <div>
           <p className="text-xs font-bold text-white/60 uppercase tracking-wide mb-3">Madeleg</p>
           <nav className="flex flex-col gap-2 text-sm">
-            <Link href="/" className="text-white/80 hover:text-white">
+            <Link href="/" className="font-semibold text-white/80 hover:text-white">
               Simulateur
             </Link>
-            <Link href="/assurance-emprunteur" className="text-white/80 hover:text-white">
+            <Link href="/assurance-emprunteur" className="font-semibold text-white/80 hover:text-white">
               Guide assurance emprunteur
             </Link>
-            <Link href="/partenaires" className="text-white/80 hover:text-white">
+            <Link href="/partenaires" className="font-semibold text-white/80 hover:text-white">
               Nos partenaires
             </Link>
           </nav>
@@ -50,10 +50,10 @@ export default function Footer() {
         <div>
           <p className="text-xs font-bold text-white/60 uppercase tracking-wide mb-3">Informations légales</p>
           <nav className="flex flex-col gap-2 text-sm">
-            <Link href="/mentions-legales" className="text-white/80 hover:text-white">
+            <Link href="/mentions-legales" className="font-semibold text-white/80 hover:text-white">
               Mentions légales
             </Link>
-            <Link href="/politique-de-confidentialite" className="text-white/80 hover:text-white">
+            <Link href="/politique-de-confidentialite" className="font-semibold text-white/80 hover:text-white">
               Politique de confidentialité
             </Link>
           </nav>

@@ -12,7 +12,7 @@ const QUESTIONS = [
   },
   {
     q: "Est-ce vraiment gratuit ?",
-    r: "Oui. La simulation et l'accompagnement de Madeleg pour monter votre dossier de substitution sont gratuits et sans engagement.",
+    r: "La simulation est gratuite et sans engagement. Le détail d'un éventuel coût d'accompagnement, s'il y en a un, vous est communiqué clairement par votre conseiller avant toute démarche.",
   },
   {
     q: "Dois-je changer de banque ou de prêt ?",

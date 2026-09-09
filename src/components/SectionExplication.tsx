@@ -29,9 +29,7 @@ export default function SectionExplication() {
               suit l&apos;ensemble des échanges avec votre banque jusqu&apos;à validation — vous n&apos;avez rien à
               gérer.
             </p>
-            <p className="font-semibold text-[var(--color-texte)]">
-              Simulation gratuite, sans engagement. Réponse d&apos;un conseiller sous 24h ouvrées.
-            </p>
+            <p className="font-semibold text-[var(--color-texte)]">Simulation gratuite, sans engagement.</p>
           </div>
         </Reveal>
       </div>

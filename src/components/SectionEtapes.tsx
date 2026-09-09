@@ -1,30 +1,39 @@
 import Reveal, { RevealItem } from "./Reveal";
-import { IconeEuro, IconeDossier, IconePoignee, IconeBouclier } from "./Icones";
+import { IconeEuro, IconeTelephone, IconePoignee } from "./Icones";
+
+function IconeVacances({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <span className={`${className} flex items-center justify-center text-base leading-none`} aria-hidden>
+      🏖️
+    </span>
+  );
+}
 
 const ETAPES = [
   {
     numero: "1",
     icone: IconeEuro,
-    titre: "Simulez",
+    titre: "Vous estimez en ligne",
     texte: "Capital, durée restante, âge : votre estimation d'économie s'affiche en direct, en 30 secondes.",
   },
   {
     numero: "2",
-    icone: IconeDossier,
-    titre: "Envoyez vos documents",
-    texte: "Un conseiller vous indique les pièces nécessaires et sécurise la transmission de votre dossier.",
+    icone: IconeTelephone,
+    titre: "Un conseiller affine votre dossier",
+    texte:
+      "Vous transmettez votre offre de prêt et votre tableau d'amortissement : un expert affine votre simulation avec vous, par téléphone, en quelques minutes.",
   },
   {
     numero: "3",
     icone: IconePoignee,
-    titre: "On négocie pour vous",
-    texte: "Madeleg sélectionne l'assureur adapté à votre profil et gère les échanges avec votre banque.",
+    titre: "Vous validez, on s'occupe de tout",
+    texte: "Dès votre accord sur la proposition définitive, Madeleg change votre assurance — vous n'avez rien à faire.",
   },
   {
     numero: "4",
-    icone: IconeBouclier,
-    titre: "Vous économisez",
-    texte: "Dès l'accord de votre banque, la nouvelle assurance prend le relais — mêmes garanties, mensualité optimisée.",
+    icone: IconeVacances,
+    titre: "Vous profitez de vos économies",
+    texte: "Votre mensualité baisse, votre budget respire — de quoi enfin réserver ces vacances.",
   },
 ];
 
@@ -36,7 +45,7 @@ export default function SectionEtapes() {
           <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
             Comment ça marche
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">4 étapes, zéro paperasse pour vous</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">4 étapes, on s&apos;occupe du reste</h2>
         </div>
       </Reveal>
 

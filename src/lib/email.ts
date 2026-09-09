@@ -51,7 +51,7 @@ export async function envoyerEmailConfirmation(params: {
     subject: "Votre demande Madeleg est bien reçue",
     html: `
       <p>Bonjour ${echapperHtml(prenom)},</p>
-      <p>Votre demande a bien été reçue. Un conseiller Madeleg vous rappelle sous <strong>24h ouvrées</strong>.</p>
+      <p>Votre demande a bien été reçue. Un conseiller Madeleg va revenir vers vous.</p>
       <p>D'après votre simulation, l'économie estimée sur la durée restante de votre prêt est de :</p>
       <p style="font-size: 28px; font-weight: bold; color: #1c3d5a;">${euros(economieAffichee)}</p>
       <p>Ce montant est une estimation basée sur un taux moyen de marché, avec des garanties complètes (DC, PTIA, IPT, IPP, ITT, MNO, sans condition d'hospitalisation) et une marge de sécurité de 25 %. Le montant exact sera confirmé après analyse de votre dossier par votre conseiller.</p>
@@ -101,7 +101,7 @@ export async function envoyerEmailAdmin(params: {
     to: ADMIN_EMAIL,
     subject: `Nouvelle demande Madeleg — ${prenom} ${nom}`,
     html: `
-      <p>Nouvelle demande de rappel reçue sur Madeleg — à traiter sous 24h ouvrées.</p>
+      <p>Nouvelle demande de rappel reçue sur Madeleg.</p>
       <table cellspacing="0" cellpadding="0">
         ${ligne("Prénom", prenom)}
         ${ligne("Nom", nom)}

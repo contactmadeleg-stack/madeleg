@@ -163,8 +163,8 @@ export default function Simulateur({
       <div className="carte-madeleg p-8 text-center space-y-3">
         <h2 className="text-2xl font-bold">Merci {etat.prenom}, votre demande est bien reçue.</h2>
         <p className="text-[var(--color-texte-doux)]">
-          Un conseiller Madeleg vous rappelle sous <strong>24h ouvrées</strong>. Vous allez également recevoir un
-          email avec le récapitulatif de votre estimation.
+          Un conseiller Madeleg va revenir vers vous. Vous allez également recevoir un email avec le récapitulatif de
+          votre estimation.
         </p>
       </div>
     );
@@ -341,7 +341,7 @@ export default function Simulateur({
               {euros(Math.round(apercuAnime))}
             </p>
             <p className="text-xs text-[var(--color-texte-doux)] mt-1">
-              sur la durée restante, tarif moyen d&apos;un contrat bancaire*
+              Estimation de l&apos;économie par rapport au tarif moyen d&apos;un contrat bancaire*
             </p>
           </div>
         )}
@@ -359,7 +359,10 @@ export default function Simulateur({
         {etat.phase === "erreur" && <p className="text-sm text-red-700 text-center">{etat.message}</p>}
 
         <p className="text-xs text-[var(--color-texte-doux)] text-center">
-          *Estimation avec garanties complètes (DC, PTIA, IPT, IPP, ITT, MNO, sans condition d&apos;hospitalisation).
+          Simulation gratuite et sans engagement.
+          <br />
+          *avec garanties DC / PTIA + ITT + IPT + IPP + MNO (sans condition d&apos;hospitalisation) et 100% de
+          quotité
         </p>
       </form>
     </div>

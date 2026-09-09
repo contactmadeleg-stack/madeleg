@@ -35,7 +35,7 @@ export default async function Home() {
             <div className="text-center lg:text-left">
               <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-5">
                 <IconeEclair className="w-3.5 h-3.5 text-[var(--color-ambre)]" />
-                Simple, rapide, 100% gratuit
+                Simple et sans prise de tête
               </span>
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight max-w-xl mx-auto lg:mx-0">
                 Payez-vous <span className="texte-degrade-ambre">trop cher</span> votre assurance
@@ -46,14 +46,8 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="hidden lg:flex justify-center relative">
+            <div className="hidden lg:flex justify-center">
               <CarteAvantages />
-              <div className="carte-verre absolute -bottom-5 -left-6 px-4 py-2.5 flex items-center gap-2 rounded-full">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-sauge)] shrink-0 animate-pulse" />
-                <span className="text-xs font-semibold text-[var(--color-marque)] whitespace-nowrap">
-                  Réponse sous 24h ouvrées
-                </span>
-              </div>
             </div>
           </div>
         </section>

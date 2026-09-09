@@ -99,6 +99,21 @@ export function IconePoignee({ className = "w-4 h-4" }: Props) {
   );
 }
 
+export function IconeTelephone({ className = "w-4 h-4" }: Props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.15" />
+      <path
+        d="M8.5 6.5c.3 1.3.8 2.5 1.5 3.6l-1.4 1.6c.8 1.7 2.1 3 3.8 3.8l1.6-1.4c1.1.7 2.3 1.2 3.6 1.5v2.1c0 .6-.5 1-1 1-6 0-10.8-4.8-10.8-10.8 0-.5.4-1 1-1h1.7z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function IconeBanque({ className = "w-4 h-4" }: Props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
