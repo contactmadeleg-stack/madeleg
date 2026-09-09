@@ -1,6 +1,6 @@
 import Simulateur from "@/components/Simulateur";
 import FormeDecorative from "@/components/FormeDecorative";
-import IllustrationBouclier from "@/components/IllustrationBouclier";
+import CarteAvantages from "@/components/CarteAvantages";
 import { getGrillesCompletes } from "@/lib/calcul/parametres";
 
 // Les grilles de taux sont éditables directement dans Supabase (en
@@ -35,7 +35,7 @@ export default async function Home() {
           </div>
 
           <div className="hidden lg:flex justify-center">
-            <IllustrationBouclier className="w-64 h-64" />
+            <CarteAvantages />
           </div>
         </div>
       </section>

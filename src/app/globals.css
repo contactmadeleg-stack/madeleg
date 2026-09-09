@@ -107,9 +107,9 @@ h1, h2, h3, .font-titres {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--color-marque);
+  background: var(--color-ambre);
   border: 3px solid var(--color-fond-carte);
-  box-shadow: 0 0 0 1px var(--color-marque);
+  box-shadow: 0 0 0 1px var(--color-ambre);
   cursor: pointer;
 }
 
@@ -117,9 +117,9 @@ h1, h2, h3, .font-titres {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--color-marque);
+  background: var(--color-ambre);
   border: 3px solid var(--color-fond-carte);
-  box-shadow: 0 0 0 1px var(--color-marque);
+  box-shadow: 0 0 0 1px var(--color-ambre);
   cursor: pointer;
 }
 

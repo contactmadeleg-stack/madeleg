@@ -22,14 +22,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm text-white/70 leading-relaxed">
-          Madeleg — Mario Romuald Dos Santos, entrepreneur individuel. SIRET 814 537 684 00056 — RCS Nantes.
-          Mandataire d&apos;intermédiaire en opérations de banque et services de paiement (MIOBSP) et mandataire
-          d&apos;intermédiaire d&apos;assurance (MIA), sous mandat FINSPOT (SIREN 825 077 886). N° ORIAS 20004713,
-          vérifiable sur{" "}
-          <a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer" className="underline text-white/85 hover:text-white">
-            orias.fr
-          </a>
-          .
+          Madeleg — Mario Romuald Dos Santos, entrepreneur individuel. Certifié MIA par l&apos;ORIAS.
         </p>
       </div>
     </footer>
