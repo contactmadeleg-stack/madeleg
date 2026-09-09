@@ -170,6 +170,23 @@ export default function Simulateur({
   if (etat.vue === "coordonnees") {
     return (
       <div className="carte-madeleg p-6 sm:p-8 space-y-7">
+        <button
+          type="button"
+          onClick={() => setEtat({ vue: "estimation", phase: "formulaire" })}
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-texte-doux)] hover:text-[var(--color-marque)]"
+        >
+          <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+            <path
+              d="M15 5l-7 7 7 7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Modifier mon estimation
+        </button>
+
         <div className="text-center">
           <p className="text-xs font-bold text-[var(--color-sauge)] uppercase tracking-wide mb-2">
             Estimation validée
@@ -273,7 +290,7 @@ export default function Simulateur({
               </span>
               <div className="flex items-center gap-2">
                 <div className="relative flex-1">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-marque)]">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-marque)] pointer-events-none">
                     <IconePersonne className="w-4 h-4" />
                   </span>
                   <input
@@ -286,7 +303,7 @@ export default function Simulateur({
                       const v = Number(e.target.value);
                       if (!Number.isNaN(v)) modifierAge(i, v);
                     }}
-                    className="champ-saisie pl-9"
+                    className="champ-saisie !pl-10"
                   />
                 </div>
                 {i > 0 && (
