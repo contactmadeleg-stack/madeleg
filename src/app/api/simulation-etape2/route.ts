@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { etape2Schema } from "@/lib/validation";
-import { envoyerEmailConfirmation } from "@/lib/email";
+import { envoyerEmailConfirmation, envoyerEmailAdmin } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       email_capte_sans_rdv: true,
     })
     .eq("id", simulationId)
-    .select("economie_affichee")
+    .select("economie_affichee, capital, duree_restante_annees, age")
     .single();
 
   if (error || !data) {
@@ -40,11 +40,22 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { sent } = await envoyerEmailConfirmation({
-    prenom,
-    email,
-    economieAffichee: Number(data.economie_affichee),
-  });
+  const economieAffichee = Number(data.economie_affichee);
+
+  const [{ sent }] = await Promise.all([
+    envoyerEmailConfirmation({ prenom, email, economieAffichee }),
+    envoyerEmailAdmin({
+      prenom,
+      nom,
+      email,
+      mobile,
+      banqueSelectionnee,
+      capital: Number(data.capital),
+      dureeRestanteAnnees: data.duree_restante_annees,
+      age: data.age,
+      economieAffichee,
+    }),
+  ]);
 
   return NextResponse.json({ ok: true, emailSent: sent });
 }

@@ -5,6 +5,11 @@ import { Resend } from "resend";
 // À remplacer par une adresse @madeleg.fr une fois le domaine vérifié.
 const FROM_ADDRESS = process.env.EMAIL_FROM_ADDRESS ?? "Madeleg <onboarding@resend.dev>";
 
+// Adresse recevant la notification d'une nouvelle demande. Marche dès
+// maintenant même sans domaine vérifié, car Resend en mode test autorise
+// justement l'envoi vers l'adresse du compte Resend.
+const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL ?? "contact.madeleg@gmail.com";
+
 function euros(n: number) {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
@@ -13,18 +18,31 @@ function euros(n: number) {
   }).format(n);
 }
 
+function echapperHtml(texte: string) {
+  return texte
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function getResendOuNull() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("RESEND_API_KEY manquant — email non envoyé.");
+    return null;
+  }
+  return new Resend(apiKey);
+}
+
 export async function envoyerEmailConfirmation(params: {
   prenom: string;
   email: string;
   economieAffichee: number;
 }) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error("RESEND_API_KEY manquant — email de confirmation non envoyé.");
-    return { sent: false as const };
-  }
+  const resend = getResendOuNull();
+  if (!resend) return { sent: false as const };
 
-  const resend = new Resend(apiKey);
   const { prenom, email, economieAffichee } = params;
 
   const { error } = await resend.emails.send({
@@ -32,7 +50,7 @@ export async function envoyerEmailConfirmation(params: {
     to: email,
     subject: "Votre demande Madeleg est bien reçue",
     html: `
-      <p>Bonjour ${prenom},</p>
+      <p>Bonjour ${echapperHtml(prenom)},</p>
       <p>Votre demande a bien été reçue. Un conseiller Madeleg vous rappelle sous <strong>24h ouvrées</strong>.</p>
       <p>D'après votre simulation, l'économie estimée sur la durée restante de votre prêt est de :</p>
       <p style="font-size: 28px; font-weight: bold; color: #1c3d5a;">${euros(economieAffichee)}</p>
@@ -43,6 +61,63 @@ export async function envoyerEmailConfirmation(params: {
 
   if (error) {
     console.error("Erreur envoi email confirmation :", error);
+    return { sent: false as const };
+  }
+
+  return { sent: true as const };
+}
+
+export async function envoyerEmailAdmin(params: {
+  prenom: string;
+  nom: string;
+  email: string;
+  mobile: string;
+  banqueSelectionnee: string;
+  capital: number;
+  dureeRestanteAnnees: number;
+  age: number;
+  economieAffichee: number;
+}) {
+  const resend = getResendOuNull();
+  if (!resend) return { sent: false as const };
+
+  const {
+    prenom,
+    nom,
+    email,
+    mobile,
+    banqueSelectionnee,
+    capital,
+    dureeRestanteAnnees,
+    age,
+    economieAffichee,
+  } = params;
+
+  const ligne = (label: string, valeur: string) =>
+    `<tr><td style="padding:4px 12px 4px 0;color:#4d5b74;">${label}</td><td style="padding:4px 0;font-weight:600;">${echapperHtml(valeur)}</td></tr>`;
+
+  const { error } = await resend.emails.send({
+    from: FROM_ADDRESS,
+    to: ADMIN_EMAIL,
+    subject: `Nouvelle demande Madeleg — ${prenom} ${nom}`,
+    html: `
+      <p>Nouvelle demande de rappel reçue sur Madeleg — à traiter sous 24h ouvrées.</p>
+      <table cellspacing="0" cellpadding="0">
+        ${ligne("Prénom", prenom)}
+        ${ligne("Nom", nom)}
+        ${ligne("Email", email)}
+        ${ligne("Mobile", mobile)}
+        ${ligne("Banque actuelle (indicatif)", banqueSelectionnee)}
+        ${ligne("Capital emprunté", euros(capital))}
+        ${ligne("Durée restante", `${dureeRestanteAnnees} ans`)}
+        ${ligne("Âge", `${age} ans`)}
+        ${ligne("Économie affichée au prospect", euros(economieAffichee))}
+      </table>
+    `,
+  });
+
+  if (error) {
+    console.error("Erreur envoi email admin :", error);
     return { sent: false as const };
   }
 
