@@ -32,6 +32,16 @@ export function calculerCrd(capital: number, dureeRestante: number, n: number): 
   return capital * (dureeRestante - n) / dureeRestante;
 }
 
+export type TrancheAge = { ageMin: number; ageMax: number; tauxAnnuel: number };
+
+// Lookup pur, sans dépendance réseau — utilisable côté client pour le
+// recalcul instantané au curseur, avec les grilles chargées une fois au
+// chargement de la page (voir src/lib/calcul/parametres.ts côté serveur).
+export function trouverTauxDansGrille(grille: TrancheAge[], age: number): number | null {
+  const tranche = grille.find((t) => age >= t.ageMin && age <= t.ageMax);
+  return tranche ? tranche.tauxAnnuel : null;
+}
+
 export function calculerSimulation(params: {
   capital: number;
   dureeRestanteAnnees: number;

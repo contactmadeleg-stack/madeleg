@@ -1,6 +1,19 @@
 import Simulateur from "@/components/Simulateur";
+import { getGrillesCompletes } from "@/lib/calcul/parametres";
 
-export default function Home() {
+// Les grilles de taux sont éditables directement dans Supabase (en
+// attendant une console d'admin) — revalidation régulière pour que les
+// changements se reflètent sans nécessiter un redéploiement.
+export const revalidate = 300;
+
+export default async function Home() {
+  let grilles: Awaited<ReturnType<typeof getGrillesCompletes>> | null = null;
+  try {
+    grilles = await getGrillesCompletes();
+  } catch (e) {
+    console.error("Grilles de taux indisponibles :", e);
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:py-16 space-y-10">
       <div className="space-y-4 text-center">
@@ -13,7 +26,13 @@ export default function Home() {
         </p>
       </div>
 
-      <Simulateur />
+      {grilles ? (
+        <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} />
+      ) : (
+        <p className="text-center text-[var(--color-texte-doux)]">
+          Le simulateur est momentanément indisponible. Réessayez dans un instant.
+        </p>
+      )}
     </div>
   );
 }

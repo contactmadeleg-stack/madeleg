@@ -1,7 +1,12 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import type { PointAnnuel } from "@/lib/calcul/simulation";
+import { useState, useMemo, FormEvent } from "react";
+import {
+  calculerSimulation,
+  trouverTauxDansGrille,
+  type PointAnnuel,
+  type TrancheAge,
+} from "@/lib/calcul/simulation";
 import { BANQUES } from "@/lib/banques";
 import GraphiquePrimes from "./GraphiquePrimes";
 
@@ -17,6 +22,14 @@ type Etat =
     }
   | { phase: "confirmation"; prenom: string };
 
+const CAPITAL_MIN = 20_000;
+const CAPITAL_MAX = 800_000;
+const CAPITAL_PAS = 5_000;
+const DUREE_MIN = 1;
+const DUREE_MAX = 30;
+const AGE_MIN = 18;
+const AGE_MAX = 85;
+
 function euros(n: number) {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
@@ -25,18 +38,30 @@ function euros(n: number) {
   }).format(n);
 }
 
-export default function Simulateur() {
+export default function Simulateur({
+  grillesBanque,
+  grillesDelegation,
+}: {
+  grillesBanque: TrancheAge[];
+  grillesDelegation: TrancheAge[];
+}) {
+  const [capital, setCapital] = useState(200_000);
+  const [dureeRestanteAnnees, setDureeRestanteAnnees] = useState(20);
+  const [age, setAge] = useState(35);
+
   const [etat, setEtat] = useState<Etat>({ phase: "formulaire" });
   const [envoiEtape2, setEnvoiEtape2] = useState(false);
   const [erreurEtape2, setErreurEtape2] = useState<string | null>(null);
 
+  const apercu = useMemo(() => {
+    const tauxBanque = trouverTauxDansGrille(grillesBanque, age);
+    const tauxDelegation = trouverTauxDansGrille(grillesDelegation, age);
+    if (tauxBanque === null || tauxDelegation === null) return null;
+    return calculerSimulation({ capital, dureeRestanteAnnees, tauxBanqueMoyen: tauxBanque, tauxDelegation });
+  }, [capital, dureeRestanteAnnees, age, grillesBanque, grillesDelegation]);
+
   async function soumettreEtape1(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const capital = Number(form.get("capital"));
-    const dureeRestanteAnnees = Number(form.get("dureeRestanteAnnees"));
-    const age = Number(form.get("age"));
-
     setEtat({ phase: "chargement" });
 
     try {
@@ -136,47 +161,58 @@ export default function Simulateur() {
 
   return (
     <div className="space-y-8">
-      <form onSubmit={soumettreEtape1} className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8 space-y-6">
-        <div className="grid sm:grid-cols-3 gap-5">
-          <Champ label="Capital emprunté" suffixe="€">
-            <input
-              type="number"
-              name="capital"
-              required
-              min={1000}
-              max={2000000}
-              step={1000}
-              placeholder="200 000"
-              className="champ-saisie"
-            />
-          </Champ>
-          <Champ label="Durée restante" suffixe="ans">
-            <input
-              type="number"
-              name="dureeRestanteAnnees"
-              required
-              min={1}
-              max={35}
-              placeholder="18"
-              className="champ-saisie"
-            />
-          </Champ>
-          <Champ label="Votre âge" suffixe="ans">
-            <input
-              type="number"
-              name="age"
-              required
-              min={18}
-              max={85}
-              placeholder="38"
-              className="champ-saisie"
-            />
-          </Champ>
+      <form onSubmit={soumettreEtape1} className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8 space-y-8">
+        <div className="grid sm:grid-cols-2 gap-6">
+          <Curseur
+            label="Capital restant dû"
+            valeur={capital}
+            affichage={euros(capital)}
+            min={CAPITAL_MIN}
+            max={CAPITAL_MAX}
+            pas={CAPITAL_PAS}
+            onChange={setCapital}
+          />
+          <Curseur
+            label="Durée restante"
+            valeur={dureeRestanteAnnees}
+            affichage={`${dureeRestanteAnnees} an${dureeRestanteAnnees > 1 ? "s" : ""}`}
+            min={DUREE_MIN}
+            max={DUREE_MAX}
+            pas={1}
+            onChange={setDureeRestanteAnnees}
+          />
         </div>
+
+        <Champ label="Votre âge" suffixe="ans">
+          <input
+            type="number"
+            required
+            min={AGE_MIN}
+            max={AGE_MAX}
+            value={age}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              if (!Number.isNaN(v)) setAge(v);
+            }}
+            className="champ-saisie sm:max-w-[160px]"
+          />
+        </Champ>
+
+        {apercu && (
+          <div className="text-center py-4 border-y border-[var(--color-bordure)]">
+            <p className="text-sm text-[var(--color-texte-doux)] mb-1">Estimation de votre économie</p>
+            <p className="text-4xl sm:text-5xl font-bold text-[var(--color-vert)]">
+              {euros(apercu.economieAffichee)}
+            </p>
+            <p className="text-xs text-[var(--color-texte-doux)] mt-1">
+              sur la durée restante, tarif moyen d&apos;un contrat bancaire*
+            </p>
+          </div>
+        )}
 
         <button
           type="submit"
-          disabled={etat.phase === "chargement"}
+          disabled={etat.phase === "chargement" || !apercu}
           className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[var(--color-vert)] text-white font-medium hover:bg-[var(--color-vert-fonce)] disabled:opacity-60 transition-colors"
         >
           {etat.phase === "chargement" ? "Calcul en cours…" : "Valider mon estimation"}
@@ -199,7 +235,7 @@ export default function Simulateur() {
           <GraphiquePrimes courbe={etat.courbe} />
 
           <ul className="text-sm text-[var(--color-texte-doux)] space-y-1">
-            <li>Simulation gratuite et sans engagement.</li>
+            <li>*Estimation calculée sur un taux moyen de marché, avec une marge de sécurité de 25 %.</li>
             <li>Assureurs partenaires agréés ACPR.</li>
             <li>Formalités simplifiées possibles selon votre profil.</li>
           </ul>
@@ -260,6 +296,46 @@ export default function Simulateur() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function Curseur({
+  label,
+  valeur,
+  affichage,
+  min,
+  max,
+  pas,
+  onChange,
+}: {
+  label: string;
+  valeur: number;
+  affichage: string;
+  min: number;
+  max: number;
+  pas: number;
+  onChange: (v: number) => void;
+}) {
+  const pourcentage = ((valeur - min) / (max - min)) * 100;
+
+  return (
+    <div>
+      <div className="flex items-baseline justify-between mb-2">
+        <span className="text-sm font-medium text-[var(--color-texte)]">{label}</span>
+        <span className="text-lg font-semibold text-[var(--color-texte)]">{affichage}</span>
+      </div>
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={pas}
+        value={valeur}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="curseur-madeleg"
+        style={{ ["--pourcentage" as string]: `${pourcentage}%` }}
+        aria-label={label}
+      />
     </div>
   );
 }
