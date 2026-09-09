@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  /* Fond clair et aéré — jamais de thème sombre pour ce site */
+  --color-fond: #f7f7f4;
+  --color-fond-carte: #ffffff;
+  --color-bordure: #e2e1da;
+
+  /* Texte : bleu-nuit, jamais noir pur */
+  --color-texte: #1a2740;
+  --color-texte-doux: #4d5b74;
+
+  /* Vert sobre : réservé aux montants et à l'économie mise en avant */
+  --color-vert: #1f6f4a;
+  --color-vert-doux: #eaf3ee;
+  --color-vert-fonce: #17573a;
+
+  /* Accent secondaire (banque / comparaison) */
+  --color-ambre: #b5793a;
+
+  --font-sans: var(--font-geist-sans);
+}
+
+@theme inline {
+  --color-fond: var(--color-fond);
+  --color-fond-carte: var(--color-fond-carte);
+  --color-bordure: var(--color-bordure);
+  --color-texte: var(--color-texte);
+  --color-texte-doux: var(--color-texte-doux);
+  --color-vert: var(--color-vert);
+  --color-vert-doux: var(--color-vert-doux);
+  --color-vert-fonce: var(--color-vert-fonce);
+  --color-ambre: var(--color-ambre);
+  --font-sans: var(--font-sans);
+}
+
+body {
+  background: var(--color-fond);
+  color: var(--color-texte);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.champ-saisie {
+  width: 100%;
+  border: 1px solid var(--color-bordure);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--color-fond-carte);
+  color: var(--color-texte);
+  font-size: 0.95rem;
+}
+
+.champ-saisie:focus {
+  outline: 2px solid var(--color-vert);
+  outline-offset: 1px;
+}
