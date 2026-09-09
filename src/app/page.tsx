@@ -7,6 +7,7 @@ import SectionPourquoi from "@/components/SectionPourquoi";
 import SectionFAQ from "@/components/SectionFAQ";
 import SectionCTAFinale from "@/components/SectionCTAFinale";
 import { getGrillesCompletes } from "@/lib/calcul/parametres";
+import { getBanquesActives } from "@/lib/getBanquesActives";
 
 // Les grilles de taux sont éditables directement dans Supabase (en
 // attendant une console d'admin) — revalidation régulière pour que les
@@ -21,6 +22,8 @@ export default async function Home() {
     console.error("Grilles de taux indisponibles :", e);
   }
 
+  const banques = await getBanquesActives();
+
   return (
     <div>
       <section className="relative overflow-hidden">
@@ -28,7 +31,7 @@ export default async function Home() {
         <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
           <div className="text-center lg:text-left">
             <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-5">
-              Loi Lemoine · Sans engagement
+              Loi Lemoine · Résiliation à tout moment
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight max-w-xl mx-auto lg:mx-0">
               Payez-vous <span style={{ color: "var(--color-ambre)" }}>trop cher</span> votre assurance
@@ -47,7 +50,7 @@ export default async function Home() {
 
       <div id="simulateur" className="mx-auto max-w-3xl px-4 pb-16 sm:pb-20 scroll-mt-20">
         {grilles ? (
-          <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} />
+          <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
         ) : (
           <p className="text-center text-[var(--color-texte-doux)]">
             Le simulateur est momentanément indisponible. Réessayez dans un instant.

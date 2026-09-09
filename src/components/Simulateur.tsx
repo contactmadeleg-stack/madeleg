@@ -3,6 +3,7 @@
 import { useState, useMemo, FormEvent } from "react";
 import { calculerSimulationGroupe, type TrancheAge } from "@/lib/calcul/simulation";
 import { useCompteurAnime } from "@/lib/useCompteurAnime";
+import type { BanqueAffichee } from "@/lib/getBanquesActives";
 import SelecteurBanque from "./SelecteurBanque";
 import { IconeEuro, IconeCalendrier, IconePersonne, IconeCoche, IconeChrono } from "./Icones";
 
@@ -31,9 +32,11 @@ function euros(n: number) {
 export default function Simulateur({
   grillesBanque,
   grillesDelegation,
+  banques,
 }: {
   grillesBanque: TrancheAge[];
   grillesDelegation: TrancheAge[];
+  banques: BanqueAffichee[];
 }) {
   const [capital, setCapital] = useState(200_000);
   const [dureeRestanteAnnees, setDureeRestanteAnnees] = useState(20);
@@ -230,7 +233,7 @@ export default function Simulateur({
             </Champ>
           </div>
 
-          <SelecteurBanque valeur={banqueSelectionnee} onChange={setBanqueSelectionnee} />
+          <SelecteurBanque valeur={banqueSelectionnee} onChange={setBanqueSelectionnee} banques={banques} />
 
           <div className="flex flex-col items-center pt-2">
             <button

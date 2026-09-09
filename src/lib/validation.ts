@@ -3,7 +3,8 @@ import { z } from "zod";
 export const etape1Schema = z.object({
   capital: z.number().int().min(1000).max(2_000_000),
   dureeRestanteAnnees: z.number().int().min(1).max(35),
-  ages: z.array(z.number().int().min(18).max(85)).min(1).max(4),
+  // Max 2 : borne alignée sur MAX_EMPRUNTEURS dans Simulateur.tsx (UI plafonnée à 2 co-emprunteurs).
+  ages: z.array(z.number().int().min(18).max(85)).min(1).max(2),
   sourceTrafic: z.string().max(200).optional(),
 });
 
