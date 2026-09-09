@@ -41,13 +41,20 @@ export default function SectionEtapes() {
       </Reveal>
 
       <Reveal stagger>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            aria-hidden
+            className="hidden lg:block absolute top-[2.75rem] left-[12.5%] right-[12.5%] border-t-2 border-dashed border-[var(--color-bordure)] -z-10"
+          />
           {ETAPES.map(({ numero, icone: Icone, titre, texte }) => (
-            <RevealItem key={numero} className="carte-madeleg p-6 relative">
+            <RevealItem
+              key={numero}
+              className="carte-madeleg p-6 relative transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl"
+            >
               <span className="font-titres absolute top-4 right-5 text-3xl font-extrabold text-[var(--color-bordure)]">
                 {numero}
               </span>
-              <span className="flex items-center justify-center w-11 h-11 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
+              <span className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-[var(--color-sauge-clair)] to-[var(--color-ambre-clair)] text-[var(--color-marque)] mb-4 shadow-sm">
                 <Icone className="w-5 h-5" />
               </span>
               <h3 className="font-titres text-lg font-bold mb-1.5">{titre}</h3>

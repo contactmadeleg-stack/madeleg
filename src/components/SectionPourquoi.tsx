@@ -4,8 +4,8 @@ import { IconeCoche, IconeBouclier, IconePersonne, IconeBanque } from "./Icones"
 const POINTS = [
   {
     icone: IconeCoche,
-    titre: "Sans engagement",
-    texte: "Résiliable à tout moment grâce à la loi Lemoine, sans frais ni justification.",
+    titre: "Aucun frais, jamais",
+    texte: "Simulation, dossier, suivi jusqu'à la signature : l'accompagnement Madeleg ne vous coûte rien.",
   },
   {
     icone: IconeBouclier,
@@ -40,8 +40,11 @@ export default function SectionPourquoi() {
         <Reveal stagger>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {POINTS.map(({ icone: Icone, titre, texte }) => (
-              <RevealItem key={titre} className="text-center sm:text-left">
-                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
+              <RevealItem
+                key={titre}
+                className="text-center sm:text-left rounded-2xl p-5 -m-5 transition-all duration-200 hover:-translate-y-1 hover:bg-[var(--color-fond)]"
+              >
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-sauge-clair)] to-[var(--color-ambre-clair)] text-[var(--color-marque)] mb-4 shadow-sm">
                   <Icone className="w-5 h-5" />
                 </span>
                 <h3 className="font-titres text-lg font-bold mb-1.5">{titre}</h3>
