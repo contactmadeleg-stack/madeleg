@@ -38,6 +38,12 @@ export default function Footer() {
             <Link href="/" className="text-white/80 hover:text-white">
               Simulateur
             </Link>
+            <Link href="/assurance-emprunteur" className="text-white/80 hover:text-white">
+              Guide assurance emprunteur
+            </Link>
+            <Link href="/partenaires" className="text-white/80 hover:text-white">
+              Nos partenaires
+            </Link>
           </nav>
         </div>
 

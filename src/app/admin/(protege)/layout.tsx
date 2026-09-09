@@ -6,6 +6,7 @@ import BoutonDeconnexion from "./BoutonDeconnexion";
 const LIENS_NAV = [
   { href: "/admin", label: "Dossiers" },
   { href: "/admin/banques", label: "Banques" },
+  { href: "/admin/partenaires", label: "Partenaires" },
 ];
 
 export default async function LayoutAdmin({

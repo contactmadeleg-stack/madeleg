@@ -97,12 +97,14 @@ body::before {
     outline-offset: 1px;
   }
 
+  /* Profondeur par l'ombre, pas par le contour — un trait de couleur plein
+     en haut de carte lit comme une pastille bon marché ("chip"), retour
+     direct. Un léger lavis ambre en dégradé + un highlight interne 1px
+     donnent le même repère de marque sans ligne dure. */
   .carte-madeleg {
-    background: var(--color-fond-carte);
-    border: 1px solid var(--color-bordure);
-    border-top: 4px solid var(--color-ambre);
+    background: linear-gradient(180deg, rgba(217, 142, 46, 0.06), transparent 35%), var(--color-fond-carte);
     border-radius: 1rem;
-    box-shadow: 0 12px 32px -16px rgba(27, 75, 74, 0.22);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 16px 36px -18px rgba(27, 75, 74, 0.25);
   }
 
   /* Verre dépoli — pour les cartes posées sur les formes décoratives
@@ -110,13 +112,11 @@ body::before {
      travers le flou, ce qu'un aplat blanc opaque ne peut pas rendre.
      Cf. skill ui-ux-pro-max, style "Glassmorphism" (recette light-mode). */
   .carte-verre {
-    background: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(180deg, rgba(217, 142, 46, 0.08), transparent 35%), rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-top: 3px solid var(--color-ambre);
     border-radius: 1.25rem;
-    box-shadow: 0 24px 48px -20px rgba(27, 75, 74, 0.28);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset, 0 24px 48px -20px rgba(27, 75, 74, 0.28);
   }
 
   .texte-degrade-ambre {

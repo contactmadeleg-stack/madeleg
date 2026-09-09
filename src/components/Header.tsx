@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const LIENS_NAV = [
-  { href: "#comment-ca-marche", label: "Comment ça marche" },
-  { href: "#pourquoi", label: "Pourquoi Madeleg" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#comment-ca-marche", label: "Comment ça marche" },
+  { href: "/assurance-emprunteur", label: "Assurance emprunteur" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Header() {
@@ -33,12 +33,12 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#simulateur"
+          <Link
+            href="/#simulateur"
             className="btn-madeleg btn-madeleg-principal hidden sm:inline-block px-5 py-2.5 text-sm text-white"
           >
             Estimer mon économie
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setMenuOuvert((v) => !v)}
@@ -69,13 +69,13 @@ export default function Header() {
               {lien.label}
             </a>
           ))}
-          <a
-            href="#simulateur"
+          <Link
+            href="/#simulateur"
             onClick={() => setMenuOuvert(false)}
             className="btn-madeleg btn-madeleg-principal text-center px-5 py-2.5 text-sm text-white mt-1"
           >
             Estimer mon économie
-          </a>
+          </Link>
         </nav>
       )}
     </header>

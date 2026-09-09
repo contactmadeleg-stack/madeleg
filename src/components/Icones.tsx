@@ -114,6 +114,20 @@ export function IconeBanque({ className = "w-4 h-4" }: Props) {
   );
 }
 
+export function IconeEclair({ className = "w-4 h-4" }: Props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path
+        d="M13 3L5 13.5h5.5L10.5 21l8-11.5H13L13 3z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function IconeChevronBas({ className = "w-4 h-4" }: Props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
