@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   let tauxDelegation: number;
   try {
     [tauxBanqueMoyen, tauxDelegation] = await Promise.all([
-      getTauxBanqueMoyen(),
+      getTauxBanqueMoyen(age),
       getTauxDelegation(age),
     ]);
   } catch (e) {

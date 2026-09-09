@@ -1,31 +1,15 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 
-// Ces valeurs viennent de Supabase (tables parametres_calcul et
+// Ces valeurs viennent de Supabase (grille_taux_banque_moyen et
 // grille_taux_delegation) — jamais de taux inventé ou codé en dur ici.
-// Tant que ces tables ne sont pas renseignées, le calcul échoue
-// explicitement plutôt que d'afficher un chiffre approximatif au visiteur.
+// Tant que ces tables ne sont pas renseignées pour une tranche d'âge
+// donnée, le calcul échoue explicitement plutôt que d'afficher un chiffre
+// approximatif au visiteur.
 
-export async function getTauxBanqueMoyen(): Promise<number> {
+async function lookupTauxParAge(table: string, age: number): Promise<number> {
   const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
-    .from("parametres_calcul")
-    .select("taux_banque_moyen")
-    .eq("id", true)
-    .single();
-
-  if (error || !data) {
-    throw new Error(
-      "Taux banque moyen non configuré (table parametres_calcul vide)."
-    );
-  }
-
-  return Number(data.taux_banque_moyen);
-}
-
-export async function getTauxDelegation(age: number): Promise<number> {
-  const supabase = getSupabaseServerClient();
-  const { data, error } = await supabase
-    .from("grille_taux_delegation")
+    .from(table)
     .select("taux_annuel")
     .eq("actif", true)
     .lte("age_min", age)
@@ -34,10 +18,16 @@ export async function getTauxDelegation(age: number): Promise<number> {
     .maybeSingle();
 
   if (error || !data) {
-    throw new Error(
-      `Taux délégation non configuré pour l'âge ${age} (table grille_taux_delegation).`
-    );
+    throw new Error(`Taux non configuré pour l'âge ${age} (table ${table}).`);
   }
 
   return Number(data.taux_annuel);
+}
+
+export function getTauxBanqueMoyen(age: number): Promise<number> {
+  return lookupTauxParAge("grille_taux_banque_moyen", age);
+}
+
+export function getTauxDelegation(age: number): Promise<number> {
+  return lookupTauxParAge("grille_taux_delegation", age);
 }

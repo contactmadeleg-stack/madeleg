@@ -1,7 +1,9 @@
 // Calcul simplifié de l'économie sur substitution d'assurance emprunteur
 // (voir spec Madeleg — formule à une seule étape, marge de sécurité 25%).
 //
-// Prime banque annuelle = Capital × taux_banque_moyen (constante, ne baisse pas)
+// Prime banque annuelle = Capital × taux_banque_moyen(âge) — moyenne de
+// plusieurs grilles banque par tranche d'âge, pas de lookup par banque
+// précise ; ne baisse pas avec les années (assise sur le capital initial)
 // CRD(n) = Capital × (durée_restante - n) / durée_restante   (amortissement linéaire)
 // Prime délégation annuelle(n) = CRD(n) × taux_delegation
 // Économie brute = somme sur les années n = 0..durée_restante-1 de
