@@ -8,9 +8,17 @@ export default function Header() {
           <span style={{ color: "var(--color-texte)" }}>ma</span>
           <span style={{ color: "var(--color-ambre)" }}>deleg</span>
         </Link>
-        <p className="hidden sm:block text-sm text-[var(--color-texte-doux)]">
-          Simulation gratuite, sans engagement
-        </p>
+        <a
+          href="https://www.orias.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-[var(--color-marque)] bg-[var(--color-sauge-clair)] rounded-full px-3 py-1.5 hover:opacity-80"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" fill="var(--color-marque)" />
+          </svg>
+          ORIAS 20004713
+        </a>
       </div>
     </header>
   );

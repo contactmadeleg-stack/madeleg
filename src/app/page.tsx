@@ -1,4 +1,6 @@
 import Simulateur from "@/components/Simulateur";
+import FormeDecorative from "@/components/FormeDecorative";
+import IllustrationBouclier from "@/components/IllustrationBouclier";
 import { getGrillesCompletes } from "@/lib/calcul/parametres";
 
 // Les grilles de taux sont éditables directement dans Supabase (en
@@ -15,23 +17,38 @@ export default async function Home() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:py-16 space-y-10">
-      <div className="space-y-3 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-marque)] tracking-tight max-w-2xl mx-auto">
-          Payez-vous trop cher votre assurance emprunteur ?
-        </h1>
-        <p className="text-lg text-[var(--color-texte-doux)]">
-          Changez à tout moment grâce à la loi Lemoine, sans quitter votre banque. Estimation gratuite en 30 secondes.
-        </p>
-      </div>
+    <div>
+      <section className="relative overflow-hidden">
+        <FormeDecorative />
+        <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+          <div className="text-center lg:text-left">
+            <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-5">
+              Loi Lemoine · Sans engagement
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight max-w-xl mx-auto lg:mx-0">
+              Payez-vous <span style={{ color: "var(--color-ambre)" }}>trop cher</span> votre assurance
+              emprunteur&nbsp;?
+            </h1>
+            <p className="text-lg text-[var(--color-texte-doux)] mt-4 max-w-lg mx-auto lg:mx-0">
+              Changez à tout moment, sans quitter votre banque. Estimation gratuite en 30 secondes.
+            </p>
+          </div>
 
-      {grilles ? (
-        <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} />
-      ) : (
-        <p className="text-center text-[var(--color-texte-doux)]">
-          Le simulateur est momentanément indisponible. Réessayez dans un instant.
-        </p>
-      )}
+          <div className="hidden lg:flex justify-center">
+            <IllustrationBouclier className="w-64 h-64" />
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-3xl px-4 pb-16 sm:pb-20">
+        {grilles ? (
+          <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} />
+        ) : (
+          <p className="text-center text-[var(--color-texte-doux)]">
+            Le simulateur est momentanément indisponible. Réessayez dans un instant.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

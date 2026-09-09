@@ -168,7 +168,7 @@ export default function Simulateur({
 
   if (etat.vue === "confirmation") {
     return (
-      <div className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-8 text-center space-y-3">
+      <div className="carte-madeleg p-8 text-center space-y-3">
         <h2 className="text-2xl font-bold">Merci {etat.prenom}, votre demande est bien reçue.</h2>
         <p className="text-[var(--color-texte-doux)]">
           Un conseiller Madeleg vous rappelle sous <strong>24h ouvrées</strong>. Vous allez également recevoir un
@@ -180,7 +180,7 @@ export default function Simulateur({
 
   if (etat.vue === "coordonnees") {
     return (
-      <div className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8 space-y-8">
+      <div className="carte-madeleg p-6 sm:p-8 space-y-8">
         <div className="text-center">
           <p className="text-xs font-bold text-[var(--color-sauge)] uppercase tracking-wide mb-1">
             Estimation validée
@@ -250,7 +250,7 @@ export default function Simulateur({
   }
 
   return (
-    <div className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8">
+    <div className="carte-madeleg p-6 sm:p-8">
       <form onSubmit={soumettreEtape1} className="space-y-8">
         <div className="grid sm:grid-cols-2 gap-6">
           <Curseur

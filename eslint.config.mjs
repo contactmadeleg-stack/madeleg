@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Scripts tiers livrés avec les skills projet, pas notre code applicatif.
+    ".claude/**",
   ]),
 ]);
 
