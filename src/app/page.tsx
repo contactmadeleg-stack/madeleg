@@ -1,6 +1,11 @@
 import Simulateur from "@/components/Simulateur";
 import FormeDecorative from "@/components/FormeDecorative";
 import CarteAvantages from "@/components/CarteAvantages";
+import SectionExplication from "@/components/SectionExplication";
+import SectionEtapes from "@/components/SectionEtapes";
+import SectionPourquoi from "@/components/SectionPourquoi";
+import SectionFAQ from "@/components/SectionFAQ";
+import SectionCTAFinale from "@/components/SectionCTAFinale";
 import { getGrillesCompletes } from "@/lib/calcul/parametres";
 
 // Les grilles de taux sont éditables directement dans Supabase (en
@@ -40,7 +45,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-3xl px-4 pb-16 sm:pb-20">
+      <div id="simulateur" className="mx-auto max-w-3xl px-4 pb-16 sm:pb-20 scroll-mt-20">
         {grilles ? (
           <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} />
         ) : (
@@ -49,6 +54,12 @@ export default async function Home() {
           </p>
         )}
       </div>
+
+      <SectionExplication />
+      <SectionEtapes />
+      <SectionPourquoi />
+      <SectionFAQ />
+      <SectionCTAFinale />
     </div>
   );
 }
