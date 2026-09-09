@@ -196,7 +196,7 @@ export default function Simulateur({
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold mb-5">Prêt à passer à l&apos;action ?</h2>
 
-          <div className="inline-flex items-baseline gap-2 rounded-full bg-[var(--color-sauge-clair)] px-6 py-3">
+          <div className="lueur-ambre inline-flex items-baseline gap-2 rounded-full bg-[var(--color-sauge-clair)] px-6 py-3">
             <span className="font-titres text-3xl sm:text-4xl font-extrabold text-[var(--color-ambre)]">
               {euros(Math.round(resultatAnime))}
             </span>
@@ -239,7 +239,7 @@ export default function Simulateur({
             <button
               type="submit"
               disabled={envoiEtape2}
-              className="btn-madeleg px-8 py-3 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)] disabled:opacity-60"
+              className="btn-madeleg btn-madeleg-principal px-8 py-3 text-white disabled:opacity-60"
             >
               {envoiEtape2 ? "Envoi en cours…" : "Valider ma demande"}
             </button>
@@ -335,7 +335,7 @@ export default function Simulateur({
         </div>
 
         {apercu && (
-          <div className="text-center py-4 border-y border-[var(--color-bordure)]">
+          <div className="lueur-ambre text-center py-4 border-y border-[var(--color-bordure)]">
             <p className="text-sm text-[var(--color-texte-doux)] mb-1">Estimation de votre économie</p>
             <p className="font-titres text-4xl sm:text-5xl font-extrabold text-[var(--color-ambre)]">
               {euros(Math.round(apercuAnime))}
@@ -350,7 +350,7 @@ export default function Simulateur({
           <button
             type="submit"
             disabled={etat.phase === "chargement" || !apercu}
-            className="btn-madeleg px-8 py-3 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)] disabled:opacity-60"
+            className="btn-madeleg btn-madeleg-principal px-8 py-3 text-white disabled:opacity-60"
           >
             {etat.phase === "chargement" ? "Calcul en cours…" : "Valider mon estimation"}
           </button>

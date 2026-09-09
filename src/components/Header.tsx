@@ -35,7 +35,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <a
             href="#simulateur"
-            className="btn-madeleg hidden sm:inline-block px-5 py-2.5 text-sm bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)]"
+            className="btn-madeleg btn-madeleg-principal hidden sm:inline-block px-5 py-2.5 text-sm text-white"
           >
             Estimer mon économie
           </a>
@@ -72,7 +72,7 @@ export default function Header() {
           <a
             href="#simulateur"
             onClick={() => setMenuOuvert(false)}
-            className="btn-madeleg text-center px-5 py-2.5 text-sm bg-[var(--color-marque)] text-white mt-1"
+            className="btn-madeleg btn-madeleg-principal text-center px-5 py-2.5 text-sm text-white mt-1"
           >
             Estimer mon économie
           </a>

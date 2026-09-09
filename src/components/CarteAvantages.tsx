@@ -1,14 +1,14 @@
 import { IconeCoche, IconeChrono, IconeEuro } from "./Icones";
 
 const AVANTAGES = [
-  { icone: IconeCoche, texte: "Sans engagement, résiliable à tout moment" },
+  { icone: IconeCoche, texte: "Zéro démarche à faire vous-même" },
   { icone: IconeChrono, texte: "Résultat en 30 secondes" },
   { icone: IconeEuro, texte: "Assureurs partenaires agréés ACPR" },
 ];
 
 export default function CarteAvantages() {
   return (
-    <div className="carte-madeleg p-6 w-full max-w-sm">
+    <div className="carte-verre p-6 w-full max-w-sm">
       <p className="text-xs font-bold text-[var(--color-sauge)] uppercase tracking-wide mb-4">
         Pourquoi Madeleg
       </p>

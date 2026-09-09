@@ -26,36 +26,45 @@ export default async function Home() {
 
   return (
     <div>
-      <section className="relative overflow-hidden">
+      <div className="relative overflow-hidden">
         <FormeDecorative />
-        <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-          <div className="text-center lg:text-left">
-            <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-5">
-              Loi Lemoine · Résiliation à tout moment
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight max-w-xl mx-auto lg:mx-0">
-              Payez-vous <span style={{ color: "var(--color-ambre)" }}>trop cher</span> votre assurance
-              emprunteur&nbsp;?
-            </h1>
-            <p className="text-lg text-[var(--color-texte-doux)] mt-4 max-w-lg mx-auto lg:mx-0">
-              Changez à tout moment, sans quitter votre banque. Estimation gratuite en 30 secondes.
+
+        <section className="relative">
+          <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+            <div className="text-center lg:text-left">
+              <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-5">
+                Loi Lemoine · Résiliation à tout moment
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight max-w-xl mx-auto lg:mx-0">
+                Payez-vous <span className="texte-degrade-ambre">trop cher</span> votre assurance
+                emprunteur&nbsp;?
+              </h1>
+              <p className="text-lg text-[var(--color-texte-doux)] mt-4 max-w-lg mx-auto lg:mx-0">
+                Changez à tout moment, sans quitter votre banque. Estimation gratuite en 30 secondes.
+              </p>
+            </div>
+
+            <div className="hidden lg:flex justify-center relative">
+              <CarteAvantages />
+              <div className="carte-verre absolute -bottom-5 -left-6 px-4 py-2.5 flex items-center gap-2 !border-t !border-white/70 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-[var(--color-sauge)] shrink-0 animate-pulse" />
+                <span className="text-xs font-semibold text-[var(--color-marque)] whitespace-nowrap">
+                  Réponse sous 24h ouvrées
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="simulateur" className="relative mx-auto max-w-3xl px-4 pb-16 sm:pb-20 scroll-mt-20">
+          {grilles ? (
+            <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
+          ) : (
+            <p className="text-center text-[var(--color-texte-doux)]">
+              Le simulateur est momentanément indisponible. Réessayez dans un instant.
             </p>
-          </div>
-
-          <div className="hidden lg:flex justify-center">
-            <CarteAvantages />
-          </div>
+          )}
         </div>
-      </section>
-
-      <div id="simulateur" className="mx-auto max-w-3xl px-4 pb-16 sm:pb-20 scroll-mt-20">
-        {grilles ? (
-          <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
-        ) : (
-          <p className="text-center text-[var(--color-texte-doux)]">
-            Le simulateur est momentanément indisponible. Réessayez dans un instant.
-          </p>
-        )}
       </div>
 
       <SectionExplication />

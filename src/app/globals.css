@@ -43,9 +43,24 @@
 }
 
 body {
+  position: relative;
   background: var(--color-fond);
   color: var(--color-texte);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Grain très subtil sur tout le site — signature discrète des interfaces
+   fintech premium (Stripe, Ramp…), casse l'effet "aplat plat" sans coûter
+   de perf (SVG statique, pas d'animation). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /*
@@ -90,15 +105,77 @@ body {
     box-shadow: 0 12px 32px -16px rgba(27, 75, 74, 0.22);
   }
 
+  /* Verre dépoli — pour les cartes posées sur les formes décoratives
+     (FormeDecorative) : la couleur en dessous transparaît légèrement à
+     travers le flou, ce qu'un aplat blanc opaque ne peut pas rendre.
+     Cf. skill ui-ux-pro-max, style "Glassmorphism" (recette light-mode). */
+  .carte-verre {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-top: 3px solid var(--color-ambre);
+    border-radius: 1.25rem;
+    box-shadow: 0 24px 48px -20px rgba(27, 75, 74, 0.28);
+  }
+
+  .texte-degrade-ambre {
+    background: linear-gradient(120deg, var(--color-ambre) 20%, #f0b155 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .btn-madeleg {
     font-family: var(--font-titres), var(--font-sans), sans-serif;
     font-weight: 600;
     border-radius: 0.75rem;
-    transition: transform 0.15s ease, background-color 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, opacity 0.2s ease,
+      box-shadow 0.25s ease;
   }
 
   .btn-madeleg:hover:not(:disabled) {
-    transform: scale(1.02);
+    transform: scale(1.035);
+  }
+
+  .btn-madeleg:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  /* CTA principal — pilule en dégradé + lueur, au lieu d'un aplat plat. */
+  .btn-madeleg-principal {
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-marque) 0%, var(--color-marque-clair) 100%);
+    box-shadow: 0 8px 24px -8px rgba(27, 75, 74, 0.55);
+  }
+
+  .btn-madeleg-principal:hover:not(:disabled) {
+    box-shadow: 0 12px 32px -8px rgba(27, 75, 74, 0.65);
+  }
+
+  /* Variante ambre — CTA sur fond sombre (bandeau marque). */
+  .btn-madeleg-ambre {
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-ambre) 0%, #e8a54e 100%);
+    box-shadow: 0 8px 24px -8px rgba(217, 142, 46, 0.6);
+  }
+
+  .btn-madeleg-ambre:hover:not(:disabled) {
+    box-shadow: 0 12px 32px -8px rgba(217, 142, 46, 0.7);
+  }
+
+  /* Lueur douce derrière les montants mis en avant (aperçu live, résultat). */
+  .lueur-ambre {
+    position: relative;
+  }
+
+  .lueur-ambre::before {
+    content: "";
+    position: absolute;
+    inset: -30% -10%;
+    background: radial-gradient(ellipse at center, rgba(217, 142, 46, 0.25), transparent 70%);
+    filter: blur(20px);
+    z-index: -1;
   }
 
   .curseur-madeleg {
