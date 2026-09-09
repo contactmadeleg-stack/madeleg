@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       email_capte_sans_rdv: true,
     })
     .eq("id", simulationId)
-    .select("economie_affichee, capital, duree_restante_annees, age")
+    .select("economie_affichee, capital, duree_restante_annees, ages_emprunteurs")
     .single();
 
   if (error || !data) {
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
       banqueSelectionnee,
       capital: Number(data.capital),
       dureeRestanteAnnees: data.duree_restante_annees,
-      age: data.age,
+      ages: data.ages_emprunteurs as number[],
       economieAffichee,
     }),
   ]);

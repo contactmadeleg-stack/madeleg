@@ -3,7 +3,7 @@ import { z } from "zod";
 export const etape1Schema = z.object({
   capital: z.number().int().min(1000).max(2_000_000),
   dureeRestanteAnnees: z.number().int().min(1).max(35),
-  age: z.number().int().min(18).max(85),
+  ages: z.array(z.number().int().min(18).max(85)).min(1).max(4),
   sourceTrafic: z.string().max(200).optional(),
 });
 

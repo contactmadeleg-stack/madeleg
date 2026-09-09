@@ -126,17 +126,3 @@ h1, h2, h3, .font-titres {
   border-radius: 999px;
   background: var(--color-marque);
 }
-
-.progression-track {
-  height: 8px;
-  background: var(--color-sauge-clair);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.progression-fill {
-  height: 100%;
-  background: var(--color-sauge);
-  border-radius: 999px;
-  transition: width 0.5s ease;
-}

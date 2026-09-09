@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
-import { calculerSimulation } from "@/lib/calcul/simulation";
-import { getTauxBanqueMoyen, getTauxDelegation } from "@/lib/calcul/parametres";
+import { calculerSimulationGroupe } from "@/lib/calcul/simulation";
+import { getGrillesCompletes } from "@/lib/calcul/parametres";
 import { etape1Schema } from "@/lib/validation";
 
 export async function POST(req: NextRequest) {
@@ -15,15 +15,11 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { capital, dureeRestanteAnnees, age, sourceTrafic } = parsed.data;
+  const { capital, dureeRestanteAnnees, ages, sourceTrafic } = parsed.data;
 
-  let tauxBanqueMoyen: number;
-  let tauxDelegation: number;
+  let grilles: Awaited<ReturnType<typeof getGrillesCompletes>>;
   try {
-    [tauxBanqueMoyen, tauxDelegation] = await Promise.all([
-      getTauxBanqueMoyen(age),
-      getTauxDelegation(age),
-    ]);
+    grilles = await getGrillesCompletes();
   } catch (e) {
     console.error("Paramètres de calcul indisponibles :", e);
     return NextResponse.json(
@@ -32,12 +28,20 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const resultat = calculerSimulation({
+  const resultat = calculerSimulationGroupe({
     capital,
     dureeRestanteAnnees,
-    tauxBanqueMoyen,
-    tauxDelegation,
+    ages,
+    grillesBanque: grilles.banque,
+    grillesDelegation: grilles.delegation,
   });
+
+  if (!resultat) {
+    return NextResponse.json(
+      { error: "Taux non configuré pour l'un des âges saisis." },
+      { status: 503 }
+    );
+  }
 
   const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
@@ -45,7 +49,7 @@ export async function POST(req: NextRequest) {
     .insert({
       capital,
       duree_restante_annees: dureeRestanteAnnees,
-      age,
+      ages_emprunteurs: ages,
       taux_banque_moyen: resultat.tauxBanqueMoyen,
       taux_delegation: resultat.tauxDelegation,
       prime_banque_annuelle: resultat.primeBanqueAnnuelle,

@@ -78,3 +78,44 @@ export function calculerSimulation(params: {
     courbe,
   };
 }
+
+// Co-emprunteur : chaque emprunteur est assuré sur le capital plein (pas de
+// répartition de quotité), avec son propre taux selon son âge. L'économie
+// totale est la somme des économies individuelles — décision explicite du
+// courtier, pas une hypothèse par défaut.
+export function calculerSimulationGroupe(params: {
+  capital: number;
+  dureeRestanteAnnees: number;
+  ages: number[];
+  grillesBanque: TrancheAge[];
+  grillesDelegation: TrancheAge[];
+}): (ResultatSimulation & { resultatsParEmprunteur: ResultatSimulation[] }) | null {
+  const { capital, dureeRestanteAnnees, ages, grillesBanque, grillesDelegation } = params;
+
+  const resultatsParEmprunteur: ResultatSimulation[] = [];
+  for (const age of ages) {
+    const tauxBanqueMoyen = trouverTauxDansGrille(grillesBanque, age);
+    const tauxDelegation = trouverTauxDansGrille(grillesDelegation, age);
+    if (tauxBanqueMoyen === null || tauxDelegation === null) return null;
+    resultatsParEmprunteur.push(
+      calculerSimulation({ capital, dureeRestanteAnnees, tauxBanqueMoyen, tauxDelegation })
+    );
+  }
+
+  const courbe: PointAnnuel[] = resultatsParEmprunteur[0].courbe.map((_, n) => ({
+    annee: n + 1,
+    primeBanque: resultatsParEmprunteur.reduce((s, r) => s + r.courbe[n].primeBanque, 0),
+    primeDelegation: resultatsParEmprunteur.reduce((s, r) => s + r.courbe[n].primeDelegation, 0),
+  }));
+
+  return {
+    tauxBanqueMoyen: resultatsParEmprunteur[0].tauxBanqueMoyen,
+    tauxDelegation: resultatsParEmprunteur[0].tauxDelegation,
+    primeBanqueAnnuelle: resultatsParEmprunteur.reduce((s, r) => s + r.primeBanqueAnnuelle, 0),
+    primeDelegationAnnuelle: resultatsParEmprunteur.reduce((s, r) => s + r.primeDelegationAnnuelle, 0),
+    economieBrute: resultatsParEmprunteur.reduce((s, r) => s + r.economieBrute, 0),
+    economieAffichee: resultatsParEmprunteur.reduce((s, r) => s + r.economieAffichee, 0),
+    courbe,
+    resultatsParEmprunteur,
+  };
+}
