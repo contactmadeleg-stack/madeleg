@@ -58,7 +58,7 @@ export default function ArticleLayout({
 
         <Link
           href="/"
-          className="inline-block px-6 py-3 rounded-lg bg-[var(--color-vert)] text-white font-medium hover:bg-[var(--color-vert-fonce)]"
+          className="btn-madeleg inline-block px-6 py-3 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)]"
         >
           Estimer mon économie sur mon assurance emprunteur
         </Link>

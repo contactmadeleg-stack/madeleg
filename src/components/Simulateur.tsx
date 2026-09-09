@@ -8,7 +8,10 @@ import {
   type TrancheAge,
 } from "@/lib/calcul/simulation";
 import { BANQUES } from "@/lib/banques";
+import { useCompteurAnime } from "@/lib/useCompteurAnime";
 import GraphiquePrimes from "./GraphiquePrimes";
+import ProgressionEtapes from "./ProgressionEtapes";
+import BandeConfiance from "./BandeConfiance";
 
 type Etat =
   | { phase: "formulaire" }
@@ -59,6 +62,11 @@ export default function Simulateur({
     if (tauxBanque === null || tauxDelegation === null) return null;
     return calculerSimulation({ capital, dureeRestanteAnnees, tauxBanqueMoyen: tauxBanque, tauxDelegation });
   }, [capital, dureeRestanteAnnees, age, grillesBanque, grillesDelegation]);
+
+  const apercuAnime = useCompteurAnime(apercu?.economieAffichee ?? 0, 500);
+  const resultatAnime = useCompteurAnime(etat.phase === "resultat" ? etat.economieAffichee : 0, 1200);
+
+  const etapeActive: 1 | 2 | 3 = etat.phase === "resultat" || etat.phase === "confirmation" ? 3 : 1;
 
   async function soumettreEtape1(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -148,7 +156,7 @@ export default function Simulateur({
   if (etat.phase === "confirmation") {
     return (
       <div className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-8 text-center space-y-3">
-        <h2 className="text-2xl font-semibold text-[var(--color-texte)]">
+        <h2 className="text-2xl font-bold text-[var(--color-marque)]">
           Merci {etat.prenom}, votre demande est bien reçue.
         </h2>
         <p className="text-[var(--color-texte-doux)]">
@@ -161,78 +169,84 @@ export default function Simulateur({
 
   return (
     <div className="space-y-8">
-      <form onSubmit={soumettreEtape1} className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8 space-y-8">
-        <div className="grid sm:grid-cols-2 gap-6">
-          <Curseur
-            label="Capital restant dû"
-            valeur={capital}
-            affichage={euros(capital)}
-            min={CAPITAL_MIN}
-            max={CAPITAL_MAX}
-            pas={CAPITAL_PAS}
-            onChange={setCapital}
-          />
-          <Curseur
-            label="Durée restante"
-            valeur={dureeRestanteAnnees}
-            affichage={`${dureeRestanteAnnees} an${dureeRestanteAnnees > 1 ? "s" : ""}`}
-            min={DUREE_MIN}
-            max={DUREE_MAX}
-            pas={1}
-            onChange={setDureeRestanteAnnees}
-          />
-        </div>
+      <div className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8">
+        <ProgressionEtapes etapeActive={etapeActive} />
 
-        <Champ label="Votre âge" suffixe="ans">
-          <input
-            type="number"
-            required
-            min={AGE_MIN}
-            max={AGE_MAX}
-            value={age}
-            onChange={(e) => {
-              const v = Number(e.target.value);
-              if (!Number.isNaN(v)) setAge(v);
-            }}
-            className="champ-saisie sm:max-w-[160px]"
-          />
-        </Champ>
-
-        {apercu && (
-          <div className="text-center py-4 border-y border-[var(--color-bordure)]">
-            <p className="text-sm text-[var(--color-texte-doux)] mb-1">Estimation de votre économie</p>
-            <p className="text-4xl sm:text-5xl font-bold text-[var(--color-vert)]">
-              {euros(apercu.economieAffichee)}
-            </p>
-            <p className="text-xs text-[var(--color-texte-doux)] mt-1">
-              sur la durée restante, tarif moyen d&apos;un contrat bancaire*
-            </p>
+        <form onSubmit={soumettreEtape1} className="space-y-8">
+          <div className="grid sm:grid-cols-2 gap-6">
+            <Curseur
+              label="Capital restant dû"
+              valeur={capital}
+              affichage={euros(capital)}
+              min={CAPITAL_MIN}
+              max={CAPITAL_MAX}
+              pas={CAPITAL_PAS}
+              onChange={setCapital}
+            />
+            <Curseur
+              label="Durée restante"
+              valeur={dureeRestanteAnnees}
+              affichage={`${dureeRestanteAnnees} an${dureeRestanteAnnees > 1 ? "s" : ""}`}
+              min={DUREE_MIN}
+              max={DUREE_MAX}
+              pas={1}
+              onChange={setDureeRestanteAnnees}
+            />
           </div>
-        )}
 
-        <button
-          type="submit"
-          disabled={etat.phase === "chargement" || !apercu}
-          className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[var(--color-vert)] text-white font-medium hover:bg-[var(--color-vert-fonce)] disabled:opacity-60 transition-colors"
-        >
-          {etat.phase === "chargement" ? "Calcul en cours…" : "Valider mon estimation"}
-        </button>
+          <Champ label="Votre âge" suffixe="ans">
+            <input
+              type="number"
+              required
+              min={AGE_MIN}
+              max={AGE_MAX}
+              value={age}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (!Number.isNaN(v)) setAge(v);
+              }}
+              className="champ-saisie sm:max-w-[160px]"
+            />
+          </Champ>
 
-        {etat.phase === "erreur" && (
-          <p className="text-sm text-red-700">{etat.message}</p>
-        )}
-      </form>
+          {apercu && (
+            <div className="text-center py-4 border-y border-[var(--color-bordure)]">
+              <p className="text-sm text-[var(--color-texte-doux)] mb-1">Estimation de votre économie</p>
+              <p className="font-titres text-4xl sm:text-5xl font-extrabold text-[var(--color-ambre)]">
+                {euros(Math.round(apercuAnime))}
+              </p>
+              <p className="text-xs text-[var(--color-texte-doux)] mt-1">
+                sur la durée restante, tarif moyen d&apos;un contrat bancaire*
+              </p>
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={etat.phase === "chargement" || !apercu}
+            className="btn-madeleg w-full sm:w-auto px-8 py-3 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)] disabled:opacity-60"
+          >
+            {etat.phase === "chargement" ? "Calcul en cours…" : "Valider mon estimation"}
+          </button>
+
+          {etat.phase === "erreur" && (
+            <p className="text-sm text-red-700">{etat.message}</p>
+          )}
+        </form>
+      </div>
 
       {etat.phase === "resultat" && (
         <div className="rounded-2xl border border-[var(--color-bordure)] bg-[var(--color-fond-carte)] p-6 sm:p-8 space-y-8">
           <div>
             <p className="text-[var(--color-texte-doux)] mb-1">Votre économie estimée sur la durée restante</p>
-            <p className="text-5xl sm:text-6xl font-bold text-[var(--color-vert)]">
-              {euros(etat.economieAffichee)}
+            <p className="font-titres text-5xl sm:text-6xl font-extrabold text-[var(--color-ambre)]">
+              {euros(Math.round(resultatAnime))}
             </p>
           </div>
 
           <GraphiquePrimes courbe={etat.courbe} />
+
+          <BandeConfiance />
 
           <ul className="text-sm text-[var(--color-texte-doux)] space-y-1">
             <li>*Estimation calculée sur un taux moyen de marché, avec une marge de sécurité de 25 %.</li>
@@ -241,7 +255,7 @@ export default function Simulateur({
           </ul>
 
           <div className="border-t border-[var(--color-bordure)] pt-8">
-            <h3 className="text-lg font-semibold text-[var(--color-texte)] mb-1">
+            <h3 className="font-titres text-lg font-bold text-[var(--color-marque)] mb-1">
               Recevez le détail personnalisé par un conseiller
             </h3>
             <p className="text-sm text-[var(--color-texte-doux)] mb-6">
@@ -286,7 +300,7 @@ export default function Simulateur({
                 <button
                   type="submit"
                   disabled={envoiEtape2}
-                  className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[var(--color-texte)] text-white font-medium hover:opacity-90 disabled:opacity-60 transition-opacity"
+                  className="btn-madeleg w-full sm:w-auto px-8 py-3 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)] disabled:opacity-60"
                 >
                   {envoiEtape2 ? "Envoi en cours…" : "Valider ma demande"}
                 </button>
@@ -323,7 +337,7 @@ function Curseur({
     <div>
       <div className="flex items-baseline justify-between mb-2">
         <span className="text-sm font-medium text-[var(--color-texte)]">{label}</span>
-        <span className="text-lg font-semibold text-[var(--color-texte)]">{affichage}</span>
+        <span className="font-titres text-lg font-bold text-[var(--color-marque)]">{affichage}</span>
       </div>
       <input
         type="range"

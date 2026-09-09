@@ -2,23 +2,28 @@
 
 :root {
   /* Fond clair et aéré — jamais de thème sombre pour ce site */
-  --color-fond: #f7f7f4;
+  --color-fond: #faf8f4;
   --color-fond-carte: #ffffff;
-  --color-bordure: #e2e1da;
+  --color-bordure: #e8e3d9;
 
-  /* Texte : bleu-nuit, jamais noir pur */
-  --color-texte: #1a2740;
-  --color-texte-doux: #4d5b74;
+  /* Texte : encre profonde, jamais noir pur */
+  --color-texte: #1a1e1d;
+  --color-texte-doux: #5c6462;
 
-  /* Vert sobre : réservé aux montants et à l'économie mise en avant */
-  --color-vert: #1f6f4a;
-  --color-vert-doux: #eaf3ee;
-  --color-vert-fonce: #17573a;
+  /* Marque : bleu-vert profond — boutons, titres, liens */
+  --color-marque: #1b4b4a;
+  --color-marque-clair: #2a6664;
 
-  /* Accent secondaire (banque / comparaison) */
-  --color-ambre: #b5793a;
+  /* Ambre : réservé aux montants d'économie mis en avant */
+  --color-ambre: #d98e2e;
+  --color-ambre-clair: #f3d9ae;
 
-  --font-sans: var(--font-geist-sans);
+  /* Sauge : accent succès/validation, discret */
+  --color-sauge: #7a9e7e;
+  --color-sauge-clair: #e3ece3;
+
+  --font-titres: var(--font-baloo2);
+  --font-sans: var(--font-nunito);
 }
 
 @theme inline {
@@ -27,10 +32,13 @@
   --color-bordure: var(--color-bordure);
   --color-texte: var(--color-texte);
   --color-texte-doux: var(--color-texte-doux);
-  --color-vert: var(--color-vert);
-  --color-vert-doux: var(--color-vert-doux);
-  --color-vert-fonce: var(--color-vert-fonce);
+  --color-marque: var(--color-marque);
+  --color-marque-clair: var(--color-marque-clair);
   --color-ambre: var(--color-ambre);
+  --color-ambre-clair: var(--color-ambre-clair);
+  --color-sauge: var(--color-sauge);
+  --color-sauge-clair: var(--color-sauge-clair);
+  --font-titres: var(--font-titres);
   --font-sans: var(--font-sans);
 }
 
@@ -38,6 +46,11 @@ body {
   background: var(--color-fond);
   color: var(--color-texte);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, .font-titres {
+  font-family: var(--font-titres), var(--font-sans), sans-serif;
+  color: var(--color-marque);
 }
 
 .champ-saisie {
@@ -51,8 +64,19 @@ body {
 }
 
 .champ-saisie:focus {
-  outline: 2px solid var(--color-vert);
+  outline: 2px solid var(--color-marque);
   outline-offset: 1px;
+}
+
+.btn-madeleg {
+  font-family: var(--font-titres), var(--font-sans), sans-serif;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: transform 0.15s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-madeleg:hover:not(:disabled) {
+  transform: scale(1.02);
 }
 
 .curseur-madeleg {
@@ -63,7 +87,7 @@ body {
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    var(--color-vert) var(--pourcentage, 0%),
+    var(--color-marque) var(--pourcentage, 0%),
     var(--color-bordure) var(--pourcentage, 0%)
   );
   outline: none;
@@ -75,9 +99,9 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--color-vert);
+  background: var(--color-marque);
   border: 3px solid var(--color-fond-carte);
-  box-shadow: 0 0 0 1px var(--color-vert);
+  box-shadow: 0 0 0 1px var(--color-marque);
   cursor: pointer;
 }
 
@@ -85,9 +109,9 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--color-vert);
+  background: var(--color-marque);
   border: 3px solid var(--color-fond-carte);
-  box-shadow: 0 0 0 1px var(--color-vert);
+  box-shadow: 0 0 0 1px var(--color-marque);
   cursor: pointer;
 }
 
@@ -100,5 +124,19 @@ body {
 .curseur-madeleg::-moz-range-progress {
   height: 6px;
   border-radius: 999px;
-  background: var(--color-vert);
+  background: var(--color-marque);
+}
+
+.progression-track {
+  height: 8px;
+  background: var(--color-sauge-clair);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progression-fill {
+  height: 100%;
+  background: var(--color-sauge);
+  border-radius: 999px;
+  transition: width 0.5s ease;
 }

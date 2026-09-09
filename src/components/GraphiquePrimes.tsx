@@ -46,19 +46,19 @@ export default function GraphiquePrimes({ courbe }: { courbe: PointAnnuel[] }) {
         aria-label="Comparaison entre la prime d'assurance banque, stable, et la prime en délégation, qui diminue avec le capital restant dû."
       >
         {/* zone d'économie */}
-        <polygon points={airePoints} fill="var(--color-vert-doux)" />
+        <polygon points={airePoints} fill="var(--color-sauge-clair)" />
 
         {/* ligne banque */}
         <polyline
           points={ligneBanque}
           fill="none"
-          stroke="var(--color-ambre)"
+          stroke="var(--color-texte-doux)"
           strokeWidth={2.5}
           strokeDasharray="5 4"
         />
 
         {/* ligne délégation */}
-        <polyline points={ligneDelegation} fill="none" stroke="var(--color-vert)" strokeWidth={3} />
+        <polyline points={ligneDelegation} fill="none" stroke="var(--color-marque)" strokeWidth={3} />
 
         {/* repères années */}
         {repères.map((p) => (
@@ -77,11 +77,11 @@ export default function GraphiquePrimes({ courbe }: { courbe: PointAnnuel[] }) {
 
       <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3 text-sm">
         <span className="inline-flex items-center gap-2 text-[var(--color-texte-doux)]">
-          <span className="inline-block w-4 h-0.5 bg-[var(--color-ambre)]" />
+          <span className="inline-block w-4 h-0.5 bg-[var(--color-texte-doux)]" />
           Assurance actuelle (banque) — {euros(courbe[0].primeBanque)}/an, stable
         </span>
         <span className="inline-flex items-center gap-2 text-[var(--color-texte-doux)]">
-          <span className="inline-block w-4 h-0.5 bg-[var(--color-vert)]" />
+          <span className="inline-block w-4 h-0.5 bg-[var(--color-marque)]" />
           Avec la délégation — {euros(courbe[0].primeDelegation)}/an la 1ʳᵉ année, puis dégressive
         </span>
       </div>
