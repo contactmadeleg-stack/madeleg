@@ -15,7 +15,7 @@ async function chargerGrilleUneFois(table: string): Promise<TrancheAge[]> {
     .order("age_min");
 
   if (error || !data) {
-    throw new Error(`Impossible de charger la grille ${table}.`);
+    throw new Error(`Impossible de charger la grille ${table} : ${error?.message ?? "réponse vide"} (code ${error?.code ?? "?"}).`);
   }
 
   return data.map((r) => ({
@@ -25,17 +25,27 @@ async function chargerGrilleUneFois(table: string): Promise<TrancheAge[]> {
   }));
 }
 
-// Un aller-retour réseau ponctuel qui échoue (blip de connexion Supabase)
-// ne doit pas rendre toute la page d'accueil indisponible — un essai
-// supplémentaire avant d'abandonner pour de bon.
+// Des 401 intermittents ont été observés côté Supabase peu après la
+// création du projet (clés API au nouveau format) — un aller-retour isolé
+// qui échoue ne doit pas rendre toute la page d'accueil indisponible.
+// Jusqu'à 3 tentatives avec un délai croissant avant d'abandonner pour de bon.
 async function chargerGrille(table: string): Promise<TrancheAge[]> {
-  try {
-    return await chargerGrilleUneFois(table);
-  } catch (e) {
-    console.error(`Premier essai échoué pour ${table}, nouvelle tentative :`, e);
-    await new Promise((r) => setTimeout(r, 500));
-    return chargerGrilleUneFois(table);
+  const delais = [300, 900];
+  let derniereErreur: unknown;
+
+  for (let tentative = 0; tentative <= delais.length; tentative++) {
+    try {
+      return await chargerGrilleUneFois(table);
+    } catch (e) {
+      derniereErreur = e;
+      console.error(`Tentative ${tentative + 1} échouée pour ${table} :`, e);
+      if (tentative < delais.length) {
+        await new Promise((r) => setTimeout(r, delais[tentative]));
+      }
+    }
   }
+
+  throw derniereErreur;
 }
 
 // Grilles complètes (server-only), transmises en props au composant client
