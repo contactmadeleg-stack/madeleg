@@ -6,7 +6,7 @@ import type { TrancheAge } from "./simulation";
 // Tant que ces tables ne sont pas renseignées, le calcul échoue
 // explicitement plutôt que d'afficher un chiffre approximatif au visiteur.
 
-async function chargerGrille(table: string): Promise<TrancheAge[]> {
+async function chargerGrilleUneFois(table: string): Promise<TrancheAge[]> {
   const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
     .from(table)
@@ -23,6 +23,19 @@ async function chargerGrille(table: string): Promise<TrancheAge[]> {
     ageMax: r.age_max,
     tauxAnnuel: Number(r.taux_annuel),
   }));
+}
+
+// Un aller-retour réseau ponctuel qui échoue (blip de connexion Supabase)
+// ne doit pas rendre toute la page d'accueil indisponible — un essai
+// supplémentaire avant d'abandonner pour de bon.
+async function chargerGrille(table: string): Promise<TrancheAge[]> {
+  try {
+    return await chargerGrilleUneFois(table);
+  } catch (e) {
+    console.error(`Premier essai échoué pour ${table}, nouvelle tentative :`, e);
+    await new Promise((r) => setTimeout(r, 500));
+    return chargerGrilleUneFois(table);
+  }
 }
 
 // Grilles complètes (server-only), transmises en props au composant client
