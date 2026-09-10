@@ -59,7 +59,9 @@ export default async function PageAssuranceEmprunteur() {
           contrat, ce qui décourageait la plupart des emprunteurs.
         </p>
 
-        <h2 className="text-2xl font-bold mt-8 mb-3">Quelles garanties doit couvrir le nouveau contrat ?</h2>
+        <h2 id="garanties" className="text-2xl font-bold mt-8 mb-3 scroll-mt-24">
+          Quelles garanties doit couvrir le nouveau contrat ?
+        </h2>
         <p>
           La loi impose une équivalence de garanties avec votre contrat actuel. Les garanties les plus courantes sont
           désignées par leurs sigles :

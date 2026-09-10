@@ -56,13 +56,17 @@ export default function Footer() {
             <Link href="/politique-de-confidentialite" className="font-semibold text-white/80 hover:text-white">
               Politique de confidentialité
             </Link>
+            <Link href="/mentions-legales#reclamation-mediation" className="font-semibold text-white/80 hover:text-white">
+              Réclamation et médiation
+            </Link>
           </nav>
         </div>
       </div>
 
       <div className="border-t border-white/15">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-white/60">
-          Certifié ORIAS · © {new Date().getFullYear()} madeleg.fr · Tous droits réservés
+          Mario Romuald Dos Santos · SIRET 814 537 684 00056 · N° ORIAS 20004713 · © {new Date().getFullYear()}{" "}
+          madeleg.fr · Tous droits réservés
         </p>
       </div>
     </footer>

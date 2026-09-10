@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useMemo, FormEvent } from "react";
+import Link from "next/link";
 import { calculerSimulationGroupe, type TrancheAge } from "@/lib/calcul/simulation";
 import { useCompteurAnime } from "@/lib/useCompteurAnime";
 import type { BanqueAffichee } from "@/lib/getBanquesActives";
 import SelecteurBanque from "./SelecteurBanque";
-import { IconeEuro, IconeCalendrier, IconePersonne, IconeCoche, IconeChrono } from "./Icones";
+import { IconeEuro, IconeCalendrier, IconePersonne, IconeCoche, IconeChrono, IconeBouclier } from "./Icones";
 
 type Etat =
   | { vue: "estimation"; phase: "formulaire" | "chargement" | "erreur"; message?: string }
@@ -19,6 +20,7 @@ const DUREE_MIN = 1;
 const DUREE_MAX = 30;
 const AGE_MIN = 18;
 const AGE_MAX = 85;
+const AGE_DEFAUT = 35;
 const MAX_EMPRUNTEURS = 2;
 
 function euros(n: number) {
@@ -40,7 +42,7 @@ export default function Simulateur({
 }) {
   const [capital, setCapital] = useState(200_000);
   const [dureeRestanteAnnees, setDureeRestanteAnnees] = useState(20);
-  const [ages, setAges] = useState<number[]>([AGE_MIN]);
+  const [ages, setAges] = useState<number[]>([AGE_DEFAUT]);
   const [banqueSelectionnee, setBanqueSelectionnee] = useState("");
 
   const [etat, setEtat] = useState<Etat>({ vue: "estimation", phase: "formulaire" });
@@ -61,7 +63,7 @@ export default function Simulateur({
   }
 
   function ajouterEmprunteur() {
-    setAges((prec) => (prec.length < MAX_EMPRUNTEURS ? [...prec, AGE_MIN] : prec));
+    setAges((prec) => (prec.length < MAX_EMPRUNTEURS ? [...prec, AGE_DEFAUT] : prec));
   }
 
   function retirerEmprunteur(index: number) {
@@ -359,7 +361,7 @@ export default function Simulateur({
               {euros(Math.round(apercuAnime))}
             </p>
             <p className="text-xs text-[var(--color-texte-doux)] mt-1">
-              Estimation de l&apos;économie par rapport au tarif moyen d&apos;un contrat bancaire*
+              Estimation indicative de l&apos;économie par rapport au tarif moyen d&apos;un contrat bancaire*
             </p>
           </div>
         )}
@@ -376,11 +378,25 @@ export default function Simulateur({
 
         {etat.phase === "erreur" && <p className="text-sm text-red-700 text-center">{etat.message}</p>}
 
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-[var(--color-texte-doux)]">
+          <span className="inline-flex items-center gap-1.5">
+            <IconeEuro className="w-4 h-4 text-[var(--color-sauge)]" /> Gratuit
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <IconeCoche className="w-4 h-4 text-[var(--color-sauge)]" /> Sans engagement
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <IconeChrono className="w-4 h-4 text-[var(--color-sauge)]" /> 30 secondes
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <IconeBouclier className="w-4 h-4 text-[var(--color-sauge)]" /> Données confidentielles
+          </span>
+        </div>
         <p className="text-xs text-[var(--color-texte-doux)] text-center">
-          Simulation gratuite et sans engagement.
-          <br />
-          *avec garanties DC / PTIA + ITT + IPT + IPP + MNO (sans condition d&apos;hospitalisation) et 100% de
-          quotité
+          *
+          <Link href="/assurance-emprunteur#garanties" className="underline">
+            Voir le détail des garanties
+          </Link>
         </p>
       </form>
     </div>

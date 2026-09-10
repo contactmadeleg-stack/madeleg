@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const LIENS_NAV = [
@@ -11,6 +12,9 @@ const LIENS_NAV = [
 
 export default function Header() {
   const [menuOuvert, setMenuOuvert] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname === "/simulation") return null;
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-bordure)] bg-[var(--color-fond-carte)]/90 backdrop-blur">

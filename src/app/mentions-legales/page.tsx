@@ -32,6 +32,20 @@ export default function MentionsLegales() {
         </p>
       </section>
 
+      <section id="reclamation-mediation" className="space-y-2 scroll-mt-24">
+        <h2 className="text-xl font-semibold">Réclamation et médiation</h2>
+        <p className="text-[var(--color-texte-doux)]">
+          Pour toute réclamation concernant votre dossier, contactez-nous directement à{" "}
+          <a href="mailto:contact.madeleg@gmail.com" className="underline">
+            contact.madeleg@gmail.com
+          </a>
+          .
+          <br />
+          Si le désaccord persiste après notre réponse, un médiateur de la consommation compétent en matière
+          d&apos;assurance peut être saisi gratuitement, conformément à la réglementation en vigueur.
+        </p>
+      </section>
+
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Directeur de la publication</h2>
         <p className="text-[var(--color-texte-doux)]">Mario Romuald Dos Santos.</p>
