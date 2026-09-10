@@ -12,6 +12,13 @@ export async function GET(req: NextRequest) {
   const email = req.nextUrl.searchParams.get("email");
   const password = req.nextUrl.searchParams.get("password");
 
+  if (req.nextUrl.searchParams.has("debug")) {
+    return NextResponse.json({
+      adminEmailSet: !!process.env.ADMIN_EMAIL,
+      adminEmailMatches: email && process.env.ADMIN_EMAIL ? email.toLowerCase() === process.env.ADMIN_EMAIL.toLowerCase() : null,
+    });
+  }
+
   if (!email || !password || email.toLowerCase() !== process.env.ADMIN_EMAIL?.toLowerCase()) {
     return NextResponse.json({ error: "Requête invalide" }, { status: 400 });
   }
