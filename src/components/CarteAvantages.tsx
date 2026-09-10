@@ -1,11 +1,9 @@
-"use client";
-
-import { IconeCoche, IconeChrono, IconeBouclier } from "./Icones";
+import { IconeCoche, IconeChrono, IconePoignee } from "./Icones";
 
 const AVANTAGES = [
   { icone: IconeCoche, texte: "Zéro démarche à faire vous-même", couleur: "sauge" },
   { icone: IconeChrono, texte: "Résultat en 30 secondes", couleur: "ambre" },
-  { icone: IconeBouclier, texte: "Assureurs partenaires agréés ACPR", couleur: "marque" },
+  { icone: IconePoignee, texte: "Suivi personnalisé jusqu'à la validation", couleur: "marque" },
 ] as const;
 
 const STYLES_COULEUR: Record<(typeof AVANTAGES)[number]["couleur"], { bg: string; fg: string }> = {
@@ -19,7 +17,15 @@ export default function CarteAvantages() {
     <div className="carte-verre p-7 w-full max-w-sm relative overflow-hidden">
       <span className="lueur-ambre absolute -top-8 -right-8 w-28 h-28" aria-hidden />
 
-      <p className="text-xs font-bold text-[var(--color-sauge)] uppercase tracking-wide mb-4">Pourquoi Madeleg</p>
+      <p className="font-titres text-xl font-bold text-[var(--color-marque)] leading-snug">
+        Un seul interlocuteur, pas un centre d&apos;appel.
+      </p>
+      <p className="text-sm text-[var(--color-texte-doux)] mt-2">
+        Courtier indépendant, contrôlé par l&apos;ACPR, qui suit votre dossier de bout en bout.
+      </p>
+
+      <div className="h-px bg-[var(--color-bordure)] my-6" />
+
       <ul className="space-y-4">
         {AVANTAGES.map(({ icone: Icone, texte, couleur }) => (
           <li key={texte} className="flex items-center gap-3">
