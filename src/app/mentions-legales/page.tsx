@@ -26,9 +26,6 @@ export default function MentionsLegales() {
             orias.fr
           </a>
           .
-          <br />
-          Mandataire d&apos;intermédiaire en opérations de banque et services de paiement (MIOBSP) et mandataire
-          d&apos;intermédiaire d&apos;assurance (MIA), sous mandat FINSPOT (SIREN 825 077 886).
         </p>
       </section>
 
