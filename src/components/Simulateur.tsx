@@ -218,7 +218,7 @@ export default function Simulateur({
         </div>
 
         <form onSubmit={soumettreEtape2} className="space-y-5">
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="space-y-5">
             <Champ label="Prénom">
               <input type="text" name="prenom" required maxLength={100} placeholder="Jean" className="champ-saisie" />
             </Champ>
@@ -246,12 +246,11 @@ export default function Simulateur({
             {erreurEtape2 && <p className="text-sm text-red-700 mt-3">{erreurEtape2}</p>}
 
             <p className="text-xs text-[var(--color-texte-doux)] mt-4 text-center max-w-md">
-              En soumettant ce formulaire, vous acceptez que Madeleg (contact.madeleg@gmail.com) traite vos
-              données pour vous recontacter dans le cadre de votre simulation. Données conservées 3 ans.{" "}
+              En validant ce formulaire, vous acceptez la{" "}
               <a href="/politique-de-confidentialite" className="underline">
-                Politique de confidentialité
-              </a>
-              .
+                politique de confidentialité
+              </a>{" "}
+              et vous acceptez d&apos;être recontacté par un expert dans le cadre de cette estimation.
             </p>
           </div>
         </form>

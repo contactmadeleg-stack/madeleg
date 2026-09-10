@@ -68,7 +68,7 @@ export default async function PageDashboardAdmin() {
             <div className="text-sm space-y-1">
               <p>
                 <span className="text-[var(--color-texte-doux)]">Banque : </span>
-                <span className="font-medium">{s.banque_selectionnee || "—"}</span>
+                <span className="font-medium">{s.banque_selectionnee || "Non renseignée"}</span>
               </p>
               <p>
                 <span className="text-[var(--color-texte-doux)]">Capital : </span>

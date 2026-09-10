@@ -19,7 +19,7 @@ export default function SelecteurBanque({
       <p className="text-xs text-[var(--color-texte-doux)] mb-3">
         Information indicative, sans impact sur le montant ci-dessus.
       </p>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
         {banques.map(({ id, nom, logoUrl }) => {
           const active = valeur === nom;
           return (
@@ -27,7 +27,8 @@ export default function SelecteurBanque({
               key={id}
               type="button"
               onClick={() => onChange(nom)}
-              className={`flex flex-col items-center justify-center gap-1.5 rounded-xl border px-3 py-3 min-h-[4.5rem] transition-colors ${
+              title={nom}
+              className={`flex flex-col items-center justify-center gap-1 rounded-lg border px-2 py-2 min-h-[3.5rem] transition-colors ${
                 active
                   ? "border-[var(--color-marque)] bg-[var(--color-sauge-clair)]"
                   : "border-[var(--color-bordure)] bg-[var(--color-fond-carte)] hover:border-[var(--color-marque)]"
@@ -35,10 +36,10 @@ export default function SelecteurBanque({
             >
               {logoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={logoUrl} alt={nom} className="max-h-8 max-w-[80%] object-contain" />
+                <img src={logoUrl} alt={nom} className="max-h-6 max-w-[85%] object-contain" />
               ) : (
                 <span
-                  className={`text-sm text-center leading-tight ${
+                  className={`text-xs text-center leading-tight ${
                     active ? "font-semibold text-[var(--color-marque)]" : "text-[var(--color-texte)]"
                   }`}
                 >
@@ -52,7 +53,7 @@ export default function SelecteurBanque({
         <button
           type="button"
           onClick={() => onChange(AUTRE)}
-          className={`flex items-center justify-center rounded-xl border px-3 py-3 min-h-[4.5rem] text-sm text-center leading-tight transition-colors ${
+          className={`flex items-center justify-center rounded-lg border px-2 py-2 min-h-[3.5rem] text-xs text-center leading-tight transition-colors ${
             valeur === AUTRE
               ? "border-[var(--color-marque)] bg-[var(--color-sauge-clair)] font-semibold text-[var(--color-marque)]"
               : "border-[var(--color-bordure)] bg-[var(--color-fond-carte)] text-[var(--color-texte)] hover:border-[var(--color-marque)]"

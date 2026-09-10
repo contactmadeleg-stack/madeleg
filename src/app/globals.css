@@ -136,25 +136,29 @@ body {
     transform: scale(0.97);
   }
 
-  /* CTA principal — pilule en dégradé + lueur, au lieu d'un aplat plat. */
+  /* CTA principal — aplat plein + lueur. Un dégradé diagonal sur une pilule
+     courte et large crée une bande de transition qui coupe visuellement le
+     texte du bouton ; on reste sur une couleur pleine. */
   .btn-madeleg-principal {
     border-radius: 999px;
-    background: linear-gradient(135deg, var(--color-marque) 0%, var(--color-marque-clair) 100%);
+    background: var(--color-marque);
     box-shadow: 0 8px 24px -8px rgba(27, 75, 74, 0.55);
   }
 
   .btn-madeleg-principal:hover:not(:disabled) {
+    background: var(--color-marque-clair);
     box-shadow: 0 12px 32px -8px rgba(27, 75, 74, 0.65);
   }
 
   /* Variante ambre — CTA sur fond sombre (bandeau marque). */
   .btn-madeleg-ambre {
     border-radius: 999px;
-    background: linear-gradient(135deg, var(--color-ambre) 0%, #e8a54e 100%);
+    background: var(--color-ambre);
     box-shadow: 0 8px 24px -8px rgba(217, 142, 46, 0.6);
   }
 
   .btn-madeleg-ambre:hover:not(:disabled) {
+    background: #e8a54e;
     box-shadow: 0 12px 32px -8px rgba(217, 142, 46, 0.7);
   }
 

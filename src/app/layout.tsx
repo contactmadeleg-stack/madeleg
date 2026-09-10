@@ -18,7 +18,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Madeleg — Économisez sur votre assurance de prêt immobilier",
+  title: "Madeleg | Économisez sur votre assurance de prêt immobilier",
   description:
     "Simulez en 30 secondes votre économie en changeant d'assurance emprunteur, sans quitter votre banque pour le prêt. Simulation gratuite et sans engagement.",
 };

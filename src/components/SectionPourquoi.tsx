@@ -28,7 +28,7 @@ export default function SectionPourquoi() {
           className="rounded-3xl px-6 py-14 sm:py-18 text-center"
           style={{ background: "var(--color-sauge-clair)" }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight max-w-2xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight max-w-2xl mx-auto">
             L&apos;exigence d&apos;un pro, <span className="text-[var(--color-marque)]">sans la paperasse</span>.
           </h2>
           <p className="text-[var(--color-texte-doux)] mt-3">

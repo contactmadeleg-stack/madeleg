@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Politique de confidentialité — Madeleg",
+  title: "Politique de confidentialité | Madeleg",
 };
 
 export default function PolitiqueConfidentialite() {
@@ -10,7 +10,7 @@ export default function PolitiqueConfidentialite() {
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Responsable du traitement</h2>
         <p className="text-[var(--color-texte-doux)]">
-          Mario Romuald Dos Santos, entrepreneur individuel, 1 Boulevard Auguste Priou, 44120 Vertou — SIRET 814 537
+          Mario Romuald Dos Santos, entrepreneur individuel, 1 Boulevard Auguste Priou, 44120 Vertou, SIRET 814 537
           684 00056. Contact : contact.madeleg@gmail.com.
         </p>
       </section>

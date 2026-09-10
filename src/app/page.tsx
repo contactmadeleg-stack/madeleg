@@ -9,6 +9,13 @@ import SectionFAQ from "@/components/SectionFAQ";
 import SectionCTAFinale from "@/components/SectionCTAFinale";
 import { getGrillesCompletes } from "@/lib/calcul/parametres";
 import { getBanquesActives } from "@/lib/getBanquesActives";
+import { calculerSimulationGroupe } from "@/lib/calcul/simulation";
+
+// Profil illustratif pour l'exemple chiffré du hero, calculé avec les mêmes
+// grilles de taux que le simulateur (jamais de montant inventé).
+const EXEMPLE_CAPITAL = 180_000;
+const EXEMPLE_DUREE_ANNEES = 15;
+const EXEMPLE_AGE = 40;
 
 // Les grilles de taux sont éditables directement dans Supabase (en
 // attendant une console d'admin) — revalidation régulière pour que les
@@ -25,6 +32,16 @@ export default async function Home() {
 
   const banques = await getBanquesActives();
 
+  const exempleEconomie = grilles
+    ? calculerSimulationGroupe({
+        capital: EXEMPLE_CAPITAL,
+        dureeRestanteAnnees: EXEMPLE_DUREE_ANNEES,
+        ages: [EXEMPLE_AGE],
+        grillesBanque: grilles.banque,
+        grillesDelegation: grilles.delegation,
+      })?.economieAffichee ?? null
+    : null;
+
   return (
     <div>
       <div className="relative overflow-hidden">
@@ -37,7 +54,7 @@ export default async function Home() {
                 <IconeEclair className="w-3.5 h-3.5 text-[var(--color-ambre)]" />
                 Simple et sans prise de tête
               </span>
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight max-w-xl mx-auto lg:mx-0">
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-xl mx-auto lg:mx-0">
                 Payez-vous <span className="texte-degrade-ambre">trop cher</span> votre assurance
                 emprunteur&nbsp;?
               </h1>
@@ -47,7 +64,11 @@ export default async function Home() {
             </div>
 
             <div className="hidden lg:flex justify-center">
-              <CarteAvantages />
+              <CarteAvantages
+                exempleEconomie={exempleEconomie}
+                exempleCapital={EXEMPLE_CAPITAL}
+                exempleDureeAnnees={EXEMPLE_DUREE_ANNEES}
+              />
             </div>
           </div>
         </section>

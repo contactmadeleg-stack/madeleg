@@ -99,7 +99,7 @@ export async function envoyerEmailAdmin(params: {
   const { error } = await resend.emails.send({
     from: FROM_ADDRESS,
     to: ADMIN_EMAIL,
-    subject: `Nouvelle demande Madeleg — ${prenom} ${nom}`,
+    subject: `Nouvelle demande Madeleg : ${prenom} ${nom}`,
     html: `
       <p>Nouvelle demande de rappel reçue sur Madeleg.</p>
       <table cellspacing="0" cellpadding="0">

@@ -5,7 +5,7 @@ import { getPartenairesActifs } from "@/lib/getPartenairesActifs";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Nos assureurs partenaires — Madeleg",
+  title: "Nos assureurs partenaires | Madeleg",
   description:
     "Madeleg travaille avec un large panel d'assureurs partenaires pour trouver le contrat d'assurance emprunteur le plus adapté à votre profil.",
 };

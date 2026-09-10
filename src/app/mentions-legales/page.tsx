@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Mentions légales — Madeleg",
+  title: "Mentions légales | Madeleg",
 };
 
 export default function MentionsLegales() {
@@ -14,7 +14,7 @@ export default function MentionsLegales() {
           <br />
           Adresse : 1 Boulevard Auguste Priou, 44120 Vertou.
           <br />
-          SIREN : 814 537 684 — SIRET : 814 537 684 00056 — RCS Nantes.
+          SIREN : 814 537 684 · SIRET : 814 537 684 00056 · RCS Nantes.
         </p>
       </section>
 

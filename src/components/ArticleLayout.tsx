@@ -38,7 +38,7 @@ export default function ArticleLayout({
         <p className="text-sm text-[var(--color-texte-doux)]">
           Publié le {formatDate(meta.datePublication)}
           {meta.dateMiseAJour !== meta.datePublication && (
-            <> — mis à jour le {formatDate(meta.dateMiseAJour)}</>
+            <>, mis à jour le {formatDate(meta.dateMiseAJour)}</>
           )}
         </p>
       </header>

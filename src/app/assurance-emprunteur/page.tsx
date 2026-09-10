@@ -4,7 +4,7 @@ import { registreArticles, slugsArticles } from "@/lib/content/registry";
 import { IconeBouclier, IconeDossier, IconePoignee, IconeCoche } from "@/components/Icones";
 
 export const metadata: Metadata = {
-  title: "Assurance emprunteur : le guide complet — Madeleg",
+  title: "Assurance emprunteur : le guide complet | Madeleg",
   description:
     "Assurance de prêt immobilier, loi Lemoine, garanties, résiliation : tout comprendre sur l'assurance emprunteur et comment réduire son coût sans changer de banque.",
 };
@@ -54,7 +54,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mt-8 mb-3">La loi Lemoine : changer d&apos;assurance à tout moment</h2>
         <p>
           Depuis juin 2022, la loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment,
-          sans frais ni justification, pour la remplacer par un contrat aux garanties équivalentes — sans changer de
+          sans frais ni justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de
           banque ni de prêt. Avant cette loi, le changement n&apos;était possible qu&apos;à la date anniversaire du
           contrat, ce qui décourageait la plupart des emprunteurs.
         </p>
@@ -66,22 +66,22 @@ export default async function PageAssuranceEmprunteur() {
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li>
-            <strong>DC</strong> — Décès
+            <strong>DC</strong> : Décès
           </li>
           <li>
-            <strong>PTIA</strong> — Perte Totale et Irréversible d&apos;Autonomie
+            <strong>PTIA</strong> : Perte Totale et Irréversible d&apos;Autonomie
           </li>
           <li>
-            <strong>IPT</strong> — Invalidité Permanente Totale
+            <strong>IPT</strong> : Invalidité Permanente Totale
           </li>
           <li>
-            <strong>IPP</strong> — Invalidité Permanente Partielle
+            <strong>IPP</strong> : Invalidité Permanente Partielle
           </li>
           <li>
-            <strong>ITT</strong> — Incapacité Temporaire Totale de travail
+            <strong>ITT</strong> : Incapacité Temporaire Totale de travail
           </li>
           <li>
-            <strong>MNO</strong> — troubles difficiles à objectiver médicalement (dos, troubles psychologiques…),
+            <strong>MNO</strong> : troubles difficiles à objectiver médicalement (dos, troubles psychologiques…),
             souvent soumis à des exclusions ou franchises spécifiques selon les contrats
           </li>
         </ul>

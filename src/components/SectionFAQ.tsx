@@ -43,7 +43,7 @@ export default function SectionFAQ() {
           <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
             Questions fréquentes
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Tout ce qu&apos;on nous demande</h2>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Tout ce qu&apos;on nous demande</h2>
         </div>
       </Reveal>
 

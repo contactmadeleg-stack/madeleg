@@ -22,7 +22,7 @@ export async function generateMetadata({
   const article = await chargerArticle(slug);
   if (!article) return {};
   return {
-    title: `${article.meta.titre} — Madeleg`,
+    title: `${article.meta.titre} | Madeleg`,
     description: article.meta.description,
   };
 }

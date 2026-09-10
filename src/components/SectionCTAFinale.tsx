@@ -24,7 +24,7 @@ export default function SectionCTAFinale() {
           </div>
 
           <div className="relative">
-            <h2 className="font-titres text-3xl sm:text-4xl font-bold text-white max-w-xl mx-auto">
+            <h2 className="font-titres text-4xl sm:text-5xl font-extrabold text-white max-w-xl mx-auto">
               Prêt à savoir combien vous pouvez économiser ?
             </h2>
             <p className="text-white/75 mt-3 max-w-md mx-auto">30 secondes, gratuit, sans engagement.</p>
