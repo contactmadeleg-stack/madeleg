@@ -42,6 +42,16 @@ export default function PolitiqueConfidentialite() {
       </section>
 
       <section className="space-y-2">
+        <h2 className="text-xl font-semibold">Transfert de données hors Union européenne</h2>
+        <p className="text-[var(--color-texte-doux)]">
+          Vercel (hébergement de l&apos;application) et Resend (envoi d&apos;emails transactionnels) sont des
+          sociétés basées aux États-Unis. Ce transfert de données hors Union européenne est encadré par les garanties
+          prévues à leurs accords de traitement des données respectifs. Le détail de ces garanties peut être
+          communiqué sur demande à contact.madeleg@gmail.com.
+        </p>
+      </section>
+
+      <section className="space-y-2">
         <h2 className="text-xl font-semibold">Durée de conservation</h2>
         <p className="text-[var(--color-texte-doux)]">
           Les données des demandes de rappel sont conservées 3 ans à compter du dernier contact, conformément aux
@@ -53,17 +63,18 @@ export default function PolitiqueConfidentialite() {
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Vos droits</h2>
         <p className="text-[var(--color-texte-doux)]">
-          Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement et
-          d&apos;opposition sur vos données. Pour l&apos;exercer, contactez-nous à contact.madeleg@gmail.com. Vous
-          pouvez également introduire une réclamation auprès de la CNIL (cnil.fr).
+          Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement,
+          d&apos;opposition, de limitation et de portabilité sur vos données. Pour l&apos;exercer, contactez-nous à
+          contact.madeleg@gmail.com. Vous pouvez également introduire une réclamation auprès de la CNIL (cnil.fr).
         </p>
       </section>
 
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Cookies</h2>
         <p className="text-[var(--color-texte-doux)]">
-          Ce site utilise uniquement des cookies de mesure d&apos;audience nécessaires à la compréhension de
-          l&apos;usage du simulateur. Aucune donnée de simulation ou de coordonnées personnelles n&apos;est stockée
+          Ce site n&apos;utilise aucun cookie de mesure d&apos;audience ni traceur publicitaire. Seuls des cookies
+          techniques strictement nécessaires à la connexion à l&apos;espace d&apos;administration sont utilisés,
+          exemptés de consentement. Aucune donnée de simulation ou de coordonnées personnelles n&apos;est stockée
           dans un cookie ou dans votre navigateur : toutes les données saisies sont transmises directement à notre
           base de données sécurisée.
         </p>
