@@ -265,7 +265,7 @@ export default function Simulateur({
           <Curseur
             label="Capital restant"
             icone={<IconeEuro className="w-4 h-4" />}
-            valeur={capital}
+            valeur={Math.min(capital, CAPITAL_MAX)}
             affichage={euros(capital)}
             min={CAPITAL_MIN}
             max={CAPITAL_MAX}
@@ -283,6 +283,25 @@ export default function Simulateur({
             onChange={setDureeRestanteAnnees}
           />
         </div>
+
+        {capital >= CAPITAL_MAX && (
+          <div>
+            <span className="block text-xs font-semibold text-[var(--color-texte-doux)] mb-1.5">
+              Capital supérieur à {euros(CAPITAL_MAX)} ? Saisissez le montant exact
+            </span>
+            <input
+              type="number"
+              min={CAPITAL_MAX}
+              step={CAPITAL_PAS}
+              placeholder="Ex : 950 000"
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                if (!Number.isNaN(v) && v > 0) setCapital(v);
+              }}
+              className="champ-saisie"
+            />
+          </div>
+        )}
 
         <div className="grid sm:grid-cols-2 gap-4">
           {ages.map((age, i) => (

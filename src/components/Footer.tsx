@@ -19,7 +19,7 @@ export default function Footer() {
             ma<span style={{ color: "var(--color-ambre)" }}>deleg</span>
           </p>
           <p className="text-sm text-white/70 leading-relaxed mt-3 max-w-xs">
-            Rachat et substitution d&apos;assurance emprunteur, sans quitter votre banque.
+            Changer d&apos;assurance emprunteur, sans quitter votre banque.
           </p>
           <a
             href="https://www.instagram.com/madeleg.fr"

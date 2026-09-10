@@ -19,7 +19,7 @@ export default function SelecteurBanque({
       <p className="text-xs text-[var(--color-texte-doux)] mb-3">
         Information indicative, sans impact sur le montant ci-dessus.
       </p>
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+      <div className="grid grid-cols-3 gap-2">
         {banques.map(({ id, nom, logoUrl }) => {
           const active = valeur === nom;
           return (
@@ -49,19 +49,19 @@ export default function SelecteurBanque({
             </button>
           );
         })}
-
-        <button
-          type="button"
-          onClick={() => onChange(AUTRE)}
-          className={`flex items-center justify-center rounded-lg border px-2 py-2 min-h-[3.5rem] text-xs text-center leading-tight transition-colors ${
-            valeur === AUTRE
-              ? "border-[var(--color-marque)] bg-[var(--color-sauge-clair)] font-semibold text-[var(--color-marque)]"
-              : "border-[var(--color-bordure)] bg-[var(--color-fond-carte)] text-[var(--color-texte)] hover:border-[var(--color-marque)]"
-          }`}
-        >
-          {AUTRE}
-        </button>
       </div>
+
+      <button
+        type="button"
+        onClick={() => onChange(AUTRE)}
+        className={`w-full mt-2 flex items-center justify-center rounded-lg border px-2 py-2.5 text-xs text-center leading-tight transition-colors ${
+          valeur === AUTRE
+            ? "border-[var(--color-marque)] bg-[var(--color-sauge-clair)] font-semibold text-[var(--color-marque)]"
+            : "border-[var(--color-bordure)] bg-[var(--color-fond-carte)] text-[var(--color-texte)] hover:border-[var(--color-marque)]"
+        }`}
+      >
+        {AUTRE}
+      </button>
       <p className="text-xs text-[var(--color-texte-doux)] mt-3">
         Marques citées à titre d&apos;identification, propriété de leurs détenteurs respectifs.
       </p>
