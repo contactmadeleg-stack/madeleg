@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
   const estAutorise = !!user && !!ADMIN_EMAIL && user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
   const { pathname } = request.nextUrl;
 
-  const estRouteAuth = pathname === "/admin/login" || pathname.startsWith("/admin/auth/");
+  const estRouteAuth = pathname === "/admin/login";
 
   if (pathname.startsWith("/admin") && !estRouteAuth && !estAutorise) {
     const url = request.nextUrl.clone();
