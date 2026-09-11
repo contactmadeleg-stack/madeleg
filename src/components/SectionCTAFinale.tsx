@@ -27,7 +27,7 @@ export default function SectionCTAFinale() {
             <h2 className="font-titres text-4xl sm:text-5xl font-extrabold text-white max-w-xl mx-auto">
               Prêt à savoir combien vous pouvez économiser ?
             </h2>
-            <p className="text-white/75 mt-3 max-w-md mx-auto">30 secondes, gratuit, sans engagement.</p>
+            <p className="text-white/75 mt-3 max-w-md mx-auto">Simulation gratuite en 30 secondes, sans engagement.</p>
             <a
               href="#simulateur"
               className="mdl-btn mdl-btn--primary mdl-btn--lg mt-6 bg-[var(--amber-500)] hover:bg-[var(--amber-600)]"

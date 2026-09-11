@@ -8,11 +8,11 @@ import { IconeChevronBas } from "./Icones";
 const QUESTIONS = [
   {
     q: "Qu'est-ce que la loi Lemoine ?",
-    r: "Depuis juin 2022, la loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais ni justification, pour la remplacer par un contrat aux garanties équivalentes.",
+    r: "Depuis juin 2022, la loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais de résiliation ni justification, pour la remplacer par un contrat aux garanties équivalentes.",
   },
   {
     q: "Est-ce vraiment gratuit ?",
-    r: "La simulation est gratuite et sans engagement. Le détail d'un éventuel coût d'accompagnement, s'il y en a un, vous est communiqué clairement par votre conseiller avant toute démarche.",
+    r: "La simulation et l'étude de votre dossier sont gratuites et sans engagement. Si vous souscrivez, des frais de distribution peuvent s'appliquer : leur montant figure sur le devis remis avant toute souscription. Nous sommes par ailleurs rémunérés par une commission versée par l'assureur, incluse dans votre cotisation.",
   },
   {
     q: "Dois-je changer de banque ou de prêt ?",

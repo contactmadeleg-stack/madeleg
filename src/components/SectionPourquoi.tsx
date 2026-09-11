@@ -5,7 +5,7 @@ import { IconeBouclier, IconePoignee, IconeCoche } from "./Icones";
 const POINTS = [
   {
     icone: IconeBouclier,
-    titre: "Courtier réglementé",
+    titre: "Intermédiaire réglementé",
     texte: "Immatriculé à l'ORIAS, contrôlé par l'ACPR.",
   },
   {
@@ -32,7 +32,7 @@ export default function SectionPourquoi() {
             Sérieux sur le fond, <span style={{ color: "var(--emerald-600)" }}>simple</span> dans la forme.
           </h2>
           <p className="mt-3" style={{ color: "var(--text-muted)" }}>
-            Un courtier réglementé qui vous explique tout, sans jargon ni mauvaise surprise.
+            Un intermédiaire réglementé qui vous explique tout, sans jargon ni mauvaise surprise.
           </p>
 
           <Reveal stagger className="mt-10">

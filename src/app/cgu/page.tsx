@@ -6,13 +6,13 @@ export default function ConditionsGeneralesUtilisation() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-12 space-y-8 text-[var(--color-texte)]">
       <h1 className="text-3xl font-bold">Conditions générales d&apos;utilisation</h1>
-      <p className="text-[var(--color-texte-doux)]">Dernière mise à jour : {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.</p>
+      <p className="text-[var(--color-texte-doux)]">Dernière mise à jour : septembre 2026.</p>
 
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Objet</h2>
         <p className="text-[var(--color-texte-doux)]">
           Les présentes conditions générales d&apos;utilisation (CGU) régissent l&apos;accès et l&apos;usage du site
-          madeleg.fr, édité par Mario Romuald Dos Santos (voir{" "}
+          madeleg.fr, édité par Mario Romuald Dos Santos EI, sous le nom commercial Madeleg (voir{" "}
           <a href="/mentions-legales" className="underline">
             mentions légales
           </a>
@@ -49,10 +49,15 @@ export default function ConditionsGeneralesUtilisation() {
         <h2 className="text-xl font-semibold">Déroulement de la prestation</h2>
         <p className="text-[var(--color-texte-doux)]">
           La demande de rappel effectuée sur le site n&apos;emporte aucune obligation d&apos;achat ni de souscription.
-          Elle permet à un conseiller Madeleg de vous recontacter pour affiner votre dossier. La prestation de
-          courtage (constitution du dossier, sélection de l&apos;assureur, suivi avec votre banque) fait
-          l&apos;objet d&apos;un accord distinct entre vous et Madeleg, formalisé en dehors du site, préalablement à
-          toute démarche.
+          Elle permet à un conseiller Madeleg de vous recontacter pour affiner votre dossier. La prestation
+          d&apos;intermédiation en assurance (constitution du dossier, sélection de l&apos;assureur, suivi avec votre
+          banque) fait l&apos;objet d&apos;un accord distinct entre vous et Madeleg, formalisé en dehors du site,
+          préalablement à toute démarche. Madeleg intervient en qualité de mandataire d&apos;intermédiaire
+          d&apos;assurance (voir{" "}
+          <a href="/mentions-legales" className="underline">
+            mentions légales
+          </a>
+          ). Les éventuels frais de distribution sont indiqués sur le devis remis avant toute souscription.
         </p>
       </section>
 
@@ -111,9 +116,9 @@ export default function ConditionsGeneralesUtilisation() {
         <h2 className="text-xl font-semibold">Droit applicable et litiges</h2>
         <p className="text-[var(--color-texte-doux)]">
           Les présentes CGU sont soumises au droit français. En cas de litige, une solution amiable sera recherchée
-          avant toute action judiciaire, notamment via le dispositif de médiation décrit dans nos{" "}
-          <a href="/mentions-legales#reclamation-mediation" className="underline">
-            mentions légales
+          avant toute action judiciaire, notamment via le dispositif de médiation décrit sur notre page{" "}
+          <a href="/reclamation" className="underline">
+            Réclamation et médiation
           </a>
           . À défaut d&apos;accord amiable, les tribunaux français seront seuls compétents.
         </p>

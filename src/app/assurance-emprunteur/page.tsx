@@ -54,7 +54,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mt-8 mb-3">La loi Lemoine : changer d&apos;assurance à tout moment</h2>
         <p>
           Depuis juin 2022, la loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment,
-          sans frais ni justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de
+          sans frais de résiliation ni justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de
           banque ni de prêt. Avant cette loi, le changement n&apos;était possible qu&apos;à la date anniversaire du
           contrat, ce qui décourageait la plupart des emprunteurs.
         </p>
@@ -88,12 +88,13 @@ export default async function PageAssuranceEmprunteur() {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-bold mt-8 mb-3">Pourquoi passer par un courtier plutôt que le faire seul ?</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-3">Pourquoi se faire accompagner plutôt que le faire seul ?</h2>
         <p>
           Comparer les garanties de plusieurs assureurs, monter un dossier de substitution complet et suivre les
           échanges avec la banque jusqu&apos;à validation prend du temps et demande de bien lire les conditions
-          générales. Un courtier fait ce travail à votre place, gratuitement : c&apos;est lui qui est rémunéré par
-          l&apos;assureur, pas vous.
+          générales. Un intermédiaire en assurance fait ce travail à votre place. Il est rémunéré par une commission
+          versée par l&apos;assureur, incluse dans votre cotisation ; des frais de distribution peuvent s&apos;y ajouter, et
+          leur montant vous est toujours indiqué sur le devis, avant toute souscription.
         </p>
       </section>
 

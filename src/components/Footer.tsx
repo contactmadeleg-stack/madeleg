@@ -62,7 +62,7 @@ export default function Footer() {
             <Link href="/politique-de-confidentialite" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Politique de confidentialité
             </Link>
-            <Link href="/mentions-legales#reclamation-mediation" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
+            <Link href="/reclamation" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Réclamation et médiation
             </Link>
             <Link href="/cgu" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
@@ -74,7 +74,8 @@ export default function Footer() {
 
       <div className="border-t border-white/15">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-white/60">
-          N° ORIAS 20004713 · © {new Date().getFullYear()} madeleg.fr · Tous droits réservés
+          Madeleg – Mario Romuald Dos Santos EI · Mandataire d&apos;intermédiaire d&apos;assurance, N° ORIAS 20004713 ·
+          © {new Date().getFullYear()} madeleg.fr
         </p>
       </div>
     </footer>

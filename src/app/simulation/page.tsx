@@ -45,6 +45,21 @@ export default async function PageSimulation() {
           </p>
         )}
       </div>
+
+      <p className="mx-auto max-w-3xl w-full px-4 pb-6 text-[11px] text-center" style={{ color: "var(--text-muted)" }}>
+        Madeleg – Mario Romuald Dos Santos EI · Mandataire d&apos;intermédiaire d&apos;assurance, N° ORIAS 20004713 ·{" "}
+        <Link href="/mentions-legales" className="underline">
+          Mentions légales
+        </Link>{" "}
+        ·{" "}
+        <Link href="/politique-de-confidentialite" className="underline">
+          Confidentialité
+        </Link>{" "}
+        ·{" "}
+        <Link href="/reclamation" className="underline">
+          Réclamation
+        </Link>
+      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 # madeleg — Product Truth
 
-**madeleg** est un cabinet de courtage en assurance emprunteur (France). L'activité démarre en solo et a vocation à se structurer en réseau : mandataires, puis salariés, pilotés par un cabinet-tête de réseau.
+**madeleg** est une activité d'intermédiation en assurance emprunteur (France), exercée en tant que MIA. L'activité démarre en solo et a vocation à se structurer en réseau : mandataires, puis salariés, pilotés par un cabinet-tête de réseau.
 
 ## Surfaces
 
@@ -56,4 +56,4 @@ Ton: **Direct, factuel, pédagogue.** Chiffre précède la promesse.
 
 ## Conformité
 
-Courtier ORIAS: mentions obligatoires en pied de page et parcours. Performances chiffrées sourcées et datées. Ton « note de bas de page » assumé pour la conformité — c'est un argument de confiance, pas une gêne.
+**Statut : Madeleg n'est PAS courtier.** Mario Romuald Dos Santos EI est mandataire d'intermédiaire d'assurance (MIA, ORIAS 20004713), mandaté par FINSPOT / Pretto (courtier, ORIAS 17000916), accès aux contrats via le grossiste Digital Insure. Ne jamais écrire « courtier », « cabinet de courtage » ni « certifié ORIAS » pour Madeleg sur le site ; dire « intermédiaire en assurance ». Des frais de distribution peuvent être facturés : ne jamais promettre « gratuit » au-delà de la simulation et de l'étude. Identité légale centralisée dans `src/lib/identite.ts`, assureurs dans `src/lib/partenaires.ts`. Mentions obligatoires en pied de page et parcours. Performances chiffrées sourcées et datées. Ton « note de bas de page » assumé pour la conformité — c'est un argument de confiance, pas une gêne.

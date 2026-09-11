@@ -217,6 +217,10 @@ export default function Simulateur({
             <span className="text-sm font-semibold" style={{ color: "var(--emerald-600)" }}>d&apos;économies estimées</span>
           </div>
 
+          <p className="text-[11px] mt-2" style={{ color: "var(--text-muted)" }}>
+            Estimation indicative et non contractuelle, sous réserve d&apos;étude de votre dossier.
+          </p>
+
           <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
             Renseignez vos coordonnées pour valider votre demande.
           </p>
@@ -266,11 +270,12 @@ export default function Simulateur({
             {erreurEtape2 && <p className="text-sm text-red-700 mt-3">{erreurEtape2}</p>}
 
             <p className="text-xs mt-4 text-center max-w-md" style={{ color: "var(--text-muted)" }}>
-              En validant ce formulaire, vous acceptez la{" "}
+              En validant ce formulaire, vous demandez à être recontacté par Madeleg dans le cadre de cette
+              estimation. Vos données sont traitées conformément à notre{" "}
               <a href="/politique-de-confidentialite" className="underline">
                 politique de confidentialité
-              </a>{" "}
-              et vous acceptez d&apos;être recontacté par un expert dans le cadre de cette estimation.
+              </a>
+              .
             </p>
           </div>
         </form>
@@ -433,7 +438,7 @@ export default function Simulateur({
             <span style={{ color: "var(--emerald-600)" }}>
               <IconeEuro className="w-4 h-4" />
             </span>
-            Gratuit
+            Simulation gratuite
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span style={{ color: "var(--emerald-600)" }}>
@@ -454,8 +459,10 @@ export default function Simulateur({
             Données confidentielles
           </span>
         </div>
-        <p className="text-xs text-center" style={{ color: "var(--text-muted)" }}>
-          *
+        <p className="text-[11px] leading-snug text-center max-w-md mx-auto" style={{ color: "var(--text-muted)" }}>
+          *Estimation indicative et non contractuelle, sous réserve d&apos;étude personnalisée, d&apos;acceptation par
+          l&apos;assureur et de l&apos;équivalence des garanties exigée par votre banque. Des frais de distribution
+          peuvent s&apos;appliquer ; leur montant est indiqué sur le devis, avant toute souscription.{" "}
           <Link href="/assurance-emprunteur#garanties" className="underline">
             Voir le détail des garanties
           </Link>

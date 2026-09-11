@@ -17,6 +17,6 @@ export type MetaArticle = {
 // premier article (exigence EEAT) — ne pas deviner l'URL.
 export const AUTEUR_COURTIER: AuteurArticle = {
   nom: "Mario Romuald Dos Santos",
-  role: "Courtier en assurance emprunteur, fondateur de Madeleg",
+  role: "Intermédiaire en assurance emprunteur (MIA), fondateur de Madeleg",
   linkedin: "",
 };

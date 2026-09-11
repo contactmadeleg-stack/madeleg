@@ -1,18 +1,37 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getPartenairesActifs } from "@/lib/getPartenairesActifs";
-
-export const revalidate = 300;
+import { ASSUREURS_EMPRUNTEUR, ASSUREURS_PREVOYANCE, type Partenaire } from "@/lib/partenaires";
+import { EDITEUR, MANDANT, GROSSISTE } from "@/lib/identite";
 
 export const metadata: Metadata = {
   title: "Nos assureurs partenaires | Madeleg",
   description:
-    "Madeleg travaille avec un large panel d'assureurs partenaires pour trouver le contrat d'assurance emprunteur le plus adapté à votre profil.",
+    "Liste des entreprises d'assurance dont Madeleg peut vous proposer les contrats d'assurance emprunteur, et base de notre conseil.",
 };
 
-export default async function PagePartenaires() {
-  const partenaires = await getPartenairesActifs();
+function ListeAssureurs({ partenaires }: { partenaires: Partenaire[] }) {
+  return (
+    <div className="grid sm:grid-cols-2 gap-4">
+      {partenaires.map(({ assureur, precision, contrats }) => (
+        <div key={assureur} className="mdl-card mdl-card__pad">
+          <p className="font-semibold" style={{ color: "var(--text-strong)" }}>
+            {assureur}
+          </p>
+          {precision && (
+            <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+              {precision}
+            </p>
+          )}
+          <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>
+            {contrats.join(" · ")}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
+export default function PagePartenaires() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-14 sm:py-20">
       <header className="mb-10 text-center">
@@ -20,41 +39,54 @@ export default async function PagePartenaires() {
           Nos partenaires
         </span>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-          Un large panel d&apos;assureurs, pour trouver le contrat le plus adapté
+          Les assureurs dont nous pouvons vous proposer les contrats
         </h1>
         <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
-          Madeleg travaille avec plusieurs compagnies d&apos;assurance, toutes agréées par l&apos;ACPR (Autorité de
-          Contrôle Prudentiel et de Résolution). Cette diversité permet de comparer les garanties et tarifs pour
-          sélectionner le contrat le plus adapté à votre profil, plutôt que de vous proposer une seule offre par
-          défaut.
+          Plusieurs assureurs, tous agréés pour exercer en France, pour comparer les garanties et les tarifs et
+          retenir le contrat adapté à votre profil.
         </p>
       </header>
 
-      {partenaires.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-12">
-          {partenaires.map(({ id, nom, logoUrl }) => (
-            <div
-              key={id}
-              className="mdl-card mdl-card__pad flex items-center justify-center min-h-[6rem] text-center"
-            >
-              {logoUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={logoUrl} alt={nom} className="max-h-10 max-w-full object-contain" />
-              ) : (
-                <span className="text-sm font-medium" style={{ color: "var(--text-strong)" }}>{nom}</span>
-              )}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="text-center mb-12" style={{ color: "var(--text-muted)" }}>
-          La liste de nos partenaires est en cours de mise à jour.
-        </p>
-      )}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold mb-4">Assurance emprunteur</h2>
+        <ListeAssureurs partenaires={ASSUREURS_EMPRUNTEUR} />
+      </section>
 
-      <p className="text-xs text-center mb-10" style={{ color: "var(--text-muted)" }}>
-        Marques citées à titre d&apos;identification, propriété de leurs détenteurs respectifs.
-      </p>
+      <section className="mb-12">
+        <h2 className="text-xl font-bold mb-4">Prévoyance</h2>
+        <ListeAssureurs partenaires={ASSUREURS_PREVOYANCE} />
+      </section>
+
+      <section className="mb-12 space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+        <h2 className="text-xl font-bold" style={{ color: "var(--text-strong)" }}>
+          Comment nous accédons à ces contrats
+        </h2>
+        <p>
+          {EDITEUR.nomCommercial} ({EDITEUR.nomLegal}) est mandataire d&apos;intermédiaire d&apos;assurance (MIA),
+          immatriculé à l&apos;ORIAS sous le n° {EDITEUR.orias}. Nous agissons pour le compte de{" "}
+          {MANDANT.raisonSociale} ({MANDANT.marque}), {MANDANT.categorie} immatriculé à l&apos;ORIAS sous le n°{" "}
+          {MANDANT.orias}, qui accède à ces contrats notamment par l&apos;intermédiaire du {GROSSISTE.role}{" "}
+          {GROSSISTE.nom}.
+        </p>
+        <h2 className="text-xl font-bold pt-3" style={{ color: "var(--text-strong)" }}>
+          Base de notre conseil
+        </h2>
+        <p>
+          Notre conseil ne repose pas sur une analyse impartiale et personnalisée de l&apos;ensemble du marché, au
+          sens de l&apos;article L. 521-2 du Code des assurances. Nous vous recommandons, parmi les contrats des
+          assureurs listés ci-dessus, celui qui correspond le mieux à vos besoins et exigences, après étude de votre
+          situation.
+        </p>
+        <p>
+          Nous ne détenons aucune participation dans une entreprise d&apos;assurance, et aucune entreprise
+          d&apos;assurance ne détient de participation dans notre activité. Notre rémunération est détaillée dans
+          nos{" "}
+          <Link href="/mentions-legales" className="underline">
+            mentions légales
+          </Link>
+          .
+        </p>
+      </section>
 
       <div className="text-center">
         <Link href="/#simulateur" className="mdl-btn mdl-btn--primary mdl-btn--lg">

@@ -19,12 +19,13 @@ export default function SectionExplication() {
         <Reveal delai={0.1}>
           <div className="space-y-4 leading-relaxed" style={{ color: "var(--text-muted)" }}>
             <p>
-              La loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais ni
-              justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de banque ni
+              La loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais de
+              résiliation ni justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de banque ni
               de prêt.
             </p>
             <p>
-              Madeleg est un courtier en assurance, certifié ORIAS. Une fois votre simulation validée, un conseiller
+              Madeleg est un intermédiaire en assurance immatriculé à l&apos;ORIAS (n° 20004713) et mandaté par un
+              courtier. Une fois votre simulation validée, un conseiller
               humain constitue votre dossier de substitution, sélectionne l&apos;assureur adapté à votre profil, et
               suit l&apos;ensemble des échanges avec votre banque jusqu&apos;à validation, vous n&apos;avez rien à
               gérer.
