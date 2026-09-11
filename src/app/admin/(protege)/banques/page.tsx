@@ -8,15 +8,26 @@ export default async function PageBanquesAdmin() {
   const supabase = getSupabaseServerClient();
   const { data, error } = await supabase.from("banques").select("*").order("ordre", { ascending: true });
 
-  const banques = (data ?? []).map((b) => ({
-    id: b.id as string,
-    nom: b.nom as string,
-    actif: b.actif as boolean,
-    ordre: b.ordre as number,
-    logoUrl: b.logo_path
-      ? (supabase.storage.from("logos-banques").getPublicUrl(b.logo_path).data.publicUrl as string)
-      : null,
-  }));
+  const banques = (data ?? []).map((b) => {
+    let logoUrl: string | null = null;
+    if (b.logo_path) {
+      const { publicUrl } = supabase.storage.from("logos-banques").getPublicUrl(b.logo_path).data;
+      // Cache-buster dérivé de logo_updated_at : l'URL ne change que quand
+      // le logo change vraiment, donc le cache reste utile entre deux
+      // logos identiques mais se rafraîchit à coup sûr après un remplacement
+      // (cf. migration 0013 — sans ça le CDN/navigateur sert l'ancien
+      // fichier indéfiniment puisque le chemin de stockage est stable).
+      const v = b.logo_updated_at ? new Date(b.logo_updated_at as string).getTime() : 0;
+      logoUrl = `${publicUrl}?v=${v}`;
+    }
+    return {
+      id: b.id as string,
+      nom: b.nom as string,
+      actif: b.actif as boolean,
+      ordre: b.ordre as number,
+      logoUrl,
+    };
+  });
 
   return (
     <div>

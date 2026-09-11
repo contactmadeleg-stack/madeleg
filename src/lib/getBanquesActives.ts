@@ -9,7 +9,7 @@ export async function getBanquesActives(): Promise<BanqueAffichee[]> {
   const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
     .from("banques")
-    .select("id, nom, logo_path")
+    .select("id, nom, logo_path, logo_updated_at")
     .eq("actif", true)
     .order("ordre", { ascending: true });
 
@@ -17,9 +17,16 @@ export async function getBanquesActives(): Promise<BanqueAffichee[]> {
     return [];
   }
 
-  return data.map((b) => ({
-    id: b.id,
-    nom: b.nom,
-    logoUrl: b.logo_path ? supabase.storage.from("logos-banques").getPublicUrl(b.logo_path).data.publicUrl : null,
-  }));
+  return data.map((b) => {
+    let logoUrl: string | null = null;
+    if (b.logo_path) {
+      const { publicUrl } = supabase.storage.from("logos-banques").getPublicUrl(b.logo_path).data;
+      // Cache-buster — voir commentaire dans admin/banques/page.tsx : sans
+      // lui, un logo remplacé en admin continue de s'afficher tel quel côté
+      // visiteur tant que le cache navigateur/CDN n'a pas expiré (~1h).
+      const v = b.logo_updated_at ? new Date(b.logo_updated_at).getTime() : 0;
+      logoUrl = `${publicUrl}?v=${v}`;
+    }
+    return { id: b.id, nom: b.nom, logoUrl };
+  });
 }

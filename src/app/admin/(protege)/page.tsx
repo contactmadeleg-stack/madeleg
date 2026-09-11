@@ -1,5 +1,6 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server";
-import DossiersTable from "./DossiersTable";
+import KanbanBoard from "./KanbanBoard";
+import type { Simulation } from "./FicheClient";
 
 export const dynamic = "force-dynamic";
 
@@ -32,28 +33,13 @@ async function chargerStats() {
   };
 }
 
-type Simulation = {
-  id: string;
-  created_at: string;
-  prenom: string | null;
-  nom: string | null;
-  email: string | null;
-  mobile: string | null;
-  banque_selectionnee: string | null;
-  economie_affichee: number;
-  ages_emprunteurs: number[];
-  capital: number;
-  statut_dossier: string;
-  notes_internes: string | null;
-};
-
 export default async function PageDashboardAdmin() {
   const supabase = getSupabaseServerClient();
   const [{ data, error }, stats] = await Promise.all([
     supabase
       .from("simulations")
       .select(
-        "id, created_at, prenom, nom, email, mobile, banque_selectionnee, economie_affichee, ages_emprunteurs, capital, statut_dossier, notes_internes"
+        "id, created_at, prenom, nom, email, mobile, banque_selectionnee, economie_affichee, ages_emprunteurs, capital, statut_dossier, notes_internes, ppa, frais_distribution"
       )
       .not("etape2_completed_at", "is", null)
       .order("created_at", { ascending: false }),
@@ -99,7 +85,7 @@ export default async function PageDashboardAdmin() {
         <p style={{ color: "var(--text-muted)" }}>Aucune demande complétée pour l&apos;instant.</p>
       )}
 
-      {!error && simulations.length > 0 && <DossiersTable simulations={simulations} />}
+      {!error && simulations.length > 0 && <KanbanBoard simulationsInitiales={simulations} />}
     </div>
   );
 }

@@ -43,7 +43,11 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: erreurUpload.message }, { status: 500 });
   }
 
-  const { error: erreurMaj } = await supabase.from("banques").update({ logo_path: chemin }).eq("id", id);
+  const maintenant = new Date().toISOString();
+  const { error: erreurMaj } = await supabase
+    .from("banques")
+    .update({ logo_path: chemin, logo_updated_at: maintenant })
+    .eq("id", id);
   if (erreurMaj) {
     return NextResponse.json({ error: erreurMaj.message }, { status: 500 });
   }
@@ -52,5 +56,10 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     data: { publicUrl },
   } = supabase.storage.from("logos-banques").getPublicUrl(chemin);
 
-  return NextResponse.json({ ok: true, logoUrl: `${publicUrl}?v=${Date.now()}` });
+  // Cache-buster dérivé de logo_updated_at (persisté), pas juste Date.now()
+  // côté client : la même valeur doit être reconstruite au prochain
+  // chargement de page (server component) pour que l'URL ne change QUE
+  // quand le logo change réellement, sinon le cache navigateur ne sert
+  // jamais à rien entre deux visites.
+  return NextResponse.json({ ok: true, logoUrl: `${publicUrl}?v=${new Date(maintenant).getTime()}` });
 }

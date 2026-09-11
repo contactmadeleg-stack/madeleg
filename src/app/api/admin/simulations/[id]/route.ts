@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/supabase/serverAuth";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 
-const STATUTS_VALIDES = ["nouveau", "contacte", "dossier_en_cours", "gagne", "perdu"];
+const STATUTS_VALIDES = ["a_joindre", "en_cours", "gagne", "perdu"];
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const user = await getAdminUser();
@@ -13,7 +13,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const { id } = await params;
   const body = await req.json().catch(() => null);
 
-  const donnees: Record<string, string> = {};
+  const donnees: Record<string, string | number> = {};
   if (body?.statut_dossier !== undefined) {
     if (!STATUTS_VALIDES.includes(body.statut_dossier)) {
       return NextResponse.json({ error: "Statut invalide" }, { status: 400 });
@@ -22,6 +22,18 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   }
   if (body?.notes_internes !== undefined) {
     donnees.notes_internes = String(body.notes_internes).slice(0, 5000);
+  }
+  if (body?.ppa !== undefined) {
+    const v = Number(body.ppa);
+    if (!Number.isFinite(v) || v < 0) return NextResponse.json({ error: "Montant PPA invalide" }, { status: 400 });
+    donnees.ppa = v;
+  }
+  if (body?.frais_distribution !== undefined) {
+    const v = Number(body.frais_distribution);
+    if (!Number.isFinite(v) || v < 0) {
+      return NextResponse.json({ error: "Montant des frais de distribution invalide" }, { status: 400 });
+    }
+    donnees.frais_distribution = v;
   }
 
   if (Object.keys(donnees).length === 0) {
