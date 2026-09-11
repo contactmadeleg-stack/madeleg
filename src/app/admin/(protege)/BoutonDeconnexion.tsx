@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 
-export default function BoutonDeconnexion() {
+export default function BoutonDeconnexion({ inverse = false }: { inverse?: boolean }) {
   const router = useRouter();
 
   async function deconnecter() {
@@ -17,7 +17,14 @@ export default function BoutonDeconnexion() {
     <button
       type="button"
       onClick={deconnecter}
-      className="text-sm font-medium text-[var(--color-texte-doux)] hover:text-[var(--color-marque)]"
+      className="text-sm font-medium transition-colors"
+      style={{ color: inverse ? "var(--ink-300)" : "var(--color-texte-doux)" }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = inverse ? "var(--white)" : "var(--color-marque)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = inverse ? "var(--ink-300)" : "var(--color-texte-doux)";
+      }}
     >
       Se déconnecter
     </button>

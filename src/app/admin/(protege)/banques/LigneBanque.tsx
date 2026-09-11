@@ -65,90 +65,113 @@ export default function LigneBanque({
   }
 
   async function televerserLogo(fichier: File) {
+    const logoPrecedent = logoUrl;
+    // Aperçu immédiat local, avant même que la requête réseau ne parte :
+    // le visiteur voit son fichier choisi à l'instant, sans dépendre de la
+    // latence d'upload — c'est ce qui manquait et rendait le changement de
+    // logo invisible ("rien ne se passe") en attendant la vraie réponse.
+    const apercuLocal = URL.createObjectURL(fichier);
+    setLogoUrl(apercuLocal);
     setEnvoiLogo(true);
     setErreur(null);
+
     const form = new FormData();
     form.append("logo", fichier);
-    const res = await fetch(`/api/admin/banques/${id}/logo`, { method: "POST", body: form });
-    const data = await res.json().catch(() => null);
-    setEnvoiLogo(false);
-    if (!res.ok) {
-      setErreur(data?.error ?? "Échec de l'envoi");
-      return;
+    try {
+      const res = await fetch(`/api/admin/banques/${id}/logo`, { method: "POST", body: form });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        setLogoUrl(logoPrecedent);
+        setErreur(data?.error ?? "Échec de l'envoi du logo.");
+        return;
+      }
+      setLogoUrl(data.logoUrl);
+    } catch {
+      setLogoUrl(logoPrecedent);
+      setErreur("Connexion impossible pendant l'envoi du logo. Réessayez.");
+    } finally {
+      setEnvoiLogo(false);
+      URL.revokeObjectURL(apercuLocal);
     }
-    setLogoUrl(data.logoUrl);
   }
 
   return (
-    <div className="mdl-card mdl-card__pad--sm flex items-center gap-4 flex-wrap">
-      <div className="w-16 h-16 shrink-0 rounded-lg border border-[var(--color-bordure)] flex items-center justify-center overflow-hidden bg-white">
-        {logoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={logoUrl} alt="" className="max-w-full max-h-full object-contain p-1.5" />
-        ) : (
-          <span className="text-[10px] text-[var(--color-texte-doux)] text-center px-1">Aucun logo</span>
-        )}
-      </div>
-
-      <div className="flex-1 min-w-[10rem]">
+    <tr className="border-b last:border-0" style={{ borderColor: "var(--border-subtle)" }}>
+      <td className="py-3 pl-6 pr-4">
+        <button
+          type="button"
+          onClick={() => inputFichier.current?.click()}
+          disabled={envoiLogo}
+          title="Changer le logo"
+          className="relative w-12 h-12 shrink-0 rounded-lg border flex items-center justify-center overflow-hidden bg-white group"
+          style={{ borderColor: "var(--border-default)" }}
+        >
+          {logoUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={logoUrl} alt="" className="max-w-full max-h-full object-contain p-1" />
+          ) : (
+            <span className="text-[9px] text-center px-1" style={{ color: "var(--text-subtle)" }}>
+              Aucun logo
+            </span>
+          )}
+          <span
+            className="absolute inset-0 flex items-center justify-center text-[9px] font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity"
+            style={{ background: "rgba(11,18,32,0.6)" }}
+          >
+            {envoiLogo ? "Envoi…" : "Changer"}
+          </span>
+        </button>
         <input
-          value={nom}
-          onChange={(e) => setNom(e.target.value)}
-          className="champ-saisie !py-1.5 font-medium"
+          ref={inputFichier}
+          type="file"
+          accept="image/png,image/jpeg,image/webp,image/svg+xml"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) televerserLogo(f);
+            e.target.value = "";
+          }}
         />
-      </div>
+      </td>
 
-      <label className="text-xs font-medium text-[var(--color-texte-doux)] flex items-center gap-1.5 shrink-0">
-        Ordre
+      <td className="py-3 pr-4 min-w-[10rem]">
+        <input value={nom} onChange={(e) => setNom(e.target.value)} className="champ-saisie !py-1.5 font-medium" />
+      </td>
+
+      <td className="py-3 pr-4">
         <input
           type="number"
           value={ordre}
           onChange={(e) => setOrdre(Number(e.target.value))}
-          className="champ-saisie !py-1.5 w-16"
+          className="champ-saisie !py-1.5 w-16 text-center"
         />
-      </label>
+      </td>
 
-      <button
-        type="button"
-        onClick={basculerActif}
-        className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full border ${
-          actif
-            ? "border-[var(--color-sauge)] bg-[var(--color-sauge-clair)] text-[var(--color-marque)]"
-            : "border-[var(--color-bordure)] text-[var(--color-texte-doux)]"
-        }`}
-      >
-        {actif ? "Actif" : "Masqué"}
-      </button>
+      <td className="py-3 pr-4">
+        <button
+          type="button"
+          onClick={basculerActif}
+          className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full border ${
+            actif
+              ? "border-[var(--color-sauge)] bg-[var(--color-sauge-clair)] text-[var(--color-marque)]"
+              : "border-[var(--color-bordure)] text-[var(--color-texte-doux)]"
+          }`}
+        >
+          {actif ? "Actif" : "Masqué"}
+        </button>
+      </td>
 
-      <input
-        ref={inputFichier}
-        type="file"
-        accept="image/png,image/jpeg,image/webp,image/svg+xml"
-        className="hidden"
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) televerserLogo(f);
-        }}
-      />
-      <button
-        type="button"
-        onClick={() => inputFichier.current?.click()}
-        disabled={envoiLogo}
-        className="shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--color-marque)] text-[var(--color-marque)] disabled:opacity-60"
-      >
-        {envoiLogo ? "Envoi…" : "Changer le logo"}
-      </button>
-
-      <button
-        type="button"
-        onClick={enregistrer}
-        disabled={!modifie || enCours}
-        className="shrink-0 mdl-btn mdl-btn--primary mdl-btn--sm disabled:opacity-50"
-      >
-        {enCours ? "…" : "Enregistrer"}
-      </button>
-
-      {erreur && <p className="text-xs text-red-700 w-full">{erreur}</p>}
-    </div>
+      <td className="py-3 pr-6 text-right">
+        <button
+          type="button"
+          onClick={enregistrer}
+          disabled={!modifie || enCours}
+          className="mdl-btn mdl-btn--primary mdl-btn--sm disabled:opacity-50"
+        >
+          {enCours ? "…" : "Enregistrer"}
+        </button>
+        {erreur && <p className="text-xs text-red-700 mt-1 max-w-[16rem] ml-auto">{erreur}</p>}
+      </td>
+    </tr>
   );
 }
