@@ -4,11 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "@/components/Logo";
-import { IconeTableauDeBord, IconeReglages, IconeBanqueSidebar, IconeDeconnexion, IconeReplier } from "./AdminIcones";
+import {
+  IconeTableauDeBord,
+  IconeClients,
+  IconeReglages,
+  IconeBanqueSidebar,
+  IconeDeconnexion,
+  IconeReplier,
+} from "./AdminIcones";
 import BoutonDeconnexion from "./BoutonDeconnexion";
 
 const LIENS_NAV = [
   { href: "/admin", label: "Tableau de bord", Icone: IconeTableauDeBord },
+  { href: "/admin/clients", label: "Clients", Icone: IconeClients },
   { href: "/admin/grilles", label: "Grilles de taux", Icone: IconeReglages },
   { href: "/admin/banques", label: "Banques", Icone: IconeBanqueSidebar },
 ];

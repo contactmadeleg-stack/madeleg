@@ -15,7 +15,7 @@ export default function Header() {
   const [menuOuvert, setMenuOuvert] = useState(false);
   const pathname = usePathname();
 
-  if (pathname === "/simulation") return null;
+  if (pathname === "/simulation" || pathname?.startsWith("/admin")) return null;
 
   return (
     <header

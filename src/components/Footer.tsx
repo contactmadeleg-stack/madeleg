@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 function IconeInstagram({ className = "w-5 h-5" }: { className?: string }) {
@@ -12,6 +15,10 @@ function IconeInstagram({ className = "w-5 h-5" }: { className?: string }) {
 }
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/simulation" || pathname?.startsWith("/admin")) return null;
+
   return (
     <footer className="mt-16" style={{ background: "var(--emerald-600)" }}>
       <div className="mx-auto max-w-6xl px-4 py-12 grid sm:grid-cols-3 gap-10">

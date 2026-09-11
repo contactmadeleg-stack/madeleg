@@ -102,6 +102,7 @@ export default function FicheClient({
       }
       setEnregistre({ ppa, frais_distribution: fraisDistribution, notes });
       onMisAJour({ ppa, frais_distribution: fraisDistribution, notes_internes: notes });
+      onFermer();
     } catch {
       setErreur("Connexion impossible. Réessayez.");
     } finally {

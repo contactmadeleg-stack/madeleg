@@ -14,6 +14,20 @@ export function IconeTableauDeBord({ className = "w-5 h-5" }: Props) {
   );
 }
 
+export function IconeClients({ className = "w-5 h-5" }: Props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="1.7" />
+      <path
+        d="M3.5 19c.7-3 2.8-4.8 5.5-4.8s4.8 1.8 5.5 4.8M15.5 8.2a2.6 2.6 0 110-5.2M15.8 14.3c2.2.3 3.7 1.9 4.2 4.3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function IconeReglages({ className = "w-5 h-5" }: Props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
