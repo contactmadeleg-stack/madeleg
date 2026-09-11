@@ -78,6 +78,11 @@ export default function PolitiqueConfidentialite() {
           dans un cookie ou dans votre navigateur : toutes les données saisies sont transmises directement à notre
           base de données sécurisée.
         </p>
+        <p className="text-[var(--color-texte-doux)]">
+          Un compteur de fréquentation interne enregistre, à chaque visite, la date et la page consultée, sans
+          cookie ni identifiant permettant de vous reconnaître d&apos;une visite à l&apos;autre. Ces informations,
+          strictement statistiques, ne sont utilisées que par Madeleg pour suivre l&apos;activité du site.
+        </p>
       </section>
     </div>
   );

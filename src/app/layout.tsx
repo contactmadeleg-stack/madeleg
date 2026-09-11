@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Schibsted_Grotesk, Instrument_Sans, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import VisiteTracker from "@/components/VisiteTracker";
 import "./globals.css";
 
 // Polices du design system auto-hébergées via next/font (build-time) plutôt
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`h-full antialiased ${schibstedGrotesk.variable} ${instrumentSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-full flex flex-col">
+        <VisiteTracker />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

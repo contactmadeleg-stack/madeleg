@@ -7,6 +7,35 @@ function euros(n: number) {
   return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 }
 
+// Frontière "aujourd'hui" calculée en UTC pour rester simple (v1 du
+// dashboard) — décalée de quelques heures par rapport à minuit heure de
+// Paris selon la saison, acceptable pour un indicateur de suivi, pas une
+// donnée légale ou financière.
+function debutJourneeUTC(): string {
+  const maintenant = new Date();
+  return new Date(Date.UTC(maintenant.getUTCFullYear(), maintenant.getUTCMonth(), maintenant.getUTCDate())).toISOString();
+}
+
+async function chargerStats() {
+  const supabase = getSupabaseServerClient();
+  const depuis = debutJourneeUTC();
+
+  const [visites, estimations, demandes] = await Promise.all([
+    supabase.from("page_views").select("id", { count: "exact", head: true }).gte("created_at", depuis),
+    supabase.from("simulations").select("id", { count: "exact", head: true }).gte("created_at", depuis),
+    supabase
+      .from("simulations")
+      .select("id", { count: "exact", head: true })
+      .gte("etape2_completed_at", depuis),
+  ]);
+
+  return {
+    visites: visites.count ?? 0,
+    estimations: estimations.count ?? 0,
+    demandes: demandes.count ?? 0,
+  };
+}
+
 function dateFr(iso: string) {
   return new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeStyle: "short" }).format(new Date(iso));
 }
@@ -28,18 +57,36 @@ type Simulation = {
 
 export default async function PageDashboardAdmin() {
   const supabase = getSupabaseServerClient();
-  const { data, error } = await supabase
-    .from("simulations")
-    .select(
-      "id, created_at, prenom, nom, email, mobile, banque_selectionnee, economie_affichee, ages_emprunteurs, capital, statut_dossier, notes_internes"
-    )
-    .not("etape2_completed_at", "is", null)
-    .order("created_at", { ascending: false });
+  const [{ data, error }, stats] = await Promise.all([
+    supabase
+      .from("simulations")
+      .select(
+        "id, created_at, prenom, nom, email, mobile, banque_selectionnee, economie_affichee, ages_emprunteurs, capital, statut_dossier, notes_internes"
+      )
+      .not("etape2_completed_at", "is", null)
+      .order("created_at", { ascending: false }),
+    chargerStats(),
+  ]);
 
   const simulations = (data ?? []) as Simulation[];
 
   return (
     <div>
+      <div className="grid sm:grid-cols-3 gap-4 mb-8">
+        <div className="mdl-card mdl-card__pad mdl-stat">
+          <span className="mdl-stat__label">Visites aujourd&apos;hui</span>
+          <span className="mdl-stat__value">{stats.visites}</span>
+        </div>
+        <div className="mdl-card mdl-card__pad mdl-stat">
+          <span className="mdl-stat__label">Estimations validées</span>
+          <span className="mdl-stat__value">{stats.estimations}</span>
+        </div>
+        <div className="mdl-card mdl-card__pad mdl-stat">
+          <span className="mdl-stat__label">Demandes validées</span>
+          <span className="mdl-stat__value">{stats.demandes}</span>
+        </div>
+      </div>
+
       <div className="flex items-baseline justify-between mb-6">
         <h1 className="text-2xl font-bold">Dossiers</h1>
         <p className="text-sm text-[var(--color-texte-doux)]">
