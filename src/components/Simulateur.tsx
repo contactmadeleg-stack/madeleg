@@ -35,10 +35,12 @@ export default function Simulateur({
   grillesBanque,
   grillesDelegation,
   banques,
+  coefficientDecote,
 }: {
   grillesBanque: TrancheAge[];
   grillesDelegation: TrancheAge[];
   banques: BanqueAffichee[];
+  coefficientDecote: number;
 }) {
   const [capital, setCapital] = useState(200_000);
   const [dureeRestanteAnnees, setDureeRestanteAnnees] = useState(20);
@@ -51,8 +53,15 @@ export default function Simulateur({
 
   const apercu = useMemo(
     () =>
-      calculerSimulationGroupe({ capital, dureeRestanteAnnees, ages, grillesBanque, grillesDelegation }),
-    [capital, dureeRestanteAnnees, ages, grillesBanque, grillesDelegation]
+      calculerSimulationGroupe({
+        capital,
+        dureeRestanteAnnees,
+        ages,
+        grillesBanque,
+        grillesDelegation,
+        coefficientDecote,
+      }),
+    [capital, dureeRestanteAnnees, ages, grillesBanque, grillesDelegation, coefficientDecote]
   );
 
   const apercuAnime = useCompteurAnime(apercu?.economieAffichee ?? 0, 500);

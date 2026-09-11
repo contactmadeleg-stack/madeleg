@@ -8,7 +8,8 @@
 // Prime délégation annuelle(n) = CRD(n) × taux_delegation
 // Économie brute = somme sur les années n = 0..durée_restante-1 de
 //                  (prime banque annuelle - prime délégation annuelle(n))
-// Économie affichée = Économie brute × 0.75
+// Économie affichée = Économie brute × coefficient de décote (réglable
+// depuis la console admin, table parametres_simulation — 0.75 par défaut)
 
 export type PointAnnuel = {
   annee: number; // 1-indexé, année du prêt à partir de maintenant
@@ -25,8 +26,6 @@ export type ResultatSimulation = {
   economieAffichee: number;
   courbe: PointAnnuel[];
 };
-
-const MARGE_SECURITE = 0.75;
 
 export function calculerCrd(capital: number, dureeRestante: number, n: number): number {
   return capital * (dureeRestante - n) / dureeRestante;
@@ -47,8 +46,9 @@ export function calculerSimulation(params: {
   dureeRestanteAnnees: number;
   tauxBanqueMoyen: number;
   tauxDelegation: number;
+  coefficientDecote: number;
 }): ResultatSimulation {
-  const { capital, dureeRestanteAnnees, tauxBanqueMoyen, tauxDelegation } = params;
+  const { capital, dureeRestanteAnnees, tauxBanqueMoyen, tauxDelegation, coefficientDecote } = params;
 
   const primeBanqueAnnuelle = capital * tauxBanqueMoyen;
 
@@ -66,7 +66,7 @@ export function calculerSimulation(params: {
     economieBrute += primeBanqueAnnuelle - primeDelegation;
   }
 
-  const economieAffichee = economieBrute * MARGE_SECURITE;
+  const economieAffichee = economieBrute * coefficientDecote;
 
   return {
     tauxBanqueMoyen,
@@ -89,8 +89,9 @@ export function calculerSimulationGroupe(params: {
   ages: number[];
   grillesBanque: TrancheAge[];
   grillesDelegation: TrancheAge[];
+  coefficientDecote: number;
 }): (ResultatSimulation & { resultatsParEmprunteur: ResultatSimulation[] }) | null {
-  const { capital, dureeRestanteAnnees, ages, grillesBanque, grillesDelegation } = params;
+  const { capital, dureeRestanteAnnees, ages, grillesBanque, grillesDelegation, coefficientDecote } = params;
 
   const resultatsParEmprunteur: ResultatSimulation[] = [];
   for (const age of ages) {
@@ -98,7 +99,7 @@ export function calculerSimulationGroupe(params: {
     const tauxDelegation = trouverTauxDansGrille(grillesDelegation, age);
     if (tauxBanqueMoyen === null || tauxDelegation === null) return null;
     resultatsParEmprunteur.push(
-      calculerSimulation({ capital, dureeRestanteAnnees, tauxBanqueMoyen, tauxDelegation })
+      calculerSimulation({ capital, dureeRestanteAnnees, tauxBanqueMoyen, tauxDelegation, coefficientDecote })
     );
   }
 

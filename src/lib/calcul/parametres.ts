@@ -60,3 +60,27 @@ export async function getGrillesCompletes(): Promise<{
   ]);
   return { banque, delegation };
 }
+
+const COEFFICIENT_DECOTE_DEFAUT = 0.75;
+
+// Coefficient de décote (marge de sécurité) appliqué à l'économie brute,
+// réglable depuis la console admin (table parametres_simulation, ligne
+// unique). En cas d'indisponibilité, on retombe sur la valeur historique
+// plutôt que de casser le simulateur — ce paramètre n'est pas critique au
+// même titre que les grilles de taux (pas de risque d'afficher un chiffre
+// aberrant, seulement une marge légèrement différente de celle voulue).
+export async function getCoefficientDecote(): Promise<number> {
+  try {
+    const supabase = getSupabaseServerClient();
+    const { data, error } = await supabase
+      .from("parametres_simulation")
+      .select("coefficient_decote")
+      .eq("id", true)
+      .single();
+
+    if (error || !data) return COEFFICIENT_DECOTE_DEFAUT;
+    return Number(data.coefficient_decote);
+  } catch {
+    return COEFFICIENT_DECOTE_DEFAUT;
+  }
+}

@@ -7,11 +7,11 @@ import SectionMission from "@/components/SectionMission";
 import SectionPourquoi from "@/components/SectionPourquoi";
 import SectionFAQ from "@/components/SectionFAQ";
 import SectionCTAFinale from "@/components/SectionCTAFinale";
-import { getGrillesCompletes } from "@/lib/calcul/parametres";
+import { getGrillesCompletes, getCoefficientDecote } from "@/lib/calcul/parametres";
 import { getBanquesActives } from "@/lib/getBanquesActives";
 
-// Les grilles de taux sont éditables directement dans Supabase (en
-// attendant une console d'admin) — revalidation régulière pour que les
+// Les grilles de taux et le coefficient de décote sont éditables depuis la
+// console admin (/admin/grilles) — revalidation régulière pour que les
 // changements se reflètent sans nécessiter un redéploiement.
 export const revalidate = 300;
 
@@ -23,7 +23,7 @@ export default async function Home() {
     console.error("Grilles de taux indisponibles :", e);
   }
 
-  const banques = await getBanquesActives();
+  const [banques, coefficientDecote] = await Promise.all([getBanquesActives(), getCoefficientDecote()]);
 
   return (
     <div>
@@ -73,7 +73,12 @@ export default async function Home() {
 
         <div id="simulateur" className="relative mx-auto max-w-3xl px-6 pb-16 sm:pb-20 scroll-mt-20">
           {grilles ? (
-            <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
+            <Simulateur
+              grillesBanque={grilles.banque}
+              grillesDelegation={grilles.delegation}
+              banques={banques}
+              coefficientDecote={coefficientDecote}
+            />
           ) : (
             <p className="text-center" style={{ color: "var(--text-muted)" }}>
               Le simulateur est momentanément indisponible. Réessayez dans un instant.

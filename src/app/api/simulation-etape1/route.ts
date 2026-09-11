@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { calculerSimulationGroupe } from "@/lib/calcul/simulation";
-import { getGrillesCompletes } from "@/lib/calcul/parametres";
+import { getGrillesCompletes, getCoefficientDecote } from "@/lib/calcul/parametres";
 import { etape1Schema } from "@/lib/validation";
 
 export async function POST(req: NextRequest) {
@@ -28,12 +28,15 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const coefficientDecote = await getCoefficientDecote();
+
   const resultat = calculerSimulationGroupe({
     capital,
     dureeRestanteAnnees,
     ages,
     grillesBanque: grilles.banque,
     grillesDelegation: grilles.delegation,
+    coefficientDecote,
   });
 
   if (!resultat) {

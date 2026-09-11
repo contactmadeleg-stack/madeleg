@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Simulateur from "@/components/Simulateur";
 import Logo from "@/components/Logo";
-import { getGrillesCompletes } from "@/lib/calcul/parametres";
+import { getGrillesCompletes, getCoefficientDecote } from "@/lib/calcul/parametres";
 import { getBanquesActives } from "@/lib/getBanquesActives";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default async function PageSimulation() {
     console.error("Grilles de taux indisponibles :", e);
   }
 
-  const banques = await getBanquesActives();
+  const [banques, coefficientDecote] = await Promise.all([getBanquesActives(), getCoefficientDecote()]);
 
   return (
     <div className="min-h-[calc(100vh-1px)] flex flex-col">
@@ -33,7 +33,12 @@ export default async function PageSimulation() {
 
       <div className="mx-auto max-w-3xl w-full px-4 pb-16 flex-1">
         {grilles ? (
-          <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
+          <Simulateur
+            grillesBanque={grilles.banque}
+            grillesDelegation={grilles.delegation}
+            banques={banques}
+            coefficientDecote={coefficientDecote}
+          />
         ) : (
           <p className="text-center" style={{ color: "var(--text-muted)" }}>
             Le simulateur est momentanément indisponible. Réessayez dans un instant.
