@@ -65,6 +65,9 @@ export default function Footer() {
             <Link href="/mentions-legales#reclamation-mediation" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Réclamation et médiation
             </Link>
+            <Link href="/cgu" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
+              CGU
+            </Link>
           </nav>
         </div>
       </div>

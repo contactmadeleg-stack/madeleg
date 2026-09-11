@@ -65,7 +65,8 @@ export default function MentionsLegales() {
           <a href="mailto:contact.madeleg@gmail.com" className="underline">
             contact.madeleg@gmail.com
           </a>
-          .
+          . Un accusé de réception vous sera adressé sous 10 jours ouvrables, et une réponse sur le fond sous 2 mois
+          maximum à compter de la réception de votre réclamation.
           <br />
           Si le désaccord persiste après notre réponse, vous pouvez saisir gratuitement le Centre de Médiation et
           d&apos;Arbitrage de Paris (CMAP), médiateur de la consommation compétent au titre de notre adhésion à la
