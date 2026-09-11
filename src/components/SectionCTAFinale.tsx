@@ -30,7 +30,7 @@ export default function SectionCTAFinale() {
             <p className="text-white/75 mt-3 max-w-md mx-auto">30 secondes, gratuit, sans engagement.</p>
             <a
               href="#simulateur"
-              className="mdl-btn mdl-btn--primary mdl-btn--md inline-block mt-6 bg-[var(--amber-500)] hover:bg-[var(--amber-600)]"
+              className="mdl-btn mdl-btn--primary mdl-btn--lg mt-6 bg-[var(--amber-500)] hover:bg-[var(--amber-600)]"
             >
               Estimer mon économie
             </a>

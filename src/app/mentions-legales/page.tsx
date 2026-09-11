@@ -42,8 +42,8 @@ export default function MentionsLegales() {
         <h2 className="text-xl font-semibold">Rémunération</h2>
         <p className="text-[var(--color-texte-doux)]">
           Madeleg est rémunéré par les assureurs partenaires sous forme de commission liée à la conclusion et à la
-          gestion des contrats souscrits par son intermédiaire. Le détail de cette rémunération peut être communiqué
-          sur simple demande à contact.madeleg@gmail.com.
+          gestion des contrats souscrits par son intermédiaire. Des frais de distribution peuvent également être
+          facturés au client ; le cas échéant, leur montant est indiqué sur le devis remis avant toute souscription.
         </p>
       </section>
 

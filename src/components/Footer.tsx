@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 function IconeInstagram({ className = "w-5 h-5" }: { className?: string }) {
   return (
@@ -15,9 +16,7 @@ export default function Footer() {
     <footer className="mt-16" style={{ background: "var(--emerald-600)" }}>
       <div className="mx-auto max-w-6xl px-4 py-12 grid sm:grid-cols-3 gap-10">
         <div>
-          <p className="font-titres text-xl font-bold text-white">
-            ma<span style={{ color: "var(--amber-500)" }}>deleg</span>
-          </p>
+          <Logo size={22} tone="brand" />
           <p className="text-sm text-white/70 leading-relaxed mt-3 max-w-xs">
             Changer d&apos;assurance emprunteur, sans quitter votre banque.
           </p>
@@ -65,8 +64,7 @@ export default function Footer() {
 
       <div className="border-t border-white/15">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-white/60">
-          Mario Romuald Dos Santos · SIRET 814 537 684 00056 · N° ORIAS 20004713 · © {new Date().getFullYear()}{" "}
-          madeleg.fr · Tous droits réservés
+          N° ORIAS 20004713 · © {new Date().getFullYear()} madeleg.fr · Tous droits réservés
         </p>
       </div>
     </footer>

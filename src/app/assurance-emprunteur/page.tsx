@@ -135,7 +135,7 @@ export default async function PageAssuranceEmprunteur() {
       )}
 
       <div className="text-center">
-        <Link href="/#simulateur" className="mdl-btn mdl-btn--primary mdl-btn--lg inline-block">
+        <Link href="/#simulateur" className="mdl-btn mdl-btn--primary mdl-btn--lg">
           Estimer mon économie
         </Link>
       </div>

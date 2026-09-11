@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Simulateur from "@/components/Simulateur";
+import Logo from "@/components/Logo";
 import { getGrillesCompletes } from "@/lib/calcul/parametres";
 import { getBanquesActives } from "@/lib/getBanquesActives";
 
@@ -25,9 +26,8 @@ export default async function PageSimulation() {
   return (
     <div className="min-h-[calc(100vh-1px)] flex flex-col">
       <div className="mx-auto max-w-3xl w-full px-4 pt-8 pb-4">
-        <Link href="/" className="font-titres text-xl font-bold tracking-tight no-underline">
-          <span style={{ color: "var(--text-strong)" }}>ma</span>
-          <span style={{ color: "var(--amber-500)" }}>deleg</span>
+        <Link href="/" className="inline-block no-underline">
+          <Logo size={22} tone="ink" />
         </Link>
       </div>
 

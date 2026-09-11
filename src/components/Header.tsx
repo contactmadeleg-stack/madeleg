@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Logo from "./Logo";
 
 const LIENS_NAV = [
   { href: "/#comment-ca-marche", label: "Comment ça marche" },
@@ -24,17 +25,8 @@ export default function Header() {
       }}
     >
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        {/* Logo: madeleg (all lowercase, design-system serif) */}
-        <Link
-          href="/"
-          className="shrink-0 font-bold tracking-tight no-underline"
-          style={{
-            font: "700 24px/1.2 var(--font-display)",
-            color: "var(--text-strong)",
-            letterSpacing: "-0.03em",
-          }}
-        >
-          madeleg
+        <Link href="/" className="shrink-0 no-underline">
+          <Logo size={24} tone="ink" />
         </Link>
 
         <div className="flex items-center gap-8">

@@ -59,7 +59,7 @@ export default function SectionPourquoi() {
 
           <Link
             href="/#simulateur"
-            className="mdl-btn mdl-btn--primary mdl-btn--md inline-block mt-10"
+            className="mdl-btn mdl-btn--primary mdl-btn--md mt-10"
           >
             Estimer mon économie
           </Link>

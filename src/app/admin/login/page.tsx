@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
+import Logo from "@/components/Logo";
 
 export default function PageLoginAdmin() {
   const router = useRouter();
@@ -32,10 +33,9 @@ export default function PageLoginAdmin() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--surface-sunken)" }}>
       <div className="mdl-card mdl-card__pad w-full max-w-sm">
-        <p className="font-titres text-xl font-bold text-center mb-1">
-          <span style={{ color: "var(--text-strong)" }}>ma</span>
-          <span style={{ color: "var(--amber-500)" }}>deleg</span>
-        </p>
+        <div className="flex justify-center mb-1">
+          <Logo size={22} tone="ink" />
+        </div>
         <p className="text-center text-sm mb-6" style={{ color: "var(--text-muted)" }}>Console admin</p>
 
         <form onSubmit={soumettre} className="space-y-4">
