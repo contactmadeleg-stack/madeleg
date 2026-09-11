@@ -25,9 +25,9 @@ export default async function PageSimulation() {
   return (
     <div className="min-h-[calc(100vh-1px)] flex flex-col">
       <div className="mx-auto max-w-3xl w-full px-4 pt-8 pb-4">
-        <Link href="/" className="font-titres text-xl font-bold tracking-tight">
-          <span style={{ color: "var(--color-texte)" }}>ma</span>
-          <span style={{ color: "var(--color-ambre)" }}>deleg</span>
+        <Link href="/" className="font-titres text-xl font-bold tracking-tight no-underline">
+          <span style={{ color: "var(--text-strong)" }}>ma</span>
+          <span style={{ color: "var(--amber-500)" }}>deleg</span>
         </Link>
       </div>
 
@@ -35,7 +35,7 @@ export default async function PageSimulation() {
         {grilles ? (
           <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
         ) : (
-          <p className="text-center text-[var(--color-texte-doux)]">
+          <p className="text-center" style={{ color: "var(--text-muted)" }}>
             Le simulateur est momentanément indisponible. Réessayez dans un instant.
           </p>
         )}

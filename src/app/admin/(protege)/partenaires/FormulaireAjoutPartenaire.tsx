@@ -33,7 +33,7 @@ export default function FormulaireAjoutPartenaire() {
       <button
         type="submit"
         disabled={envoiEnCours}
-        className="btn-madeleg px-5 py-2 bg-[var(--color-marque)] text-white shrink-0 disabled:opacity-60"
+        className="mdl-btn mdl-btn--primary mdl-btn--md shrink-0 disabled:opacity-60"
       >
         Ajouter
       </button>

@@ -27,7 +27,7 @@ export default function Header() {
         {/* Logo: madeleg (all lowercase, design-system serif) */}
         <Link
           href="/"
-          className="shrink-0 font-bold tracking-tight"
+          className="shrink-0 font-bold tracking-tight no-underline"
           style={{
             font: "700 24px/1.2 var(--font-display)",
             color: "var(--text-strong)",
@@ -44,7 +44,7 @@ export default function Header() {
               <a
                 key={lien.href}
                 href={lien.href}
-                className="text-sm font-medium transition-colors"
+                className="text-sm font-medium no-underline transition-colors"
                 style={{
                   color: "var(--text-muted)",
                 }}
@@ -110,7 +110,7 @@ export default function Header() {
               key={lien.href}
               href={lien.href}
               onClick={() => setMenuOuvert(false)}
-              className="text-sm font-medium"
+              className="text-sm font-medium no-underline"
               style={{
                 color: "var(--text-strong)",
               }}

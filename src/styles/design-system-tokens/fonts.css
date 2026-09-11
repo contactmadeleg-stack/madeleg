@@ -1,9 +1,11 @@
 /* madeleg — webfonts.
-   NOTE: served from Google Fonts CDN. No brand font binaries were supplied.
-   Replace with self-hosted @font-face + woff2 files when licences are available. */
+   Auto-hébergées via next/font/google (voir src/app/layout.tsx) : les
+   variables --font-*-loaded sont injectées sur <html> au build, avec repli
+   sur la pile système si jamais elles ne sont pas encore posées (SSR d'un
+   composant hors de l'arbre du layout, tests isolés…). */
 
 :root{
-  --font-display:"Schibsted Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-sans:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-mono:"Geist Mono","SF Mono",ui-monospace,Menlo,monospace;
+  --font-display:var(--font-display-loaded),"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-sans:var(--font-sans-loaded),"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:var(--font-mono-loaded),"SF Mono",ui-monospace,Menlo,monospace;
 }

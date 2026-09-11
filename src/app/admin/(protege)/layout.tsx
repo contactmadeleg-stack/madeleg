@@ -37,7 +37,7 @@ export default async function LayoutAdmin({
                 <Link
                   key={lien.href}
                   href={lien.href}
-                  className="text-sm font-medium text-[var(--color-texte-doux)] hover:text-[var(--color-marque)]"
+                  className="text-sm font-medium no-underline text-[var(--color-texte-doux)] hover:text-[var(--color-marque)]"
                 >
                   {lien.label}
                 </Link>

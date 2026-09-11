@@ -256,7 +256,7 @@ export default function Simulateur({
             </button>
             {erreurEtape2 && <p className="text-sm text-red-700 mt-3">{erreurEtape2}</p>}
 
-            <p className="text-xs text-[var(--color-texte-doux)] mt-4 text-center max-w-md">
+            <p className="text-xs mt-4 text-center max-w-md" style={{ color: "var(--text-muted)" }}>
               En validant ce formulaire, vous acceptez la{" "}
               <a href="/politique-de-confidentialite" className="underline">
                 politique de confidentialité
@@ -411,7 +411,7 @@ export default function Simulateur({
           <button
             type="submit"
             disabled={etat.phase === "chargement" || !apercu}
-            className="btn-madeleg btn-madeleg-principal px-8 py-3 text-white disabled:opacity-60"
+            className="mdl-btn mdl-btn--primary mdl-btn--lg disabled:opacity-60"
           >
             {etat.phase === "chargement" ? "Calcul en cours…" : "Valider mon estimation"}
           </button>

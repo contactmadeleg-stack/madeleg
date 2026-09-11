@@ -26,7 +26,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Madeleg sur Instagram"
-            className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/25 text-white/80 hover:text-white hover:border-white/60 mt-4"
+            className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/25 text-white/80 no-underline hover:text-white hover:border-white/60 mt-4"
           >
             <IconeInstagram className="w-4 h-4" />
           </a>
@@ -35,13 +35,13 @@ export default function Footer() {
         <div>
           <p className="text-xs font-bold text-white/60 uppercase tracking-wide mb-3">Madeleg</p>
           <nav className="flex flex-col gap-2 text-sm">
-            <Link href="/" className="font-semibold text-white/80 hover:text-white">
+            <Link href="/" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Simulateur
             </Link>
-            <Link href="/assurance-emprunteur" className="font-semibold text-white/80 hover:text-white">
+            <Link href="/assurance-emprunteur" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Guide assurance emprunteur
             </Link>
-            <Link href="/partenaires" className="font-semibold text-white/80 hover:text-white">
+            <Link href="/partenaires" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Nos partenaires
             </Link>
           </nav>
@@ -50,13 +50,13 @@ export default function Footer() {
         <div>
           <p className="text-xs font-bold text-white/60 uppercase tracking-wide mb-3">Informations légales</p>
           <nav className="flex flex-col gap-2 text-sm">
-            <Link href="/mentions-legales" className="font-semibold text-white/80 hover:text-white">
+            <Link href="/mentions-legales" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Mentions légales
             </Link>
-            <Link href="/politique-de-confidentialite" className="font-semibold text-white/80 hover:text-white">
+            <Link href="/politique-de-confidentialite" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Politique de confidentialité
             </Link>
-            <Link href="/mentions-legales#reclamation-mediation" className="font-semibold text-white/80 hover:text-white">
+            <Link href="/mentions-legales#reclamation-mediation" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Réclamation et médiation
             </Link>
           </nav>

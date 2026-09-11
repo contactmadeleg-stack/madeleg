@@ -55,7 +55,7 @@ export default async function PageDashboardAdmin() {
 
       <div className="space-y-4">
         {simulations.map((s) => (
-          <div key={s.id} className="carte-madeleg p-5 grid lg:grid-cols-[1.3fr_1fr_1fr] gap-5">
+          <div key={s.id} className="mdl-card mdl-card__pad grid lg:grid-cols-[1.3fr_1fr_1fr] gap-5">
             <div>
               <p className="font-titres font-bold">
                 {s.prenom} {s.nom}

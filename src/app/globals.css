@@ -1,67 +1,47 @@
 @import "tailwindcss";
 
-/* Design System — custom CSS variables (inline to avoid @import parsing issues) */
-/* Colors from design-system tokens */
+/* Design System madeleg — tokens + composants.
+   Tous les @import doivent précéder toute autre règle (contrainte Tailwind v4 /
+   Lightning CSS : "@import must precede all rules aside from @charset and @layer").
+   Ordre : polices → couleurs brutes → alias sémantiques → typographie → espacement
+   → rayons → ombres → mouvement → layout → reset de base → composants .mdl-*.
+
+   Les fichiers de tokens ne posent que des custom properties sur :root — pas
+   de conflit de cascade, import non-layé. En revanche base.css (styles bruts
+   sur h1/p/a/body…) et les classes .mdl-* SONT des règles de sélecteur : sans
+   layer, elles deviennent non-layées et l'emportent TOUJOURS sur les
+   utilitaires Tailwind (qui vivent dans @layer utilities), quel que soit
+   l'ordre ou la spécificité — c'est la règle des cascade layers CSS. Résultat
+   observé : `text-white/80` perdait face au `a{color:var(--text-link)}` de
+   base.css, rendant les liens du footer illisibles (vert foncé sur vert).
+   Fix : réutiliser les layers déjà déclarés par Tailwind (base < components <
+   utilities) via `layer(...)` sur l'@import, pour que les utilitaires
+   gardent la priorité comme dans toute app Tailwind standard. */
+@import "../styles/design-system-tokens/fonts.css";
+@import "../styles/design-system-tokens/colors.css";
+@import "../styles/design-system-tokens/semantic.css";
+@import "../styles/design-system-tokens/typography.css";
+@import "../styles/design-system-tokens/spacing.css";
+@import "../styles/design-system-tokens/radius.css";
+@import "../styles/design-system-tokens/elevation.css";
+@import "../styles/design-system-tokens/motion.css";
+@import "../styles/design-system-tokens/layout.css";
+@import "../styles/design-system-tokens/base.css" layer(base);
+@import "../styles/design-system-css/buttons.css" layer(components);
+@import "../styles/design-system-css/forms.css" layer(components);
+@import "../styles/design-system-css/surfaces.css" layer(components);
+@import "../styles/design-system-css/feedback.css" layer(components);
+@import "../styles/design-system-css/navigation.css" layer(components);
+@import "../styles/design-system-css/utilities.css" layer(components);
+
 :root {
-  /* Fonts */
-  --font-display: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-sans: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "Geist Mono", "SF Mono", ui-monospace, Menlo, monospace;
-
-  /* Ink palette */
-  --ink-950: #060B14;
-  --ink-900: #0B1220;
-  --ink-800: #121C2E;
-  --ink-700: #1C2841;
-  --ink-600: #2C3D5C;
-  --ink-500: #435777;
-  --ink-400: #64789A;
-  --ink-300: #93A6C1;
-  --ink-200: #C4CEDE;
-  --ink-150: #DCE3EE;
-  --ink-100: #E9EEF5;
-  --ink-50: #F3F6FA;
-
-  /* Emerald */
-  --emerald-800: #04503A;
-  --emerald-700: #066248;
-  --emerald-600: #00784F;
-  --emerald-500: #009463;
-  --emerald-400: #12B37D;
-  --emerald-300: #5FD6A6;
-  --emerald-200: #A8E9CB;
-  --emerald-100: #D9F5E8;
-  --emerald-50: #EFFBF5;
-
-  /* Amber */
-  --amber-700: #8A4E10;
-  --amber-600: #A86216;
-  --amber-500: #D98324;
-  --amber-400: #F2A65A;
-  --amber-200: #FBDAB5;
-  --amber-100: #FDEBD6;
-  --amber-50: #FDF5EC;
-
-  /* Sand & semantic */
-  --sand-50: #FBF9F5;
-  --text-strong: var(--ink-900);
-  --text-body: var(--ink-700);
-  --text-muted: var(--ink-500);
-  --surface-page: #FFFFFF;
-  --surface-card: #FFFFFF;
-  --surface-sunken: var(--ink-50);
-  --surface-brand: var(--emerald-600);
-  --surface-brand-subtle: var(--emerald-50);
-  --border-subtle: var(--ink-100);
-  --text-link: var(--emerald-700);
-  --text-brand: var(--emerald-600);
-
-  /* Backward compatibility */
-  --color-fond: #FFFFFF;
-  --color-fond-carte: #FFFFFF;
-  --color-bordure: var(--ink-100);
-  --color-texte: var(--ink-900);
-  --color-texte-doux: var(--ink-500);
+  /* Alias de compatibilité — code legacy (pages admin, anciens composants)
+     qui référence encore les anciennes variables --color-*. */
+  --color-fond: var(--surface-page);
+  --color-fond-carte: var(--surface-card);
+  --color-bordure: var(--border-subtle);
+  --color-texte: var(--text-strong);
+  --color-texte-doux: var(--text-muted);
   --color-marque: var(--emerald-600);
   --color-marque-clair: var(--emerald-700);
   --color-ambre: var(--amber-500);
@@ -76,55 +56,32 @@
    z-index élevé rendait la texture visible par-dessus les boutons, et la
    couture du motif tuilé y apparaissait comme une barre au milieu du
    texte ("gros warning" signalé) — un fond peint sous le contenu ne peut
-   plus jamais recouvrir un bouton opaque au-dessus. */
+   plus jamais recouvrir un bouton opaque au-dessus.
+   Cette règle arrive après l'import de base.css : même spécificité, ordre
+   de source, donc elle l'emporte sur le fond uni défini là-bas. */
 body {
   background-color: var(--surface-page);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   background-blend-mode: multiply;
-  color: var(--text-body);
-  font-family: var(--font-sans);
 }
 
 /*
  * @layer base / @layer components : Tailwind v4 place ses utilitaires dans
  * le layer `utilities`, qui gagne toujours face à `base`/`components` quel
  * que soit l'ordre des règles dans le fichier. Sans ce layer, ces règles
- * (déclarées après l'import Tailwind) gagnaient silencieusement face à des
- * classes comme `text-white` ou `pl-9` utilisées à côté — ce qui a causé le
- * "ma" invisible du footer et le chevauchement icône/valeur du champ âge.
+ * gagnaient silencieusement face à des classes comme `text-white` ou `pl-9`
+ * utilisées à côté — ce qui a causé le "ma" invisible du footer et le
+ * chevauchement icône/valeur du champ âge.
  */
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--text-strong);
-    font-family: var(--font-display);
-  }
-
-  h1 {
-    font: var(--type-h1);
-  }
-
-  h2 {
-    font: var(--type-h2);
-  }
-
-  h3 {
-    font: var(--type-h3);
-  }
-
-  p {
-    font: var(--type-body);
-    color: var(--text-body);
-  }
-
   .font-titres {
     font-family: var(--font-display);
   }
 }
 
 @layer components {
-  /* Composants legacy: use design-system classes directly in HTML, not via @apply */
-  /* These are kept for reference; prefer using .mdl-* classes directly */
-
+  /* Éléments décoratifs propres au site marketing madeleg (non fournis par
+     le design system de base, qui reste neutre sur ces effets). */
   .texte-degrade-ambre {
     background: linear-gradient(120deg, var(--amber-500) 20%, var(--amber-400) 80%);
     -webkit-background-clip: text;
@@ -145,16 +102,39 @@ body {
     z-index: -1;
   }
 
+  /* Alias de compatibilité pour les pages admin (outil interne, hors refonte
+     visuelle prioritaire) qui utilisent encore ces classes historiques. */
+  .champ-saisie {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: var(--font-size-sm);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-control);
+    color: var(--text-strong);
+    background-color: var(--surface-card);
+    transition: var(--transition-control);
+  }
+
+  .champ-saisie:focus {
+    outline: none;
+    border-color: var(--border-brand);
+    box-shadow: var(--focus-ring);
+  }
+
+  .champ-saisie::placeholder {
+    color: var(--text-subtle);
+  }
+
   .curseur-madeleg {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 6px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: linear-gradient(
       to right,
       var(--emerald-600) var(--pourcentage, 0%),
-      var(--border-subtle) var(--pourcentage, 0%)
+      var(--ink-100) var(--pourcentage, 0%)
     );
     outline: none;
   }
@@ -165,9 +145,9 @@ body {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: var(--amber-500);
-    border: 3px solid var(--white);
-    box-shadow: var(--shadow-md);
+    background: var(--white);
+    border: 2px solid var(--emerald-600);
+    box-shadow: var(--shadow-sm);
     cursor: pointer;
   }
 
@@ -175,42 +155,21 @@ body {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: var(--amber-500);
-    border: 3px solid var(--white);
-    box-shadow: var(--shadow-md);
+    background: var(--white);
+    border: 2px solid var(--emerald-600);
+    box-shadow: var(--shadow-sm);
     cursor: pointer;
   }
 
   .curseur-madeleg::-moz-range-track {
     height: 6px;
-    border-radius: 999px;
-    background: var(--border-subtle);
+    border-radius: var(--radius-pill);
+    background: var(--ink-100);
   }
 
   .curseur-madeleg::-moz-range-progress {
     height: 6px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--emerald-600);
-  }
-
-  .champ-saisie {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.5rem;
-    color: var(--text-body);
-    background-color: var(--surface-card);
-    transition: border-color, box-shadow 0.2s ease;
-  }
-
-  .champ-saisie:focus {
-    outline: none;
-    border-color: var(--emerald-600);
-    box-shadow: 0 0 0 3px rgba(0, 120, 79, 0.1);
-  }
-
-  .champ-saisie::placeholder {
-    color: var(--text-muted);
   }
 }

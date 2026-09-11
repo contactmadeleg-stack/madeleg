@@ -34,8 +34,8 @@ export default function ArticleLayout({
       />
 
       <header className="mb-8 space-y-3">
-        <h1 className="text-3xl font-bold text-[var(--color-texte)]">{meta.titre}</h1>
-        <p className="text-sm text-[var(--color-texte-doux)]">
+        <h1 className="text-3xl font-bold" style={{ color: "var(--text-strong)" }}>{meta.titre}</h1>
+        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
           Publié le {formatDate(meta.datePublication)}
           {meta.dateMiseAJour !== meta.datePublication && (
             <>, mis à jour le {formatDate(meta.dateMiseAJour)}</>
@@ -43,11 +43,11 @@ export default function ArticleLayout({
         </p>
       </header>
 
-      <div className="prose-madeleg space-y-4 text-[var(--color-texte)]">{children}</div>
+      <div className="prose-madeleg space-y-4" style={{ color: "var(--text-body)" }}>{children}</div>
 
-      <footer className="mt-10 pt-6 border-t border-[var(--color-bordure)] space-y-6">
-        <div className="text-sm text-[var(--color-texte-doux)]">
-          <p className="font-medium text-[var(--color-texte)]">{meta.auteur.nom}</p>
+      <footer className="mt-10 pt-6 border-t space-y-6" style={{ borderColor: "var(--border-subtle)" }}>
+        <div className="text-sm" style={{ color: "var(--text-muted)" }}>
+          <p className="font-medium" style={{ color: "var(--text-strong)" }}>{meta.auteur.nom}</p>
           <p>{meta.auteur.role}</p>
           {meta.auteur.linkedin && (
             <a href={meta.auteur.linkedin} target="_blank" rel="noopener noreferrer" className="underline">
@@ -56,10 +56,7 @@ export default function ArticleLayout({
           )}
         </div>
 
-        <Link
-          href="/"
-          className="btn-madeleg inline-block px-6 py-3 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)]"
-        >
+        <Link href="/" className="mdl-btn mdl-btn--primary mdl-btn--md">
           Estimer mon économie sur mon assurance emprunteur
         </Link>
       </footer>

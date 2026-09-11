@@ -26,17 +26,17 @@ export default async function PageAssuranceEmprunteur() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:py-20">
       <header className="mb-10">
-        <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
+        <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full mb-4" style={{ backgroundColor: "var(--emerald-50)", color: "var(--emerald-600)" }}>
           Guide
         </span>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Assurance emprunteur : le guide complet</h1>
-        <p className="text-lg text-[var(--color-texte-doux)] leading-relaxed">
+        <p className="text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
           Ce que couvre l&apos;assurance de prêt immobilier, pourquoi elle coûte souvent plus cher que nécessaire, et
           comment la loi Lemoine permet de la changer sans quitter votre banque.
         </p>
       </header>
 
-      <section className="prose-madeleg space-y-4 text-[var(--color-texte)] mb-12">
+      <section className="prose-madeleg space-y-4 mb-12" style={{ color: "var(--text-body)" }}>
         <h2 className="text-2xl font-bold mt-8 mb-3">À quoi sert l&apos;assurance emprunteur ?</h2>
         <p>
           Lorsqu&apos;une banque accorde un prêt immobilier, elle demande presque toujours une assurance de prêt en
@@ -106,11 +106,11 @@ export default async function PageAssuranceEmprunteur() {
             { icone: IconePoignee, texte: "Sélection de l'assureur adapté à votre profil" },
             { icone: IconeBouclier, texte: "Suivi des échanges avec votre banque jusqu'à validation" },
           ].map(({ icone: Icone, texte }) => (
-            <div key={texte} className="carte-madeleg p-5 flex items-start gap-3">
-              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] shrink-0">
+            <div key={texte} className="mdl-card mdl-card__pad flex items-start gap-3">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full shrink-0" style={{ backgroundColor: "var(--emerald-50)", color: "var(--emerald-600)" }}>
                 <Icone className="w-4 h-4" />
               </span>
-              <p className="text-sm text-[var(--color-texte)] leading-relaxed">{texte}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-strong)" }}>{texte}</p>
             </div>
           ))}
         </div>
@@ -124,10 +124,10 @@ export default async function PageAssuranceEmprunteur() {
               <Link
                 key={article.slug}
                 href={`/assurance-emprunteur/${article.slug}`}
-                className="carte-madeleg block p-5 hover:opacity-90"
+                className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
               >
-                <p className="font-titres font-bold mb-1">{article.titre}</p>
-                <p className="text-sm text-[var(--color-texte-doux)]">{article.description}</p>
+                <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>{article.titre}</p>
+                <p className="text-sm" style={{ color: "var(--text-muted)" }}>{article.description}</p>
               </Link>
             ))}
           </div>
@@ -135,10 +135,7 @@ export default async function PageAssuranceEmprunteur() {
       )}
 
       <div className="text-center">
-        <Link
-          href="/#simulateur"
-          className="btn-madeleg btn-madeleg-principal inline-block px-8 py-3 text-white"
-        >
+        <Link href="/#simulateur" className="mdl-btn mdl-btn--primary mdl-btn--lg inline-block">
           Estimer mon économie
         </Link>
       </div>

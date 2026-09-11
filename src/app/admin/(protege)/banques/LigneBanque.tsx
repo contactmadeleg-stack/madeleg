@@ -47,7 +47,7 @@ export default function LigneBanque({
   }
 
   return (
-    <div className="carte-madeleg p-4 flex items-center gap-4">
+    <div className="mdl-card mdl-card__pad--sm flex items-center gap-4">
       <div className="w-16 h-16 shrink-0 rounded-lg border border-[var(--color-bordure)] flex items-center justify-center overflow-hidden bg-white">
         {logoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element

@@ -30,13 +30,13 @@ export default function PageLoginAdmin() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--color-fond)" }}>
-      <div className="carte-madeleg p-8 w-full max-w-sm">
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--surface-sunken)" }}>
+      <div className="mdl-card mdl-card__pad w-full max-w-sm">
         <p className="font-titres text-xl font-bold text-center mb-1">
-          <span style={{ color: "var(--color-texte)" }}>ma</span>
-          <span style={{ color: "var(--color-ambre)" }}>deleg</span>
+          <span style={{ color: "var(--text-strong)" }}>ma</span>
+          <span style={{ color: "var(--amber-500)" }}>deleg</span>
         </p>
-        <p className="text-center text-sm text-[var(--color-texte-doux)] mb-6">Console admin</p>
+        <p className="text-center text-sm mb-6" style={{ color: "var(--text-muted)" }}>Console admin</p>
 
         <form onSubmit={soumettre} className="space-y-4">
           <label className="block">
@@ -63,7 +63,7 @@ export default function PageLoginAdmin() {
           <button
             type="submit"
             disabled={envoiEnCours}
-            className="btn-madeleg w-full px-6 py-2.5 bg-[var(--color-marque)] text-white hover:bg-[var(--color-marque-clair)] disabled:opacity-60"
+            className="mdl-btn mdl-btn--primary mdl-btn--md mdl-btn--block disabled:opacity-60"
           >
             {envoiEnCours ? "Connexion…" : "Se connecter"}
           </button>

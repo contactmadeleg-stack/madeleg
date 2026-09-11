@@ -1,7 +1,35 @@
 import type { Metadata } from "next";
+import { Schibsted_Grotesk, Instrument_Sans, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+
+// Polices du design system auto-hébergées via next/font (build-time) plutôt
+// qu'un <link> vers fonts.googleapis.com au runtime : pas de FOUC, pas de
+// requête tierce (RGPD — évite d'envoyer l'IP du visiteur à Google à chaque
+// chargement), et ça continue de fonctionner même quand le CDN Google Fonts
+// est injoignable au runtime. Les variables générées sont branchées sur les
+// tokens --font-display/--font-sans/--font-mono dans globals.css.
+const schibstedGrotesk = Schibsted_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-display-loaded",
+  display: "swap",
+});
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans-loaded",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono-loaded",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Madeleg | Économisez sur votre assurance de prêt immobilier",
@@ -11,16 +39,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className="h-full antialiased">
-      <head>
-        {/* Design system fonts from Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Geist+Mono:wght@400..600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="fr"
+      className={`h-full antialiased ${schibstedGrotesk.variable} ${instrumentSans.variable} ${geistMono.variable}`}
+    >
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
