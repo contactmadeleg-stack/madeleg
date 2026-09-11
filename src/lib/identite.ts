@@ -13,10 +13,7 @@ export const EDITEUR = {
   siren: "814 537 684",
   siret: "814 537 684 00056",
   email: "contact.madeleg@gmail.com",
-  // Obligatoire (LCEN, art. 6-III) pour un éditeur personne physique.
-  // À RENSEIGNER avant mise en ligne (ex. "06 12 34 56 78") — la ligne
-  // n'est pas affichée tant que la valeur est vide.
-  telephone: "",
+  telephone: "06 66 60 91 19",
   orias: "20004713",
 } as const;
 
