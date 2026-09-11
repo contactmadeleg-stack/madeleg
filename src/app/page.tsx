@@ -31,25 +31,51 @@ export default async function Home() {
         <FormeDecorative />
 
         <section className="relative">
-          <div className="relative mx-auto max-w-3xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14 text-center">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-5">
-              <IconeEclair className="w-3.5 h-3.5 text-[var(--color-ambre)]" />
+          <div
+            className="relative mx-auto max-w-3xl px-6 pt-16 pb-12 sm:pt-24 sm:pb-16 text-center"
+            style={{ maxWidth: "1080px" }}
+          >
+            {/* Overline badge */}
+            <span
+              className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide uppercase px-3 py-1.5 rounded-full mb-6"
+              style={{
+                backgroundColor: "var(--surface-brand-subtle)",
+                color: "var(--text-brand)",
+              }}
+            >
+              <IconeEclair className="w-3.5 h-3.5" />
               Simple et sans prise de tête
             </span>
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-xl mx-auto">
+
+            {/* H1: Design-system Display + H1 styles */}
+            <h1
+              className="max-w-2xl mx-auto mb-6"
+              style={{
+                font: "var(--type-h1)",
+                color: "var(--text-strong)",
+              }}
+            >
               Payez-vous <span className="texte-degrade-ambre">trop cher</span> votre assurance emprunteur&nbsp;?
             </h1>
-            <p className="text-lg text-[var(--color-texte-doux)] mt-4 max-w-lg mx-auto">
+
+            {/* Subheading: Body large */}
+            <p
+              className="mx-auto max-w-xl"
+              style={{
+                font: "var(--type-body-lg)",
+                color: "var(--text-muted)",
+              }}
+            >
               Changez à tout moment, sans quitter votre banque. Estimation gratuite en 30 secondes.
             </p>
           </div>
         </section>
 
-        <div id="simulateur" className="relative mx-auto max-w-3xl px-4 pb-16 sm:pb-20 scroll-mt-20">
+        <div id="simulateur" className="relative mx-auto max-w-3xl px-6 pb-16 sm:pb-20 scroll-mt-20">
           {grilles ? (
             <Simulateur grillesBanque={grilles.banque} grillesDelegation={grilles.delegation} banques={banques} />
           ) : (
-            <p className="text-center text-[var(--color-texte-doux)]">
+            <p className="text-center" style={{ color: "var(--text-muted)" }}>
               Le simulateur est momentanément indisponible. Réessayez dans un instant.
             </p>
           )}

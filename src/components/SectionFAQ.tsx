@@ -40,7 +40,7 @@ export default function SectionFAQ() {
     <section id="faq" className="mx-auto max-w-3xl px-4 py-16 sm:py-24 scroll-mt-20">
       <Reveal>
         <div className="text-center mb-10">
-          <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
+          <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full mb-4" style={{ backgroundColor: "var(--emerald-50)", color: "var(--emerald-600)" }}>
             Questions fréquentes
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Tout ce qu&apos;on nous demande</h2>
@@ -51,17 +51,17 @@ export default function SectionFAQ() {
         {QUESTIONS.map(({ q, r }, i) => {
           const estOuvert = ouvert === i;
           return (
-            <div key={q} className="carte-madeleg overflow-hidden">
+            <div key={q} className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] overflow-hidden">
               <button
                 type="button"
                 onClick={() => setOuvert(estOuvert ? null : i)}
                 aria-expanded={estOuvert}
-                className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-medium"
+                className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-medium transition-colors hover:bg-[var(--surface-sunken)]"
               >
                 <span>{q}</span>
                 <span
-                  className="shrink-0 text-[var(--color-marque)] transition-transform duration-200"
-                  style={{ transform: estOuvert ? "rotate(180deg)" : "rotate(0deg)" }}
+                  className="shrink-0 transition-transform duration-200"
+                  style={{ color: "var(--emerald-600)", transform: estOuvert ? "rotate(180deg)" : "rotate(0deg)" }}
                 >
                   <IconeChevronBas className="w-4 h-4" />
                 </span>
@@ -76,7 +76,7 @@ export default function SectionFAQ() {
                     transition={reduitMotion ? { duration: 0 } : { duration: 0.25, ease: "easeInOut" }}
                     style={{ overflow: "hidden" }}
                   >
-                    <p className="px-5 pb-4 text-sm text-[var(--color-texte-doux)] leading-relaxed">{r}</p>
+                    <p className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{r}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

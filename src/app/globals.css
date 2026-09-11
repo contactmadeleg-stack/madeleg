@@ -1,45 +1,73 @@
 @import "tailwindcss";
 
+/* Design System — custom CSS variables (inline to avoid @import parsing issues) */
+/* Colors from design-system tokens */
 :root {
-  /* Fond clair et aéré — jamais de thème sombre pour ce site */
-  --color-fond: #faf8f4;
-  --color-fond-carte: #ffffff;
-  --color-bordure: #e8e3d9;
+  /* Fonts */
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", "SF Mono", ui-monospace, Menlo, monospace;
 
-  /* Texte : encre profonde, jamais noir pur */
-  --color-texte: #1a1e1d;
-  --color-texte-doux: #5c6462;
+  /* Ink palette */
+  --ink-950: #060B14;
+  --ink-900: #0B1220;
+  --ink-800: #121C2E;
+  --ink-700: #1C2841;
+  --ink-600: #2C3D5C;
+  --ink-500: #435777;
+  --ink-400: #64789A;
+  --ink-300: #93A6C1;
+  --ink-200: #C4CEDE;
+  --ink-150: #DCE3EE;
+  --ink-100: #E9EEF5;
+  --ink-50: #F3F6FA;
 
-  /* Marque : bleu-vert profond — boutons, titres, liens */
-  --color-marque: #1b4b4a;
-  --color-marque-clair: #2a6664;
+  /* Emerald */
+  --emerald-800: #04503A;
+  --emerald-700: #066248;
+  --emerald-600: #00784F;
+  --emerald-500: #009463;
+  --emerald-400: #12B37D;
+  --emerald-300: #5FD6A6;
+  --emerald-200: #A8E9CB;
+  --emerald-100: #D9F5E8;
+  --emerald-50: #EFFBF5;
 
-  /* Ambre : réservé aux montants d'économie mis en avant */
-  --color-ambre: #d98e2e;
-  --color-ambre-clair: #f3d9ae;
+  /* Amber */
+  --amber-700: #8A4E10;
+  --amber-600: #A86216;
+  --amber-500: #D98324;
+  --amber-400: #F2A65A;
+  --amber-200: #FBDAB5;
+  --amber-100: #FDEBD6;
+  --amber-50: #FDF5EC;
 
-  /* Sauge : accent succès/validation, discret */
-  --color-sauge: #7a9e7e;
-  --color-sauge-clair: #e3ece3;
+  /* Sand & semantic */
+  --sand-50: #FBF9F5;
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --surface-page: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-sunken: var(--ink-50);
+  --surface-brand: var(--emerald-600);
+  --surface-brand-subtle: var(--emerald-50);
+  --border-subtle: var(--ink-100);
+  --text-link: var(--emerald-700);
+  --text-brand: var(--emerald-600);
 
-  --font-titres: var(--font-baloo2);
-  --font-sans: var(--font-nunito);
-}
-
-@theme inline {
-  --color-fond: var(--color-fond);
-  --color-fond-carte: var(--color-fond-carte);
-  --color-bordure: var(--color-bordure);
-  --color-texte: var(--color-texte);
-  --color-texte-doux: var(--color-texte-doux);
-  --color-marque: var(--color-marque);
-  --color-marque-clair: var(--color-marque-clair);
-  --color-ambre: var(--color-ambre);
-  --color-ambre-clair: var(--color-ambre-clair);
-  --color-sauge: var(--color-sauge);
-  --color-sauge-clair: var(--color-sauge-clair);
-  --font-titres: var(--font-titres);
-  --font-sans: var(--font-sans);
+  /* Backward compatibility */
+  --color-fond: #FFFFFF;
+  --color-fond-carte: #FFFFFF;
+  --color-bordure: var(--ink-100);
+  --color-texte: var(--ink-900);
+  --color-texte-doux: var(--ink-500);
+  --color-marque: var(--emerald-600);
+  --color-marque-clair: var(--emerald-700);
+  --color-ambre: var(--amber-500);
+  --color-ambre-clair: var(--amber-100);
+  --color-sauge: var(--emerald-600);
+  --color-sauge-clair: var(--emerald-50);
 }
 
 /* Grain très subtil — signature discrète des interfaces fintech premium
@@ -50,11 +78,11 @@
    texte ("gros warning" signalé) — un fond peint sous le contenu ne peut
    plus jamais recouvrir un bouton opaque au-dessus. */
 body {
-  background-color: var(--color-fond);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-color: var(--surface-page);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   background-blend-mode: multiply;
-  color: var(--color-texte);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  color: var(--text-body);
+  font-family: var(--font-sans);
 }
 
 /*
@@ -66,103 +94,44 @@ body {
  * "ma" invisible du footer et le chevauchement icône/valeur du champ âge.
  */
 @layer base {
-  h1, h2, h3 {
-    color: var(--color-marque);
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-strong);
+    font-family: var(--font-display);
+  }
+
+  h1 {
+    font: var(--type-h1);
+  }
+
+  h2 {
+    font: var(--type-h2);
+  }
+
+  h3 {
+    font: var(--type-h3);
+  }
+
+  p {
+    font: var(--type-body);
+    color: var(--text-body);
   }
 
   .font-titres {
-    font-family: var(--font-titres), var(--font-sans), sans-serif;
+    font-family: var(--font-display);
   }
 }
 
 @layer components {
-  .champ-saisie {
-    width: 100%;
-    border: 1px solid var(--color-bordure);
-    border-radius: 0.5rem;
-    padding: 0.625rem 0.75rem;
-    background: var(--color-fond-carte);
-    color: var(--color-texte);
-    font-size: 0.95rem;
-  }
-
-  .champ-saisie:focus {
-    outline: 2px solid var(--color-marque);
-    outline-offset: 1px;
-  }
-
-  /* Profondeur par l'ombre, pas par le contour — un trait de couleur plein
-     en haut de carte lit comme une pastille bon marché ("chip"), retour
-     direct. Un léger lavis ambre en dégradé + un highlight interne 1px
-     donnent le même repère de marque sans ligne dure. */
-  .carte-madeleg {
-    background: linear-gradient(180deg, rgba(217, 142, 46, 0.06), transparent 35%), var(--color-fond-carte);
-    border-radius: 1rem;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 16px 36px -18px rgba(27, 75, 74, 0.25);
-  }
-
-  /* Verre dépoli — pour les cartes posées sur les formes décoratives
-     (FormeDecorative) : la couleur en dessous transparaît légèrement à
-     travers le flou, ce qu'un aplat blanc opaque ne peut pas rendre.
-     Cf. skill ui-ux-pro-max, style "Glassmorphism" (recette light-mode). */
-  .carte-verre {
-    background: linear-gradient(180deg, rgba(217, 142, 46, 0.08), transparent 35%), rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border-radius: 1.25rem;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset, 0 24px 48px -20px rgba(27, 75, 74, 0.28);
-  }
+  /* Composants legacy: use design-system classes directly in HTML, not via @apply */
+  /* These are kept for reference; prefer using .mdl-* classes directly */
 
   .texte-degrade-ambre {
-    background: linear-gradient(120deg, var(--color-ambre) 20%, #f0b155 80%);
+    background: linear-gradient(120deg, var(--amber-500) 20%, var(--amber-400) 80%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  .btn-madeleg {
-    font-family: var(--font-titres), var(--font-sans), sans-serif;
-    font-weight: 600;
-    border-radius: 0.75rem;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, opacity 0.2s ease,
-      box-shadow 0.25s ease;
-  }
-
-  .btn-madeleg:hover:not(:disabled) {
-    transform: scale(1.035);
-  }
-
-  .btn-madeleg:active:not(:disabled) {
-    transform: scale(0.97);
-  }
-
-  /* CTA principal — aplat plein + lueur. Un dégradé diagonal sur une pilule
-     courte et large crée une bande de transition qui coupe visuellement le
-     texte du bouton ; on reste sur une couleur pleine. */
-  .btn-madeleg-principal {
-    border-radius: 999px;
-    background: var(--color-marque);
-    box-shadow: 0 8px 24px -8px rgba(27, 75, 74, 0.55);
-  }
-
-  .btn-madeleg-principal:hover:not(:disabled) {
-    background: var(--color-marque-clair);
-    box-shadow: 0 12px 32px -8px rgba(27, 75, 74, 0.65);
-  }
-
-  /* Variante ambre — CTA sur fond sombre (bandeau marque). */
-  .btn-madeleg-ambre {
-    border-radius: 999px;
-    background: var(--color-ambre);
-    box-shadow: 0 8px 24px -8px rgba(217, 142, 46, 0.6);
-  }
-
-  .btn-madeleg-ambre:hover:not(:disabled) {
-    background: #e8a54e;
-    box-shadow: 0 12px 32px -8px rgba(217, 142, 46, 0.7);
-  }
-
-  /* Lueur douce derrière les montants mis en avant (aperçu live, résultat). */
   .lueur-ambre {
     position: relative;
   }
@@ -184,8 +153,8 @@ body {
     border-radius: 999px;
     background: linear-gradient(
       to right,
-      var(--color-marque) var(--pourcentage, 0%),
-      var(--color-bordure) var(--pourcentage, 0%)
+      var(--emerald-600) var(--pourcentage, 0%),
+      var(--border-subtle) var(--pourcentage, 0%)
     );
     outline: none;
   }
@@ -196,9 +165,9 @@ body {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: var(--color-ambre);
-    border: 3px solid var(--color-fond-carte);
-    box-shadow: 0 0 0 1px var(--color-ambre);
+    background: var(--amber-500);
+    border: 3px solid var(--white);
+    box-shadow: var(--shadow-md);
     cursor: pointer;
   }
 
@@ -206,21 +175,42 @@ body {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: var(--color-ambre);
-    border: 3px solid var(--color-fond-carte);
-    box-shadow: 0 0 0 1px var(--color-ambre);
+    background: var(--amber-500);
+    border: 3px solid var(--white);
+    box-shadow: var(--shadow-md);
     cursor: pointer;
   }
 
   .curseur-madeleg::-moz-range-track {
     height: 6px;
     border-radius: 999px;
-    background: var(--color-bordure);
+    background: var(--border-subtle);
   }
 
   .curseur-madeleg::-moz-range-progress {
     height: 6px;
     border-radius: 999px;
-    background: var(--color-marque);
+    background: var(--emerald-600);
+  }
+
+  .champ-saisie {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+    color: var(--text-body);
+    background-color: var(--surface-card);
+    transition: border-color, box-shadow 0.2s ease;
+  }
+
+  .champ-saisie:focus {
+    outline: none;
+    border-color: var(--emerald-600);
+    box-shadow: 0 0 0 3px rgba(0, 120, 79, 0.1);
+  }
+
+  .champ-saisie::placeholder {
+    color: var(--text-muted);
   }
 }

@@ -12,11 +12,11 @@ function IconeInstagram({ className = "w-5 h-5" }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="mt-16" style={{ background: "var(--color-marque)" }}>
+    <footer className="mt-16" style={{ background: "var(--emerald-600)" }}>
       <div className="mx-auto max-w-6xl px-4 py-12 grid sm:grid-cols-3 gap-10">
         <div>
           <p className="font-titres text-xl font-bold text-white">
-            ma<span style={{ color: "var(--color-ambre)" }}>deleg</span>
+            ma<span style={{ color: "var(--amber-500)" }}>deleg</span>
           </p>
           <p className="text-sm text-white/70 leading-relaxed mt-3 max-w-xs">
             Changer d&apos;assurance emprunteur, sans quitter votre banque.

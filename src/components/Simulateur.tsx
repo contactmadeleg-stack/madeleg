@@ -162,9 +162,9 @@ export default function Simulateur({
 
   if (etat.vue === "confirmation") {
     return (
-      <div className="carte-madeleg p-8 text-center space-y-3">
-        <h2 className="text-2xl font-bold">Merci {etat.prenom}, votre demande est bien reçue.</h2>
-        <p className="text-[var(--color-texte-doux)]">
+      <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] p-8 text-center space-y-3">
+        <h2 className="text-2xl font-bold" style={{ color: "var(--text-strong)" }}>Merci {etat.prenom}, votre demande est bien reçue.</h2>
+        <p style={{ color: "var(--text-muted)" }}>
           Un conseiller Madeleg va revenir vers vous. Vous allez également recevoir un email avec le récapitulatif de
           votre estimation.
         </p>
@@ -174,11 +174,14 @@ export default function Simulateur({
 
   if (etat.vue === "coordonnees") {
     return (
-      <div className="carte-madeleg p-6 sm:p-8 space-y-7">
+      <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] p-6 sm:p-8 space-y-7">
         <button
           type="button"
           onClick={() => setEtat({ vue: "estimation", phase: "formulaire" })}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-texte-doux)] hover:text-[var(--color-marque)]"
+          className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
+          style={{ color: "var(--text-muted)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-link)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
         >
           <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
             <path
@@ -193,28 +196,34 @@ export default function Simulateur({
         </button>
 
         <div className="text-center">
-          <p className="text-xs font-bold text-[var(--color-sauge)] uppercase tracking-wide mb-2">
+          <p className="text-xs font-bold uppercase tracking-wide mb-2" style={{ color: "var(--emerald-600)" }}>
             Estimation validée
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold mb-5">Prêt à passer à l&apos;action ?</h2>
 
-          <div className="lueur-ambre inline-flex items-baseline gap-2 rounded-full bg-[var(--color-sauge-clair)] px-6 py-3">
-            <span className="font-titres text-3xl sm:text-4xl font-extrabold text-[var(--color-ambre)]">
+          <div className="lueur-ambre inline-flex items-baseline gap-2 rounded-full px-6 py-3" style={{ backgroundColor: "var(--emerald-50)" }}>
+            <span className="font-titres text-3xl sm:text-4xl font-extrabold" style={{ color: "var(--amber-500)" }}>
               {euros(Math.round(resultatAnime))}
             </span>
-            <span className="text-sm font-semibold text-[var(--color-marque)]">d&apos;économies estimées</span>
+            <span className="text-sm font-semibold" style={{ color: "var(--emerald-600)" }}>d&apos;économies estimées</span>
           </div>
 
-          <p className="text-sm text-[var(--color-texte-doux)] mt-4">
+          <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
             Renseignez vos coordonnées pour valider votre demande.
           </p>
 
-          <div className="flex items-center justify-center gap-5 mt-4 text-xs font-medium text-[var(--color-texte-doux)]">
+          <div className="flex items-center justify-center gap-5 mt-4 text-xs font-medium" style={{ color: "var(--text-muted)" }}>
             <span className="inline-flex items-center gap-1.5">
-              <IconeCoche className="w-4 h-4 text-[var(--color-sauge)]" /> Analyse gratuite
+              <span style={{ color: "var(--emerald-600)" }}>
+                <IconeCoche className="w-4 h-4" />
+              </span>
+              Analyse gratuite
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <IconeChrono className="w-4 h-4 text-[var(--color-sauge)]" /> 2 min
+              <span style={{ color: "var(--emerald-600)" }}>
+                <IconeChrono className="w-4 h-4" />
+              </span>
+              2 min
             </span>
           </div>
         </div>
@@ -241,7 +250,7 @@ export default function Simulateur({
             <button
               type="submit"
               disabled={envoiEtape2}
-              className="btn-madeleg btn-madeleg-principal px-8 py-3 text-white disabled:opacity-60"
+              className="mdl-btn mdl-btn--primary mdl-btn--md disabled:opacity-60"
             >
               {envoiEtape2 ? "Envoi en cours…" : "Valider ma demande"}
             </button>
@@ -261,7 +270,7 @@ export default function Simulateur({
   }
 
   return (
-    <div className="carte-madeleg p-6 sm:p-8">
+    <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] p-6 sm:p-8">
       <form onSubmit={soumettreEtape1} className="space-y-8">
         <div className="grid sm:grid-cols-2 gap-6">
           <Curseur
@@ -288,7 +297,7 @@ export default function Simulateur({
 
         {capital >= CAPITAL_MAX && (
           <div>
-            <span className="block text-xs font-semibold text-[var(--color-texte-doux)] mb-1.5">
+            <span className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text-muted)" }}>
               Capital supérieur à {euros(CAPITAL_MAX)} ? Saisissez le montant exact
             </span>
             <input
@@ -300,7 +309,12 @@ export default function Simulateur({
                 const v = Number(e.target.value);
                 if (!Number.isNaN(v) && v > 0) setCapital(v);
               }}
-              className="champ-saisie"
+              className="w-full px-4 py-3 text-sm border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+              style={{
+                borderColor: "var(--border-subtle)",
+                color: "var(--text-body)",
+                "--tw-ring-color": "var(--emerald-600)"
+              } as React.CSSProperties}
             />
           </div>
         )}
@@ -308,12 +322,12 @@ export default function Simulateur({
         <div className="grid sm:grid-cols-2 gap-4">
           {ages.map((age, i) => (
             <div key={i}>
-              <span className="block text-xs font-semibold text-[var(--color-texte-doux)] uppercase tracking-wide mb-1.5">
+              <span className="block text-xs font-semibold uppercase tracking-wide mb-1.5" style={{ color: "var(--text-muted)" }}>
                 Âge emprunteur {i + 1}
               </span>
               <div className="flex items-center gap-2">
                 <div className="relative flex-1">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-marque)] pointer-events-none">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: "var(--emerald-600)" }}>
                     <IconePersonne className="w-4 h-4" />
                   </span>
                   <input
@@ -326,7 +340,12 @@ export default function Simulateur({
                       const v = Number(e.target.value);
                       if (!Number.isNaN(v)) modifierAge(i, v);
                     }}
-                    className="champ-saisie !pl-10"
+                    className="w-full pl-10 pr-4 py-3 text-sm border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    style={{
+                      borderColor: "var(--border-subtle)",
+                      color: "var(--text-body)",
+                      "--tw-ring-color": "var(--emerald-600)"
+                    } as React.CSSProperties}
                   />
                 </div>
                 {i > 0 && (
@@ -334,7 +353,19 @@ export default function Simulateur({
                     type="button"
                     onClick={() => retirerEmprunteur(i)}
                     aria-label="Retirer cet emprunteur"
-                    className="shrink-0 w-9 h-9 rounded-full border border-[var(--color-bordure)] text-[var(--color-texte-doux)] hover:border-[var(--color-marque)] hover:text-[var(--color-marque)]"
+                    className="shrink-0 w-9 h-9 rounded-full border transition-colors"
+                    style={{
+                      borderColor: "var(--border-subtle)",
+                      color: "var(--text-muted)"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--emerald-600)";
+                      e.currentTarget.style.color = "var(--emerald-600)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border-subtle)";
+                      e.currentTarget.style.color = "var(--text-muted)";
+                    }}
                   >
                     ×
                   </button>
@@ -347,7 +378,17 @@ export default function Simulateur({
             <button
               type="button"
               onClick={ajouterEmprunteur}
-              className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-[var(--color-bordure)] text-sm text-[var(--color-marque)] font-medium py-3 hover:border-[var(--color-marque)]"
+              className="flex items-center justify-center gap-2 rounded-xl border border-dashed text-sm font-medium py-3 transition-colors"
+              style={{
+                borderColor: "var(--border-subtle)",
+                color: "var(--emerald-600)"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--emerald-600)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--border-subtle)";
+              }}
             >
               + Ajouter un co-emprunteur
             </button>
@@ -355,12 +396,12 @@ export default function Simulateur({
         </div>
 
         {apercu && (
-          <div className="lueur-ambre text-center py-4 border-y border-[var(--color-bordure)]">
-            <p className="text-sm text-[var(--color-texte-doux)] mb-1">Estimation de votre économie</p>
-            <p className="font-titres text-4xl sm:text-5xl font-extrabold text-[var(--color-ambre)]">
+          <div className="lueur-ambre text-center py-4 border-y" style={{ borderColor: "var(--border-subtle)" }}>
+            <p className="text-sm mb-1" style={{ color: "var(--text-muted)" }}>Estimation de votre économie</p>
+            <p className="font-titres text-4xl sm:text-5xl font-extrabold" style={{ color: "var(--amber-500)" }}>
               {euros(Math.round(apercuAnime))}
             </p>
-            <p className="text-xs text-[var(--color-texte-doux)] mt-1">
+            <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
               Estimation indicative de l&apos;économie par rapport au tarif moyen d&apos;un contrat bancaire*
             </p>
           </div>
@@ -376,23 +417,35 @@ export default function Simulateur({
           </button>
         </div>
 
-        {etat.phase === "erreur" && <p className="text-sm text-red-700 text-center">{etat.message}</p>}
+        {etat.phase === "erreur" && <p className="text-sm text-center" style={{ color: "#dc2626" }}>{etat.message}</p>}
 
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-[var(--color-texte-doux)]">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
           <span className="inline-flex items-center gap-1.5">
-            <IconeEuro className="w-4 h-4 text-[var(--color-sauge)]" /> Gratuit
+            <span style={{ color: "var(--emerald-600)" }}>
+              <IconeEuro className="w-4 h-4" />
+            </span>
+            Gratuit
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <IconeCoche className="w-4 h-4 text-[var(--color-sauge)]" /> Sans engagement
+            <span style={{ color: "var(--emerald-600)" }}>
+              <IconeCoche className="w-4 h-4" />
+            </span>
+            Sans engagement
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <IconeChrono className="w-4 h-4 text-[var(--color-sauge)]" /> 30 secondes
+            <span style={{ color: "var(--emerald-600)" }}>
+              <IconeChrono className="w-4 h-4" />
+            </span>
+            30 secondes
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <IconeBouclier className="w-4 h-4 text-[var(--color-sauge)]" /> Données confidentielles
+            <span style={{ color: "var(--emerald-600)" }}>
+              <IconeBouclier className="w-4 h-4" />
+            </span>
+            Données confidentielles
           </span>
         </div>
-        <p className="text-xs text-[var(--color-texte-doux)] text-center">
+        <p className="text-xs text-center" style={{ color: "var(--text-muted)" }}>
           *
           <Link href="/assurance-emprunteur#garanties" className="underline">
             Voir le détail des garanties
@@ -427,13 +480,13 @@ function Curseur({
   return (
     <div>
       <div className="flex items-baseline justify-between mb-2">
-        <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-texte)]">
-          <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] shrink-0">
+        <span className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "var(--text-body)" }}>
+          <span className="inline-flex items-center justify-center w-7 h-7 rounded-full shrink-0" style={{ backgroundColor: "var(--emerald-50)", color: "var(--emerald-600)" }}>
             {icone}
           </span>
           {label}
         </span>
-        <span className="font-titres text-lg font-bold text-[var(--color-marque)]">{affichage}</span>
+        <span className="font-titres text-lg font-bold" style={{ color: "var(--emerald-600)" }}>{affichage}</span>
       </div>
       <input
         type="range"
@@ -453,7 +506,7 @@ function Curseur({
 function Champ({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="block text-sm font-medium text-[var(--color-texte)] mb-1.5">{label}</span>
+      <span className="block text-sm font-medium mb-1.5" style={{ color: "var(--text-body)" }}>{label}</span>
       {children}
     </label>
   );

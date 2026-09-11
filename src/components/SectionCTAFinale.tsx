@@ -6,18 +6,18 @@ export default function SectionCTAFinale() {
       <Reveal>
         <div
           className="relative overflow-hidden rounded-2xl px-6 py-12 sm:py-16 text-center"
-          style={{ background: "var(--color-marque)" }}
+          style={{ background: "var(--emerald-600)" }}
         >
           <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
             <svg className="absolute -top-16 -left-20 w-80 h-80 opacity-[0.12] blur-2xl" viewBox="0 0 400 400">
               <path
-                fill="var(--color-ambre-clair)"
+                fill="var(--amber-100)"
                 d="M280,90Q330,140,320,200Q310,260,260,300Q210,340,150,310Q90,280,80,210Q70,140,120,100Q170,60,220,60Q270,60,280,90Z"
               />
             </svg>
             <svg className="absolute -bottom-20 -right-16 w-96 h-96 opacity-[0.1] blur-2xl" viewBox="0 0 400 400">
               <path
-                fill="var(--color-sauge-clair)"
+                fill="var(--emerald-50)"
                 d="M320,120Q360,180,330,240Q300,300,230,320Q160,340,110,290Q60,240,80,170Q100,100,170,70Q240,40,280,60Q320,80,320,120Z"
               />
             </svg>
@@ -30,7 +30,7 @@ export default function SectionCTAFinale() {
             <p className="text-white/75 mt-3 max-w-md mx-auto">30 secondes, gratuit, sans engagement.</p>
             <a
               href="#simulateur"
-              className="btn-madeleg btn-madeleg-ambre inline-block mt-6 px-8 py-3 text-white"
+              className="mdl-btn mdl-btn--primary mdl-btn--md inline-block mt-6 bg-[var(--amber-500)] hover:bg-[var(--amber-600)]"
             >
               Estimer mon économie
             </a>

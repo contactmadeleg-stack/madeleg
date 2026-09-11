@@ -1,0 +1,19 @@
+:root{
+  --container-sm:640px;
+  --container-md:840px;
+  --container-lg:1080px;
+  --container-xl:1240px;
+  --container-prose:68ch;
+  --header-height:72px;
+  --sidebar-width:248px;
+  --sidebar-width-collapsed:68px;
+  --field-height-sm:36px;
+  --field-height-md:44px;
+  --field-height-lg:52px;
+  --z-base:0; /* @kind other */
+  --z-sticky:100; /* @kind other */
+  --z-header:200; /* @kind other */
+  --z-overlay:800; /* @kind other */
+  --z-modal:900; /* @kind other */
+  --z-toast:1000; /* @kind other */
+}

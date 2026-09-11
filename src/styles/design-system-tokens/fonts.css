@@ -1,0 +1,9 @@
+/* madeleg — webfonts.
+   NOTE: served from Google Fonts CDN. No brand font binaries were supplied.
+   Replace with self-hosted @font-face + woff2 files when licences are available. */
+
+:root{
+  --font-display:"Schibsted Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-sans:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:"Geist Mono","SF Mono",ui-monospace,Menlo,monospace;
+}

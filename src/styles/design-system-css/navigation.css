@@ -1,0 +1,22 @@
+.mdl-tabs{display:flex;gap:var(--space-1);border-bottom:1px solid var(--border-subtle)}
+.mdl-tabs__tab{position:relative;padding:var(--space-3) var(--space-4);border:0;background:transparent;font:var(--type-label);color:var(--text-muted);cursor:pointer;transition:var(--transition-control)}
+.mdl-tabs__tab:hover{color:var(--text-strong)}
+.mdl-tabs__tab[aria-selected="true"]{color:var(--text-strong)}
+.mdl-tabs__tab[aria-selected="true"]::after{content:"";position:absolute;left:var(--space-3);right:var(--space-3);bottom:-1px;height:2px;border-radius:2px;background:var(--emerald-600)}
+.mdl-tabs__tab:focus-visible{box-shadow:var(--focus-ring);border-radius:var(--radius-sm)}
+.mdl-tabs--pill{border:0;padding:var(--space-1);background:var(--surface-sunken);border-radius:var(--radius-control);gap:2px}
+.mdl-tabs--pill .mdl-tabs__tab{padding:var(--space-2) var(--space-4);border-radius:var(--radius-sm)}
+.mdl-tabs--pill .mdl-tabs__tab[aria-selected="true"]{background:var(--white);box-shadow:var(--shadow-xs)}
+.mdl-tabs--pill .mdl-tabs__tab[aria-selected="true"]::after{display:none}
+
+.mdl-stepper{display:flex;align-items:center;gap:var(--space-3)}
+.mdl-stepper__step{display:flex;align-items:center;gap:var(--space-3)}
+.mdl-stepper__bullet{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border-strong);background:var(--white);font:var(--type-caption);font-weight:var(--weight-semibold);color:var(--text-subtle);transition:var(--transition-control)}
+.mdl-stepper__step[data-state="current"] .mdl-stepper__bullet{background:var(--ink-900);border-color:var(--ink-900);color:var(--white)}
+.mdl-stepper__step[data-state="done"] .mdl-stepper__bullet{background:var(--emerald-600);border-color:var(--emerald-600);color:var(--white)}
+.mdl-stepper__label{font:var(--type-body-sm);color:var(--text-subtle);white-space:nowrap}
+.mdl-stepper__step[data-state="current"] .mdl-stepper__label{color:var(--text-strong);font-weight:var(--weight-semibold)}
+.mdl-stepper__step[data-state="done"] .mdl-stepper__label{color:var(--text-body)}
+.mdl-stepper__line{flex:1;min-width:20px;height:1px;background:var(--border-default)}
+.mdl-stepper__step[data-state="done"] + .mdl-stepper__line{background:var(--emerald-300)}
+.mdl-stepper--compact .mdl-stepper__label{display:none}

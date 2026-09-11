@@ -1,0 +1,44 @@
+/* Boutons — coins 10px, hauteur fixe, pas de dégradé, pression = assombrissement + translation 1px */
+.mdl-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);border:1px solid transparent;border-radius:var(--radius-control);font-family:var(--font-sans);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-tight);text-decoration:none;cursor:pointer;white-space:nowrap;transition:var(--transition-control);-webkit-user-select:none;user-select:none}
+.mdl-btn:focus-visible{box-shadow:var(--focus-ring)}
+.mdl-btn--md{height:var(--field-height-md);padding:0 var(--space-5);font-size:var(--font-size-sm)}
+.mdl-btn--sm{height:var(--field-height-sm);padding:0 var(--space-4);font-size:var(--font-size-xs);border-radius:var(--radius-sm)}
+.mdl-btn--lg{height:var(--field-height-lg);padding:0 var(--space-7);font-size:var(--font-size-md)}
+.mdl-btn--block{width:100%}
+.mdl-btn--primary{background:var(--action-primary-bg);color:var(--action-primary-fg);box-shadow:var(--shadow-sm)}
+.mdl-btn--primary:hover{background:var(--action-primary-bg-hover)}
+.mdl-btn--primary:active{background:var(--action-primary-bg-active);transform:translateY(1px);box-shadow:none}
+.mdl-btn--accent{background:var(--action-accent-bg);color:var(--action-accent-fg);box-shadow:var(--shadow-sm)}
+.mdl-btn--accent:hover{background:var(--action-accent-bg-hover)}
+.mdl-btn--accent:active{background:var(--action-accent-bg-active);transform:translateY(1px);box-shadow:none}
+.mdl-btn--secondary{background:var(--action-secondary-bg);color:var(--action-secondary-fg);border-color:var(--border-strong)}
+.mdl-btn--secondary:hover{background:var(--action-secondary-bg-hover);border-color:var(--ink-300)}
+.mdl-btn--secondary:active{background:var(--ink-100);transform:translateY(1px)}
+.mdl-btn--ghost{background:transparent;color:var(--text-strong)}
+.mdl-btn--ghost:hover{background:var(--action-ghost-bg-hover)}
+.mdl-btn--ghost:active{background:var(--ink-100)}
+.mdl-btn--inverse{background:var(--white);color:var(--ink-900)}
+.mdl-btn--inverse:hover{background:var(--ink-100)}
+.mdl-btn--inverse:active{transform:translateY(1px)}
+.mdl-btn--inverse-ghost{background:transparent;color:var(--white);border-color:var(--border-inverse)}
+.mdl-btn--inverse-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
+.mdl-btn--inverse-ghost:focus-visible,.mdl-btn--inverse:focus-visible{box-shadow:var(--focus-ring-inverse)}
+.mdl-btn--danger{background:var(--red-600);color:var(--white)}
+.mdl-btn--danger:hover{background:var(--red-700)}
+.mdl-btn--danger:focus-visible{box-shadow:var(--focus-ring-danger)}
+.mdl-btn[disabled],.mdl-btn[aria-disabled="true"]{background:var(--action-disabled-bg);color:var(--action-disabled-fg);border-color:transparent;box-shadow:none;cursor:not-allowed;transform:none}
+.mdl-btn--loading{position:relative;color:transparent!important}
+.mdl-btn--loading::after{content:"";position:absolute;width:16px;height:16px;border:2px solid currentColor;border-radius:50%;border-top-color:transparent;color:var(--action-primary-fg);animation:mdl-spin .7s linear infinite}
+@keyframes mdl-spin{to{transform:rotate(360deg)}}
+
+.mdl-iconbtn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:var(--radius-control);background:transparent;color:var(--text-body);cursor:pointer;transition:var(--transition-control)}
+.mdl-iconbtn--sm{width:var(--field-height-sm);height:var(--field-height-sm)}
+.mdl-iconbtn--md{width:var(--field-height-md);height:var(--field-height-md)}
+.mdl-iconbtn--ghost:hover{background:var(--action-ghost-bg-hover);color:var(--text-strong)}
+.mdl-iconbtn--outline{border-color:var(--border-default);background:var(--white)}
+.mdl-iconbtn--outline:hover{border-color:var(--ink-300);background:var(--ink-50)}
+.mdl-iconbtn--inverse{color:var(--white)}
+.mdl-iconbtn--inverse:hover{background:rgba(255,255,255,.1)}
+.mdl-iconbtn:focus-visible{box-shadow:var(--focus-ring)}
+.mdl-iconbtn:active{transform:translateY(1px)}
+.mdl-iconbtn[disabled]{color:var(--action-disabled-fg);cursor:not-allowed}

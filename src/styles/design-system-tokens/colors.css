@@ -1,0 +1,58 @@
+/* madeleg — palette de base (valeurs brutes, jamais utilisées directement en composant) */
+:root{
+  /* Encre — bleu nuit, couleur dominante de la marque */
+  --ink-950:#060B14;
+  --ink-900:#0B1220;
+  --ink-800:#121C2E;
+  --ink-700:#1C2841;
+  --ink-600:#2C3D5C;
+  --ink-500:#435777;
+  --ink-400:#64789A;
+  --ink-300:#93A6C1;
+  --ink-200:#C4CEDE;
+  --ink-150:#DCE3EE;
+  --ink-100:#E9EEF5;
+  --ink-50:#F3F6FA;
+
+  /* Émeraude — signature, action, gain */
+  --emerald-800:#04503A;
+  --emerald-700:#066248;
+  --emerald-600:#00784F;
+  --emerald-500:#009463;
+  --emerald-400:#12B37D;
+  --emerald-300:#5FD6A6;
+  --emerald-200:#A8E9CB;
+  --emerald-100:#D9F5E8;
+  --emerald-50:#EFFBF5;
+
+  /* Ambre — accent chaud, pédagogie, mise en avant */
+  --amber-700:#8A4E10;
+  --amber-600:#A86216;
+  --amber-500:#D98324;
+  --amber-400:#F2A65A;
+  --amber-200:#FBDAB5;
+  --amber-100:#FDEBD6;
+  --amber-50:#FDF5EC;
+
+  /* Sable — fond chaud, respiration des pages longues */
+  --sand-200:#EDE6DB;
+  --sand-100:#F6F2EA;
+  --sand-50:#FBF9F5;
+
+  /* Rouge — alerte, refus, coût */
+  --red-700:#8F2A22;
+  --red-600:#B3352B;
+  --red-500:#D1493D;
+  --red-100:#FBE2DF;
+  --red-50:#FDF2F0;
+
+  /* Bleu — information, liens sur fond clair */
+  --blue-700:#173FAF;
+  --blue-600:#1D4FD8;
+  --blue-500:#2E62EE;
+  --blue-100:#DCE7FE;
+  --blue-50:#EFF4FF;
+
+  --white:#FFFFFF;
+  --black:#000000;
+}

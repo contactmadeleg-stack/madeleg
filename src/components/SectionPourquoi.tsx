@@ -26,24 +26,32 @@ export default function SectionPourquoi() {
       <Reveal>
         <div
           className="rounded-3xl px-6 py-14 sm:py-18 text-center"
-          style={{ background: "var(--color-sauge-clair)" }}
+          style={{ background: "var(--emerald-50)" }}
         >
           <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight max-w-2xl mx-auto">
-            Sérieux sur le fond, <span className="text-[var(--color-marque)]">simple</span> dans la forme.
+            Sérieux sur le fond, <span style={{ color: "var(--emerald-600)" }}>simple</span> dans la forme.
           </h2>
-          <p className="text-[var(--color-texte-doux)] mt-3">
+          <p className="mt-3" style={{ color: "var(--text-muted)" }}>
             Un courtier réglementé qui vous explique tout, sans jargon ni mauvaise surprise.
           </p>
 
           <Reveal stagger className="mt-10">
-            <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-[var(--color-bordure)] max-w-4xl mx-auto rounded-2xl bg-[var(--color-fond-carte)] shadow-sm">
-              {POINTS.map(({ icone: Icone, titre, texte }) => (
-                <RevealItem key={titre} className="flex-1 p-6 text-left">
-                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[var(--color-sauge-clair)] text-[var(--color-marque)] mb-4">
-                    <Icone className="w-5 h-5" />
+            <div className="flex flex-col sm:flex-row max-w-4xl mx-auto rounded-2xl bg-[var(--surface-card)] shadow-sm overflow-hidden">
+              {POINTS.map(({ icone: Icone, titre, texte }, idx) => (
+                <RevealItem
+                  key={titre}
+                  className={`flex-1 p-6 text-left ${
+                    idx < POINTS.length - 1 ? "border-b sm:border-b-0 sm:border-r" : ""
+                  }`}
+                  style={{ borderColor: "var(--border-subtle)" }}
+                >
+                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-full mb-4" style={{ backgroundColor: "var(--emerald-50)" }}>
+                    <span style={{ color: "var(--emerald-600)" }}>
+                      <Icone className="w-5 h-5" />
+                    </span>
                   </span>
                   <h3 className="font-titres text-lg font-bold mb-1.5">{titre}</h3>
-                  <p className="text-sm text-[var(--color-texte-doux)] leading-relaxed">{texte}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{texte}</p>
                 </RevealItem>
               ))}
             </div>
@@ -51,7 +59,7 @@ export default function SectionPourquoi() {
 
           <Link
             href="/#simulateur"
-            className="btn-madeleg btn-madeleg-principal inline-block mt-10 px-8 py-3 text-white"
+            className="mdl-btn mdl-btn--primary mdl-btn--md inline-block mt-10"
           >
             Estimer mon économie
           </Link>

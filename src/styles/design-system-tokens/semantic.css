@@ -1,0 +1,65 @@
+/* madeleg — alias sémantiques. C'est ce que les composants consomment. */
+:root{
+  /* Texte */
+  --text-strong:var(--ink-900);
+  --text-body:var(--ink-700);
+  --text-muted:var(--ink-500);
+  --text-subtle:var(--ink-400);
+  --text-inverse:var(--white);
+  --text-inverse-muted:var(--ink-300);
+  --text-brand:var(--emerald-600);
+  --text-link:var(--emerald-700);
+  --text-link-hover:var(--emerald-800);
+  --text-danger:var(--red-600);
+  --text-warning:var(--amber-700);
+  --text-info:var(--blue-700);
+
+  /* Surfaces */
+  --surface-page:var(--white);
+  --surface-page-warm:var(--sand-50);
+  --surface-card:var(--white);
+  --surface-sunken:var(--ink-50);
+  --surface-inverse:var(--ink-900);
+  --surface-inverse-raised:var(--ink-800);
+  --surface-brand-subtle:var(--emerald-50);
+  --surface-brand:var(--emerald-600);
+  --surface-warm-subtle:var(--amber-50);
+  --surface-danger-subtle:var(--red-50);
+  --surface-info-subtle:var(--blue-50);
+  --surface-overlay:rgba(6,11,20,.52);
+
+  /* Bordures */
+  --border-subtle:var(--ink-100);
+  --border-default:var(--ink-150);
+  --border-strong:var(--ink-200);
+  --border-inverse:rgba(255,255,255,.14);
+  --border-brand:var(--emerald-500);
+  --border-danger:var(--red-500);
+
+  /* Actions */
+  --action-primary-bg:var(--ink-900);
+  --action-primary-bg-hover:var(--ink-800);
+  --action-primary-bg-active:var(--ink-950);
+  --action-primary-fg:var(--white);
+  --action-accent-bg:var(--emerald-600);
+  --action-accent-bg-hover:var(--emerald-700);
+  --action-accent-bg-active:var(--emerald-800);
+  --action-accent-fg:var(--white);
+  --action-secondary-bg:var(--white);
+  --action-secondary-bg-hover:var(--ink-50);
+  --action-secondary-fg:var(--ink-900);
+  --action-ghost-bg-hover:var(--ink-50);
+  --action-disabled-bg:var(--ink-100);
+  --action-disabled-fg:var(--ink-400);
+
+  /* États */
+  --focus-ring:0 0 0 3px rgba(0,148,99,.28);
+  --focus-ring-inverse:0 0 0 3px rgba(95,214,166,.42);
+  --focus-ring-danger:0 0 0 3px rgba(209,73,61,.26);
+
+  /* Données */
+  --data-positive:var(--emerald-600);
+  --data-negative:var(--red-600);
+  --data-neutral:var(--ink-400);
+  --data-grid:var(--ink-100);
+}

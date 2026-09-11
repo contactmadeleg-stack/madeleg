@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "/home/user/madeleg/src/app/globals.css"
+        ],
+        "createdAt": "2026-09-11T09:56:42.418Z",
+        "reason": "Design system: gradient text on .texte-degrade-ambre is intentional—highlights monetary savings (design-semantic). Keeper from prior system."
+      }
+    ]
+  }
+}

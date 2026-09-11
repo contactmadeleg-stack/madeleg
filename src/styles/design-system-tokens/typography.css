@@ -1,0 +1,47 @@
+/* madeleg — échelle typographique. Display = Schibsted Grotesk, Texte = Instrument Sans, Chiffres = Geist Mono */
+:root{
+  --font-size-3xs:11px;
+  --font-size-2xs:12px;
+  --font-size-xs:13px;
+  --font-size-sm:14px;
+  --font-size-md:16px;
+  --font-size-lg:18px;
+  --font-size-xl:20px;
+  --font-size-2xl:24px;
+  --font-size-3xl:30px;
+  --font-size-4xl:38px;
+  --font-size-5xl:48px;
+  --font-size-6xl:60px;
+  --font-size-7xl:76px;
+
+  --line-tight:1.06; /* @kind other */
+  --line-snug:1.18; /* @kind other */
+  --line-normal:1.35; /* @kind other */
+  --line-relaxed:1.55; /* @kind other */
+  --line-loose:1.7; /* @kind other */
+
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+  --weight-black:800;
+
+  --tracking-tighter:-0.03em;
+  --tracking-tight:-0.018em;
+  --tracking-normal:0em;
+  --tracking-wide:0.02em;
+  --tracking-caps:0.08em;
+
+  /* Rôles composés */
+  --type-display:var(--weight-bold) var(--font-size-6xl)/var(--line-tight) var(--font-display);
+  --type-h1:var(--weight-bold) var(--font-size-4xl)/var(--line-snug) var(--font-display);
+  --type-h2:var(--weight-bold) var(--font-size-3xl)/var(--line-snug) var(--font-display);
+  --type-h3:var(--weight-semibold) var(--font-size-xl)/var(--line-normal) var(--font-display);
+  --type-body-lg:var(--weight-regular) var(--font-size-lg)/var(--line-relaxed) var(--font-sans);
+  --type-body:var(--weight-regular) var(--font-size-md)/var(--line-relaxed) var(--font-sans);
+  --type-body-sm:var(--weight-regular) var(--font-size-sm)/var(--line-normal) var(--font-sans);
+  --type-label:var(--weight-semibold) var(--font-size-sm)/var(--line-normal) var(--font-sans);
+  --type-caption:var(--weight-regular) var(--font-size-xs)/var(--line-normal) var(--font-sans);
+  --type-overline:var(--weight-semibold) var(--font-size-2xs)/var(--line-normal) var(--font-sans);
+  --type-mono:var(--weight-medium) var(--font-size-sm)/var(--line-normal) var(--font-mono);
+}

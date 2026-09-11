@@ -50,14 +50,22 @@ export default function Reveal({
   );
 }
 
-export function RevealItem({ children, className }: { children: ReactNode; className?: string }) {
+export function RevealItem({
+  children,
+  className,
+  style,
+}: {
+  children: ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
   const reduitMotion = useReducedMotion();
   const variants: Variants = {
     cache: reduitMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
     visible: { opacity: 1, y: 0, transition: reduitMotion ? { duration: 0 } : { duration: 0.4, ease: "easeOut" } },
   };
   return (
-    <motion.div className={className} variants={variants}>
+    <motion.div className={className} style={style} variants={variants}>
       {children}
     </motion.div>
   );

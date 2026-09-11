@@ -24,7 +24,7 @@ export default function FormeDecorative({ className = "" }: { className?: string
         style={{ y: y1 }}
       >
         <path
-          fill="var(--color-sauge-clair)"
+          fill="var(--emerald-50)"
           d="M320,120Q360,180,330,240Q300,300,230,320Q160,340,110,290Q60,240,80,170Q100,100,170,70Q240,40,280,60Q320,80,320,120Z"
         />
       </motion.svg>
@@ -34,7 +34,7 @@ export default function FormeDecorative({ className = "" }: { className?: string
         style={{ y: y2 }}
       >
         <path
-          fill="var(--color-ambre-clair)"
+          fill="var(--amber-100)"
           d="M280,90Q330,140,320,200Q310,260,260,300Q210,340,150,310Q90,280,80,210Q70,140,120,100Q170,60,220,60Q270,60,280,90Z"
         />
       </motion.svg>
