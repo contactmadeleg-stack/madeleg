@@ -134,6 +134,15 @@ export default async function PageAssuranceEmprunteur() {
               Ce que votre statut change réellement, et ce qu&apos;il ne change pas.
             </p>
           </Link>
+          <Link
+            href="/assurance-emprunteur/independant"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Travailleur indépendant</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Pourquoi le délai de carence compte plus pour vous que pour un salarié.
+            </p>
+          </Link>
         </div>
       </section>
 
