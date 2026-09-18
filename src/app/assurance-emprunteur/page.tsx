@@ -192,6 +192,24 @@ export default async function PageAssuranceEmprunteur() {
               Comment remplacer le contrat de votre banque par un contrat individuel équivalent.
             </p>
           </Link>
+          <Link
+            href="/assurance-emprunteur/prix"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Prix de l&apos;assurance emprunteur</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Les critères qui déterminent réellement votre tarif.
+            </p>
+          </Link>
+          <Link
+            href="/assurance-emprunteur/moins-chere"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Assurance moins chère</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Les leviers concrets pour réduire votre cotisation.
+            </p>
+          </Link>
         </div>
       </section>
 
