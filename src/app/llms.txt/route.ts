@@ -1,4 +1,4 @@
-# Madeleg
+const CONTENU = `# Madeleg
 
 Madeleg accompagne les emprunteurs français pour changer d'assurance de prêt
 immobilier (assurance emprunteur) sans changer de banque, dans le cadre de
@@ -25,3 +25,10 @@ FINSPOT SAS (Pretto), courtier en assurance (ORIAS 17000916).
 Le simulateur fournit une estimation indicative, non contractuelle. Le
 montant définitif et les garanties applicables ne sont arrêtés qu'après
 étude individuelle du dossier par un conseiller Madeleg.
+`;
+
+export function GET() {
+  return new Response(CONTENU, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
