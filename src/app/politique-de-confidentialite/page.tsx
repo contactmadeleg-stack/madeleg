@@ -3,6 +3,8 @@ import { EDITEUR, MANDANT, GROSSISTE } from "@/lib/identite";
 
 export const metadata = {
   title: "Politique de confidentialité | Madeleg",
+  description: "Comment Madeleg collecte, utilise et protège vos données personnelles, conformément au RGPD.",
+  alternates: { canonical: "/politique-de-confidentialite" },
 };
 
 export default function PolitiqueConfidentialite() {

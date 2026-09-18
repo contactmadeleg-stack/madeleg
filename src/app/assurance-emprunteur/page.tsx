@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Assurance emprunteur : le guide complet | Madeleg",
   description:
     "Assurance de prêt immobilier, loi Lemoine, garanties, résiliation : tout comprendre sur l'assurance emprunteur et comment réduire son coût sans changer de banque.",
+  alternates: { canonical: "/assurance-emprunteur" },
 };
 
 async function chargerArticles() {

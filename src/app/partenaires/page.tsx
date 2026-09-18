@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Nos assureurs partenaires | Madeleg",
   description:
     "Liste des entreprises d'assurance dont Madeleg peut vous proposer les contrats d'assurance emprunteur, et base de notre conseil.",
+  alternates: { canonical: "/partenaires" },
 };
 
 function ListeAssureurs({ partenaires }: { partenaires: Partenaire[] }) {

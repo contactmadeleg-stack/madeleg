@@ -4,6 +4,7 @@ import { EDITEUR, MEDIATEUR, ACPR } from "@/lib/identite";
 export const metadata: Metadata = {
   title: "Réclamation et médiation | Madeleg",
   description: "Comment adresser une réclamation à Madeleg, nos délais de traitement et les coordonnées du médiateur.",
+  alternates: { canonical: "/reclamation" },
 };
 
 // Page dédiée exigée par la recommandation ACPR 2024-R-02 : accessible sans

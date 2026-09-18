@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Simulateur from "@/components/Simulateur";
 import FormeDecorative from "@/components/FormeDecorative";
 import { IconeEclair } from "@/components/Icones";
@@ -17,6 +18,10 @@ import { getBanquesActives } from "@/lib/getBanquesActives";
 // servi à tous les visiteurs jusqu'au cycle suivant — c'était le bug
 // "simulateur indisponible par intermittence, qui revient tout seul".
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const [grilles, banques, coefficientDecote] = await Promise.all([

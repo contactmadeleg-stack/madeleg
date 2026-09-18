@@ -3,6 +3,8 @@ import { EDITEUR, MANDANT, ACPR } from "@/lib/identite";
 
 export const metadata = {
   title: "Mentions légales | Madeleg",
+  description: "Éditeur, statut réglementaire ORIAS, rémunération et hébergement du site madeleg.fr.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 export default function MentionsLegales() {

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Simulez votre économie | Madeleg",
   description:
     "Simulez en 30 secondes votre économie en changeant d'assurance emprunteur, sans quitter votre banque pour le prêt.",
+  alternates: { canonical: "/simulation" },
 };
 
 // Rendu à chaque requête, jamais mis en cache : avec `revalidate`, un échec

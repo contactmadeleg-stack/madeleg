@@ -1,0 +1,25 @@
+import type { MetadataRoute } from "next";
+import { slugsArticles } from "@/lib/content/registry";
+
+const BASE_URL = "https://www.madeleg.fr";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const pagesStatiques: MetadataRoute.Sitemap = [
+    { url: BASE_URL, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE_URL}/simulation`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE_URL}/assurance-emprunteur`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/partenaires`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE_URL}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE_URL}/politique-de-confidentialite`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE_URL}/cgu`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE_URL}/reclamation`, changeFrequency: "yearly", priority: 0.2 },
+  ];
+
+  const articles: MetadataRoute.Sitemap = slugsArticles().map((slug) => ({
+    url: `${BASE_URL}/assurance-emprunteur/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...pagesStatiques, ...articles];
+}

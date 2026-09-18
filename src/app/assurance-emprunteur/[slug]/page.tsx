@@ -24,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${article.meta.titre} | Madeleg`,
     description: article.meta.description,
+    alternates: { canonical: `/assurance-emprunteur/${slug}` },
   };
 }
 

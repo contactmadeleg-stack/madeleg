@@ -3,7 +3,30 @@ import { Schibsted_Grotesk, Instrument_Sans, Geist_Mono } from "next/font/google
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VisiteTracker from "@/components/VisiteTracker";
+import { EDITEUR } from "@/lib/identite";
 import "./globals.css";
+
+// Données structurées Organisation (schema.org InsuranceAgency) : reprend
+// l'identité légale unique de src/lib/identite.ts plutôt que de dupliquer
+// ces informations en dur, pour rester cohérent avec les mentions légales.
+const donneesStructurees = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  name: EDITEUR.nomCommercial,
+  legalName: EDITEUR.nomLegal,
+  url: "https://www.madeleg.fr",
+  logo: "https://www.madeleg.fr/apple-icon",
+  email: EDITEUR.email,
+  telephone: EDITEUR.telephone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1 Boulevard Auguste Priou",
+    postalCode: "44120",
+    addressLocality: "Vertou",
+    addressCountry: "FR",
+  },
+  sameAs: ["https://www.instagram.com/madeleg.fr"],
+};
 
 // Polices du design system auto-hébergées via next/font (build-time) plutôt
 // qu'un <link> vers fonts.googleapis.com au runtime : pas de FOUC, pas de
@@ -32,10 +55,27 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const TITRE_DEFAUT = "Madeleg | Économisez sur votre assurance de prêt immobilier";
+const DESCRIPTION_DEFAUT =
+  "Simulez en 30 secondes votre économie en changeant d'assurance emprunteur, sans quitter votre banque pour le prêt. Simulation gratuite et sans engagement.";
+
 export const metadata: Metadata = {
-  title: "Madeleg | Économisez sur votre assurance de prêt immobilier",
-  description:
-    "Simulez en 30 secondes votre économie en changeant d'assurance emprunteur, sans quitter votre banque pour le prêt. Simulation gratuite et sans engagement.",
+  metadataBase: new URL("https://www.madeleg.fr"),
+  title: TITRE_DEFAUT,
+  description: DESCRIPTION_DEFAUT,
+  openGraph: {
+    title: TITRE_DEFAUT,
+    description: DESCRIPTION_DEFAUT,
+    url: "https://www.madeleg.fr",
+    siteName: "Madeleg",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITRE_DEFAUT,
+    description: DESCRIPTION_DEFAUT,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -45,6 +85,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`h-full antialiased ${schibstedGrotesk.variable} ${instrumentSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+        />
         <VisiteTracker />
         <Header />
         <main className="flex-1">{children}</main>

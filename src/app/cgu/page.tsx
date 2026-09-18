@@ -1,5 +1,7 @@
 export const metadata = {
   title: "Conditions générales d'utilisation | Madeleg",
+  description: "Conditions d'accès et d'utilisation du site madeleg.fr et de son simulateur d'économie.",
+  alternates: { canonical: "/cgu" },
 };
 
 export default function ConditionsGeneralesUtilisation() {
