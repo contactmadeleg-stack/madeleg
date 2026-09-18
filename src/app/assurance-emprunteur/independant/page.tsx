@@ -52,14 +52,21 @@ export default function PageAssuranceEmprunteurIndependant() {
           Le contrat groupe de la banque applique les mêmes grilles de garanties à tous les emprunteurs, quel que
           soit leur statut professionnel. Les définitions de l&apos;incapacité et de l&apos;invalidité y sont souvent
           calquées sur le régime général des salariés, sans tenir compte des spécificités du régime social des
-          indépendants. La délégation d&apos;assurance permet de choisir un contrat dont les garanties correspondent
-          réellement à votre situation.
+          indépendants. La{" "}
+          <Link href="/assurance-emprunteur/delegation-assurance" className="underline">
+            délégation d&apos;assurance
+          </Link>{" "}
+          permet de choisir un contrat dont les garanties correspondent réellement à votre situation.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">Comment ça se passe, concrètement</h2>
         <p>
-          La procédure suit la loi Lemoine, identique pour tous les emprunteurs : résiliation possible à tout moment,
-          sans frais ni justification, à condition que le nouveau contrat offre des garanties équivalentes. Un
+          La procédure suit la{" "}
+          <Link href="/assurance-emprunteur/loi-lemoine" className="underline">
+            loi Lemoine
+          </Link>
+          , identique pour tous les emprunteurs : résiliation possible à tout moment, sans frais ni justification, à
+          condition que le nouveau contrat offre des garanties équivalentes. Un
           conseiller Madeleg vérifie cette équivalence pour vous et suit l&apos;ensemble des échanges avec votre
           banque jusqu&apos;à validation.
         </p>

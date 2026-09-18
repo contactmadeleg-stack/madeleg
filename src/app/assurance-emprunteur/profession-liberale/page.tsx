@@ -51,15 +51,22 @@ export default function PageAssuranceEmprunteurProfessionLiberale() {
         <h2 className="text-2xl font-bold mt-8 mb-3">Le contrat groupe applique une grille générique</h2>
         <p>
           Le contrat groupe de la banque classe les emprunteurs par grandes catégories professionnelles, sans tenir
-          compte des particularités de chaque exercice libéral. La délégation d&apos;assurance permet de choisir un
-          contrat dont les garanties et la définition de l&apos;incapacité correspondent à la réalité de votre
-          activité.
+          compte des particularités de chaque exercice libéral. La{" "}
+          <Link href="/assurance-emprunteur/delegation-assurance" className="underline">
+            délégation d&apos;assurance
+          </Link>{" "}
+          permet de choisir un contrat dont les garanties et la définition de l&apos;incapacité correspondent à la
+          réalité de votre activité.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">Comment ça se passe, concrètement</h2>
         <p>
-          La procédure suit la loi Lemoine, identique pour tous les emprunteurs : résiliation possible à tout moment,
-          sans frais ni justification, à condition que le nouveau contrat offre des garanties équivalentes. Un
+          La procédure suit la{" "}
+          <Link href="/assurance-emprunteur/loi-lemoine" className="underline">
+            loi Lemoine
+          </Link>
+          , identique pour tous les emprunteurs : résiliation possible à tout moment, sans frais ni justification, à
+          condition que le nouveau contrat offre des garanties équivalentes. Un
           conseiller Madeleg vérifie cette équivalence pour vous et suit l&apos;ensemble des échanges avec votre
           banque jusqu&apos;à validation.
         </p>
