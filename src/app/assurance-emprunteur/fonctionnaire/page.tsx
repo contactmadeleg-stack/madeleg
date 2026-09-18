@@ -20,7 +20,7 @@ export default function PageAssuranceEmprunteurFonctionnaire() {
         </h1>
         <p className="text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
           Être fonctionnaire rassure votre banque sur votre stabilité d&apos;emploi. Cela ne dit rien de la qualité du
-          contrat d&apos;assurance de prêt qu&apos;elle vous propose — un contrat qui reste, dans la plupart des cas,
+          contrat d&apos;assurance de prêt qu&apos;elle vous propose. Ce contrat reste, dans la plupart des cas,
           pensé pour un salarié du secteur privé.
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
@@ -46,7 +46,7 @@ export default function PageAssuranceEmprunteurFonctionnaire() {
           fonctionnaire en arrêt prolongé suit des règles différentes (congé de longue maladie, congé de longue
           durée, comité médical, reclassement, mise en disponibilité). Si les définitions du contrat ne correspondent
           pas à votre régime réel, une partie de la garantie peut s&apos;avérer inadaptée le jour où vous en avez
-          besoin — cela se vérifie avant de signer, pas après un sinistre.
+          besoin. Cela se vérifie avant de signer, pas après un sinistre.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">Un profil que l&apos;assurance groupe valorise rarement à sa juste mesure</h2>
@@ -82,7 +82,7 @@ export default function PageAssuranceEmprunteurFonctionnaire() {
               Un contractuel de la fonction publique est-il concerné de la même façon qu&apos;un titulaire ?
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              Le principe est le même, mais le régime d&apos;incapacité applicable diffère souvent selon le statut —
+              Le principe est le même, mais le régime d&apos;incapacité applicable diffère souvent selon le statut :
               c&apos;est un point à vérifier au cas par cas dans votre dossier.
             </p>
           </div>
