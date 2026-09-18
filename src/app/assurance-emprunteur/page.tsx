@@ -122,6 +122,21 @@ export default async function PageAssuranceEmprunteur() {
         </div>
       </section>
 
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-5">Selon votre situation</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <Link
+            href="/assurance-emprunteur/fonctionnaire"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Fonctionnaire</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Ce que votre statut change réellement, et ce qu&apos;il ne change pas.
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {articles.length > 0 && (
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-5">Nos articles</h2>
