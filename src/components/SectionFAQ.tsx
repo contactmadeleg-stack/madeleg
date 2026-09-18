@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "./Reveal";
 import { IconeChevronBas } from "./Icones";
 
@@ -66,20 +66,18 @@ export default function SectionFAQ() {
                   <IconeChevronBas className="w-4 h-4" />
                 </span>
               </button>
-              <AnimatePresence initial={false}>
-                {estOuvert && (
-                  <motion.div
-                    key="contenu"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={reduitMotion ? { duration: 0 } : { duration: 0.25, ease: "easeInOut" }}
-                    style={{ overflow: "hidden" }}
-                  >
-                    <p className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{r}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {/* Toujours monté dans le DOM (même fermé) : un crawler IA ou un
+                  lecteur d'écran sans JS doit pouvoir lire toutes les
+                  réponses, pas seulement celle actuellement ouverte. */}
+              <motion.div
+                animate={{ height: estOuvert ? "auto" : 0, opacity: estOuvert ? 1 : 0 }}
+                initial={false}
+                transition={reduitMotion ? { duration: 0 } : { duration: 0.25, ease: "easeInOut" }}
+                style={{ overflow: "hidden" }}
+                aria-hidden={!estOuvert}
+              >
+                <p className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{r}</p>
+              </motion.div>
             </div>
           );
         })}
