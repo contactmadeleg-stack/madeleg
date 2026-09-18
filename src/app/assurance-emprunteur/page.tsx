@@ -143,6 +143,15 @@ export default async function PageAssuranceEmprunteur() {
               Pourquoi le délai de carence compte plus pour vous que pour un salarié.
             </p>
           </Link>
+          <Link
+            href="/assurance-emprunteur/profession-liberale"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Profession libérale</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Caisse de prévoyance professionnelle et assurance de prêt : deux contrats distincts.
+            </p>
+          </Link>
         </div>
       </section>
 

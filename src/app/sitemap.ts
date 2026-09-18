@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/assurance-emprunteur`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/assurance-emprunteur/fonctionnaire`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/assurance-emprunteur/independant`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/assurance-emprunteur/profession-liberale`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/partenaires`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${BASE_URL}/politique-de-confidentialite`, changeFrequency: "yearly", priority: 0.2 },
