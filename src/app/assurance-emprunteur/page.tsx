@@ -210,6 +210,24 @@ export default async function PageAssuranceEmprunteur() {
               Les leviers concrets pour réduire votre cotisation.
             </p>
           </Link>
+          <Link
+            href="/assurance-emprunteur/comparer"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Comparer deux contrats</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Pourquoi le taux affiché ne suffit pas à comparer.
+            </p>
+          </Link>
+          <Link
+            href="/assurance-emprunteur/apres-plusieurs-annees"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Changer après plusieurs années</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Est-ce trop tard si votre prêt a déjà plusieurs années ?
+            </p>
+          </Link>
         </div>
       </section>
 

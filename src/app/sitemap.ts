@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/assurance-emprunteur/delegation-assurance`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/assurance-emprunteur/prix`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/assurance-emprunteur/moins-chere`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/assurance-emprunteur/comparer`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/assurance-emprunteur/apres-plusieurs-annees`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/partenaires`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${BASE_URL}/politique-de-confidentialite`, changeFrequency: "yearly", priority: 0.2 },

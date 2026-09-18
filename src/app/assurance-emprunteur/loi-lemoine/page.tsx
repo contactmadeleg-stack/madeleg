@@ -39,7 +39,11 @@ export default function PageLoiLemoine() {
         <p>
           Cette règle s&apos;applique aux contrats souscrits après le 1er juin 2022, mais aussi à tous les contrats en
           cours signés avant cette date. Que votre crédit ait dix mois ou dix ans, le droit de changer
-          d&apos;assurance à tout moment s&apos;applique de la même façon.
+          d&apos;assurance à tout moment s&apos;applique de la même façon, même si l&apos;intérêt à le faire{" "}
+          <Link href="/assurance-emprunteur/apres-plusieurs-annees" className="underline">
+            varie selon l&apos;ancienneté du prêt
+          </Link>
+          .
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">Une seule condition : l&apos;équivalence de garanties</h2>
