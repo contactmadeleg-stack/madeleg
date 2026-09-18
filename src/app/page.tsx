@@ -10,20 +10,20 @@ import SectionCTAFinale from "@/components/SectionCTAFinale";
 import { getGrillesCompletes, getCoefficientDecote } from "@/lib/calcul/parametres";
 import { getBanquesActives } from "@/lib/getBanquesActives";
 
-// Les grilles de taux et le coefficient de décote sont éditables depuis la
-// console admin (/admin/grilles) — revalidation régulière pour que les
-// changements se reflètent sans nécessiter un redéploiement.
-export const revalidate = 300;
+// Rendu à chaque requête, jamais mis en cache. Avec un `revalidate` par
+// intervalle, un échec Supabase pendant la régénération en arrière-plan
+// (ex. dérive d'horloge JWT PGRST303) produisait un rendu "réussi" contenant
+// le message d'indisponibilité, qui restait alors figé dans le cache et
+// servi à tous les visiteurs jusqu'au cycle suivant — c'était le bug
+// "simulateur indisponible par intermittence, qui revient tout seul".
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  let grilles: Awaited<ReturnType<typeof getGrillesCompletes>> | null = null;
-  try {
-    grilles = await getGrillesCompletes();
-  } catch (e) {
-    console.error("Grilles de taux indisponibles :", e);
-  }
-
-  const [banques, coefficientDecote] = await Promise.all([getBanquesActives(), getCoefficientDecote()]);
+  const [grilles, banques, coefficientDecote] = await Promise.all([
+    getGrillesCompletes(),
+    getBanquesActives(),
+    getCoefficientDecote(),
+  ]);
 
   return (
     <div>
@@ -72,18 +72,12 @@ export default async function Home() {
         </section>
 
         <div id="simulateur" className="relative mx-auto max-w-3xl px-6 pb-16 sm:pb-20 scroll-mt-20">
-          {grilles ? (
-            <Simulateur
-              grillesBanque={grilles.banque}
-              grillesDelegation={grilles.delegation}
-              banques={banques}
-              coefficientDecote={coefficientDecote}
-            />
-          ) : (
-            <p className="text-center" style={{ color: "var(--text-muted)" }}>
-              Le simulateur est momentanément indisponible. Réessayez dans un instant.
-            </p>
-          )}
+          <Simulateur
+            grillesBanque={grilles.banque}
+            grillesDelegation={grilles.delegation}
+            banques={banques}
+            coefficientDecote={coefficientDecote}
+          />
         </div>
       </div>
 

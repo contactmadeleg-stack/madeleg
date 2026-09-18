@@ -11,17 +11,20 @@ export const metadata: Metadata = {
     "Simulez en 30 secondes votre économie en changeant d'assurance emprunteur, sans quitter votre banque pour le prêt.",
 };
 
-export const revalidate = 300;
+// Rendu à chaque requête, jamais mis en cache : avec `revalidate`, un échec
+// Supabase pendant la régénération en arrière-plan (ex. dérive d'horloge
+// JWT PGRST303) se retrouvait figé dans le cache statique et servi à tous
+// les visiteurs jusqu'au cycle suivant — c'était le bug "indisponible par
+// intermittence". En dynamique, une erreur n'affecte que la requête qui
+// l'a déclenchée (voir error.tsx) ; la suivante repart de zéro.
+export const dynamic = "force-dynamic";
 
 export default async function PageSimulation() {
-  let grilles: Awaited<ReturnType<typeof getGrillesCompletes>> | null = null;
-  try {
-    grilles = await getGrillesCompletes();
-  } catch (e) {
-    console.error("Grilles de taux indisponibles :", e);
-  }
-
-  const [banques, coefficientDecote] = await Promise.all([getBanquesActives(), getCoefficientDecote()]);
+  const [grilles, banques, coefficientDecote] = await Promise.all([
+    getGrillesCompletes(),
+    getBanquesActives(),
+    getCoefficientDecote(),
+  ]);
 
   return (
     <div className="min-h-[calc(100vh-1px)] flex flex-col">
@@ -32,18 +35,12 @@ export default async function PageSimulation() {
       </div>
 
       <div className="mx-auto max-w-3xl w-full px-4 pb-16 flex-1">
-        {grilles ? (
-          <Simulateur
-            grillesBanque={grilles.banque}
-            grillesDelegation={grilles.delegation}
-            banques={banques}
-            coefficientDecote={coefficientDecote}
-          />
-        ) : (
-          <p className="text-center" style={{ color: "var(--text-muted)" }}>
-            Le simulateur est momentanément indisponible. Réessayez dans un instant.
-          </p>
-        )}
+        <Simulateur
+          grillesBanque={grilles.banque}
+          grillesDelegation={grilles.delegation}
+          banques={banques}
+          coefficientDecote={coefficientDecote}
+        />
       </div>
 
       <p className="mx-auto max-w-3xl w-full px-4 pb-6 text-[11px] text-center" style={{ color: "var(--text-muted)" }}>
