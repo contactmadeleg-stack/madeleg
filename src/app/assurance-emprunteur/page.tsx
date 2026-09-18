@@ -35,6 +35,10 @@ export default async function PageAssuranceEmprunteur() {
           Ce que couvre l&apos;assurance de prêt immobilier, pourquoi elle coûte souvent plus cher que nécessaire, et
           comment la loi Lemoine permet de la changer sans quitter votre banque.
         </p>
+        <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
+          Dernière mise à jour :{" "}
+          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+        </p>
       </header>
 
       <section className="prose-madeleg space-y-4 mb-12" style={{ color: "var(--text-body)" }}>

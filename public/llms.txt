@@ -1,0 +1,27 @@
+# Madeleg
+
+Madeleg accompagne les emprunteurs français pour changer d'assurance de prêt
+immobilier (assurance emprunteur) sans changer de banque, dans le cadre de
+la loi Lemoine. Mario Romuald Dos Santos EI, mandataire d'intermédiaire
+d'assurance (MIA) immatriculé à l'ORIAS sous le n° 20004713, mandaté par
+FINSPOT SAS (Pretto), courtier en assurance (ORIAS 17000916).
+
+## Pages
+
+- [Simulateur d'économie](https://www.madeleg.fr/): estimation gratuite et
+  indicative de l'économie réalisable en changeant d'assurance emprunteur.
+- [Guide assurance emprunteur](https://www.madeleg.fr/assurance-emprunteur):
+  la loi Lemoine, les garanties exigées par les banques, la procédure de
+  résiliation et de substitution.
+- [Nos partenaires](https://www.madeleg.fr/partenaires): liste des
+  entreprises d'assurance dont Madeleg peut proposer les contrats.
+- [Mentions légales](https://www.madeleg.fr/mentions-legales): statut
+  réglementaire, rémunération, assurance RC Pro.
+- [Politique de confidentialité](https://www.madeleg.fr/politique-de-confidentialite)
+- [Réclamation et médiation](https://www.madeleg.fr/reclamation)
+
+## Notes
+
+Le simulateur fournit une estimation indicative, non contractuelle. Le
+montant définitif et les garanties applicables ne sont arrêtés qu'après
+étude individuelle du dossier par un conseiller Madeleg.

@@ -11,13 +11,20 @@ import SectionCTAFinale from "@/components/SectionCTAFinale";
 import { getGrillesCompletes, getCoefficientDecote } from "@/lib/calcul/parametres";
 import { getBanquesActives } from "@/lib/getBanquesActives";
 
-// Rendu à chaque requête, jamais mis en cache. Avec un `revalidate` par
-// intervalle, un échec Supabase pendant la régénération en arrière-plan
-// (ex. dérive d'horloge JWT PGRST303) produisait un rendu "réussi" contenant
-// le message d'indisponibilité, qui restait alors figé dans le cache et
-// servi à tous les visiteurs jusqu'au cycle suivant — c'était le bug
-// "simulateur indisponible par intermittence, qui revient tout seul".
-export const dynamic = "force-dynamic";
+// Les grilles de taux et le coefficient de décote sont éditables depuis la
+// console admin (/admin/grilles) — revalidation régulière pour que les
+// changements se reflètent sans nécessiter un redéploiement.
+//
+// Le bug précédent ("simulateur indisponible par intermittence, qui revient
+// tout seul") venait du fait qu'un échec Supabase pendant la régénération
+// était attrapé silencieusement et transformé en rendu "réussi" contenant
+// le message d'indisponibilité — ce rendu-là se retrouvait alors caché et
+// servi à tout le monde jusqu'au cycle suivant. Corrigé en laissant l'erreur
+// remonter (voir error.tsx) plutôt qu'en l'avalant : Next.js continue de
+// servir la dernière page générée avec succès et retente en arrière-plan.
+// La cause racine (clé Supabase JWT sujette à une dérive d'horloge) est par
+// ailleurs corrigée, ce qui rend un nouvel échec nettement moins probable.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },

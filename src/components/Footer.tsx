@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+import { EDITEUR } from "@/lib/identite";
 
 function IconeInstagram({ className = "w-5 h-5" }: { className?: string }) {
   return (
@@ -36,6 +37,13 @@ export default function Footer() {
           >
             <IconeInstagram className="w-4 h-4" />
           </a>
+          <p className="text-sm text-white/70 mt-4">
+            <a href={`tel:${EDITEUR.telephone.replace(/\s/g, "")}`} className="no-underline hover:text-white hover:underline">
+              {EDITEUR.telephone}
+            </a>
+            <br />
+            Vertou (44)
+          </p>
         </div>
 
         <div>

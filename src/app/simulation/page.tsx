@@ -12,13 +12,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/simulation" },
 };
 
-// Rendu à chaque requête, jamais mis en cache : avec `revalidate`, un échec
-// Supabase pendant la régénération en arrière-plan (ex. dérive d'horloge
-// JWT PGRST303) se retrouvait figé dans le cache statique et servi à tous
-// les visiteurs jusqu'au cycle suivant — c'était le bug "indisponible par
-// intermittence". En dynamique, une erreur n'affecte que la requête qui
-// l'a déclenchée (voir error.tsx) ; la suivante repart de zéro.
-export const dynamic = "force-dynamic";
+// Voir le commentaire équivalent dans src/app/page.tsx : mis en cache 5
+// minutes, avec l'erreur qui remonte à error.tsx plutôt que d'être avalée,
+// pour que Next.js continue de servir la dernière version réussie en cas
+// d'échec de régénération au lieu de figer une page d'erreur pour tous.
+export const revalidate = 300;
 
 export default async function PageSimulation() {
   const [grilles, banques, coefficientDecote] = await Promise.all([
