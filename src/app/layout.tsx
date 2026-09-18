@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION_DEFAUT,
   },
   verification: {
-    google: "Q9zW-Dmt7x4hv_XgwuRgKSxpgjuouuXuRserPLcSROc",
+    google: "F5_aWb0ziBxtMuSy1BTp5mcVJcmBNXjXNacXmQWeFkI",
   },
 };
 
