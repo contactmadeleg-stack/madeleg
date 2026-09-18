@@ -52,16 +52,23 @@ export default async function PageAssuranceEmprunteur() {
         <p>
           La banque propose presque toujours son propre contrat d&apos;assurance groupe au moment du prêt. Ce contrat
           n&apos;est pas obligatoire : vous pouvez le remplacer par un contrat individuel, chez un autre assureur, à
-          condition qu&apos;il offre des garanties équivalentes. C&apos;est ce qu&apos;on appelle la délégation
-          d&apos;assurance.
+          condition qu&apos;il offre des garanties équivalentes. C&apos;est ce qu&apos;on appelle la{" "}
+          <Link href="/assurance-emprunteur/delegation-assurance" className="underline">
+            délégation d&apos;assurance
+          </Link>
+          .
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">La loi Lemoine : changer d&apos;assurance à tout moment</h2>
         <p>
-          Depuis juin 2022, la loi Lemoine vous permet de résilier votre assurance de prêt immobilier à tout moment,
-          sans frais de résiliation ni justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de
-          banque ni de prêt. Avant cette loi, le changement n&apos;était possible qu&apos;à la date anniversaire du
-          contrat, ce qui décourageait la plupart des emprunteurs.
+          Depuis juin 2022, la{" "}
+          <Link href="/assurance-emprunteur/loi-lemoine" className="underline">
+            loi Lemoine
+          </Link>{" "}
+          vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais de résiliation ni
+          justification, pour la remplacer par un contrat aux garanties équivalentes, sans changer de banque ni de
+          prêt. Avant cette loi, le changement n&apos;était possible qu&apos;à la date anniversaire du contrat, ce qui
+          décourageait la plupart des emprunteurs.
         </p>
 
         <h2 id="garanties" className="text-2xl font-bold mt-8 mb-3 scroll-mt-24">
@@ -150,6 +157,39 @@ export default async function PageAssuranceEmprunteur() {
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Profession libérale</p>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
               Caisse de prévoyance professionnelle et assurance de prêt : deux contrats distincts.
+            </p>
+          </Link>
+          <Link
+            href="/assurance-emprunteur/investissement-locatif"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Investissement locatif</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Pourquoi la garantie ne se pense pas comme pour une résidence principale.
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-5">Comprendre vos droits</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <Link
+            href="/assurance-emprunteur/loi-lemoine"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Loi Lemoine</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Résiliation à tout moment, questionnaire médical : ce qu&apos;elle change concrètement.
+            </p>
+          </Link>
+          <Link
+            href="/assurance-emprunteur/delegation-assurance"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Délégation d&apos;assurance</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Comment remplacer le contrat de votre banque par un contrat individuel équivalent.
             </p>
           </Link>
         </div>
