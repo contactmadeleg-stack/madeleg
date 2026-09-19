@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/assurance-emprunteur/questionnaire-sante`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/assurance-emprunteur/diabete`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/assurance-emprunteur/cancer`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/assurance-emprunteur/vih`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/qui-sommes-nous`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/partenaires`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },

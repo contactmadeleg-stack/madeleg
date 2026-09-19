@@ -270,6 +270,15 @@ export default async function PageAssuranceEmprunteur() {
               Pourquoi comparer les assureurs compte particulièrement dans ce cas.
             </p>
           </Link>
+          <Link
+            href="/assurance-emprunteur/vih"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>VIH</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Ce que change la grille de référence AERAS pour les personnes séropositives.
+            </p>
+          </Link>
         </div>
       </section>
 
