@@ -48,9 +48,12 @@ export default function PageLoiLemoine() {
 
         <h2 className="text-2xl font-bold mt-8 mb-3">Une seule condition : l&apos;équivalence de garanties</h2>
         <p>
-          La banque ne peut pas refuser votre nouveau contrat si celui-ci offre des garanties équivalentes à celles
-          qu&apos;elle exige initialement. Elle ne peut pas non plus modifier les conditions de votre prêt, ni son
-          taux, au motif que vous changez d&apos;assureur. C&apos;est cette vérification d&apos;équivalence, précise
+          La banque ne peut pas refuser votre nouveau contrat si celui-ci offre des garanties équivalentes, selon des{" "}
+          <Link href="/assurance-emprunteur/comparer" className="underline">
+            critères précis et encadrés
+          </Link>
+          , à celles qu&apos;elle exige initialement. Elle ne peut pas non plus modifier les conditions de votre
+          prêt, ni son taux, au motif que vous changez d&apos;assureur. C&apos;est cette vérification d&apos;équivalence, précise
           et documentée, qui fait la différence entre une résiliation acceptée et un dossier qui traîne. C&apos;est le
           même principe que celui de la{" "}
           <Link href="/assurance-emprunteur/delegation-assurance" className="underline">
@@ -61,11 +64,17 @@ export default function PageLoiLemoine() {
 
         <h2 className="text-2xl font-bold mt-8 mb-3">La suppression du questionnaire de santé, sous conditions</h2>
         <p>
-          La loi Lemoine supprime aussi le questionnaire médical pour les prêts immobiliers dont la part assurée par
-          personne ne dépasse pas 200 000 €, et dont le terme intervient avant les 60 ans de l&apos;emprunteur. Dans
-          ce cas, votre état de santé ne peut plus être un motif de refus ou de surprime, ce qui change la donne pour
-          les personnes qui ont un antécédent médical à déclarer. Au-delà de ce seuil, le questionnaire de santé
-          reste applicable.
+          La loi Lemoine supprime aussi le{" "}
+          <Link href="/assurance-emprunteur/questionnaire-sante" className="underline">
+            questionnaire médical
+          </Link>{" "}
+          pour les prêts immobiliers dont la part assurée par personne ne dépasse pas 200 000 €, et dont le terme
+          intervient avant les 60 ans de l&apos;emprunteur. Dans ce cas, votre état de santé ne peut plus être un
+          motif de refus ou de surprime, ce qui change la donne pour les personnes qui ont un{" "}
+          <Link href="/assurance-emprunteur/risque-aggrave-sante" className="underline">
+            antécédent médical
+          </Link>{" "}
+          à déclarer. Au-delà de ce seuil, le questionnaire de santé reste applicable.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">Comment ça se passe, concrètement</h2>

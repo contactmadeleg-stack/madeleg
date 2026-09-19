@@ -40,9 +40,12 @@ export default function PageComparerAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mt-8 mb-3">L&apos;équivalence de garanties, le critère qui compte pour la banque</h2>
         <p>
           Ce n&apos;est pas votre appréciation personnelle qui détermine si un contrat est valable, c&apos;est
-          l&apos;équivalence de garanties par rapport au contrat exigé par la banque : chaque risque couvert (décès,
-          invalidité, incapacité) doit être couvert au moins aussi bien dans le nouveau contrat. C&apos;est ce que la
-          banque vérifie avant d&apos;accepter une{" "}
+          l&apos;équivalence de garanties par rapport au contrat exigé par la banque. Le Comité Consultatif du
+          Secteur Financier (CCSF) a établi une grille de 18 critères pour les garanties décès, PTIA, invalidité et
+          incapacité, dont la banque retient au maximum 11 pour votre prêt (avec jusqu&apos;à 4 critères
+          supplémentaires si une garantie perte d&apos;emploi est exigée). Cette liste de critères figure dans la
+          fiche standardisée d&apos;information (FSI) que la banque vous remet lors de votre demande de prêt.
+          C&apos;est sur cette base précise que la banque vérifie l&apos;équivalence avant d&apos;accepter une{" "}
           <Link href="/assurance-emprunteur/delegation-assurance" className="underline">
             délégation d&apos;assurance
           </Link>

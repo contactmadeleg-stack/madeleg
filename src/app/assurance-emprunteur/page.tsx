@@ -231,6 +231,39 @@ export default async function PageAssuranceEmprunteur() {
         </div>
       </section>
 
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-5">Votre état de santé et votre dossier</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <Link
+            href="/assurance-emprunteur/risque-aggrave-sante"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Risque aggravé de santé</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              La convention AERAS et le droit à l&apos;oubli, ce qu&apos;ils changent concrètement.
+            </p>
+          </Link>
+          <Link
+            href="/assurance-emprunteur/questionnaire-sante"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Questionnaire de santé</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Quand il s&apos;applique, ce qu&apos;il couvre, qui y a accès.
+            </p>
+          </Link>
+          <Link
+            href="/assurance-emprunteur/diabete"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Diabète</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Pourquoi comparer les assureurs compte particulièrement dans ce cas.
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {articles.length > 0 && (
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-5">Nos articles</h2>

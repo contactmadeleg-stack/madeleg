@@ -46,7 +46,11 @@ export default function PageDelegationAssurance() {
             loi Lemoine
           </Link>
           . Dans les deux cas, la condition est la même : le nouveau contrat doit offrir des garanties équivalentes à
-          celles du contrat initial.
+          celles du contrat initial, selon des critères précis que vous pouvez consulter sur notre page{" "}
+          <Link href="/assurance-emprunteur/comparer" className="underline">
+            comment comparer deux contrats
+          </Link>
+          .
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-3">La banque ne peut ni refuser ni pénaliser votre choix</h2>
