@@ -8,6 +8,7 @@ import Logo from "./Logo";
 const LIENS_NAV = [
   { href: "/#comment-ca-marche", label: "Comment ça marche" },
   { href: "/assurance-emprunteur", label: "Assurance emprunteur" },
+  { href: "/qui-sommes-nous", label: "Qui sommes-nous" },
   { href: "/#faq", label: "FAQ" },
 ];
 

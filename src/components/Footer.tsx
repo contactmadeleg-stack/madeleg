@@ -55,6 +55,9 @@ export default function Footer() {
             <Link href="/assurance-emprunteur" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Guide assurance emprunteur
             </Link>
+            <Link href="/qui-sommes-nous" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
+              Qui sommes-nous
+            </Link>
             <Link href="/partenaires" className="font-semibold text-white/80 no-underline hover:text-white hover:underline">
               Nos partenaires
             </Link>
