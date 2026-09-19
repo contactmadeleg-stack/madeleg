@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur et VIH | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Être séropositif ne ferme pas la porte à l'assurance emprunteur. La grille de référence AERAS encadre les conditions d'accès pour les personnes vivant avec le VIH.",
   alternates: { canonical: "/assurance-emprunteur/vih" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageAssuranceEmprunteurVih() {
   return (
@@ -26,7 +29,7 @@ export default function PageAssuranceEmprunteurVih() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

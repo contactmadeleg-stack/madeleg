@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Comment comparer deux contrats d'assurance emprunteur | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Le taux affiché ne suffit pas à comparer deux contrats. Quotité, mode de calcul, délai de carence, exclusions : les points à vérifier avant de choisir.",
   alternates: { canonical: "/assurance-emprunteur/comparer" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageComparerAssuranceEmprunteur() {
   return (
@@ -25,7 +28,7 @@ export default function PageComparerAssuranceEmprunteur() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

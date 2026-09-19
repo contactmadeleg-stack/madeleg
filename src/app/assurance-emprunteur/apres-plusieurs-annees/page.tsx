@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Changer d'assurance emprunteur après plusieurs années | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Votre prêt a plusieurs années : vous pouvez toujours changer d'assurance emprunteur. Ce qui reste intéressant, et le cas où ça ne l'est plus.",
   alternates: { canonical: "/assurance-emprunteur/apres-plusieurs-annees" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageChangerApresPlusieursAnnees() {
   return (
@@ -25,7 +28,7 @@ export default function PageChangerApresPlusieursAnnees() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

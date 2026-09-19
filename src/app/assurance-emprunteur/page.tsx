@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { registreArticles, slugsArticles } from "@/lib/content/registry";
 import { IconeBouclier, IconeDossier, IconePoignee, IconeCoche } from "@/components/Icones";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur : le guide complet | Madeleg",
@@ -21,6 +22,8 @@ async function chargerArticles() {
   return articles.sort((a, b) => (a.datePublication < b.datePublication ? 1 : -1));
 }
 
+const DATE_MISE_A_JOUR = "2026-09-19";
+
 export default async function PageAssuranceEmprunteur() {
   const articles = await chargerArticles();
 
@@ -37,7 +40,7 @@ export default async function PageAssuranceEmprunteur() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

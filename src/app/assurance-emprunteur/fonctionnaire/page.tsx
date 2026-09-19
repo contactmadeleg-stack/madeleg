@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur fonctionnaire | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Fonctionnaire et emprunteur : pourquoi votre contrat d'assurance de prêt mérite d'être vérifié, et comment le changer sans quitter votre banque.",
   alternates: { canonical: "/assurance-emprunteur/fonctionnaire" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageAssuranceEmprunteurFonctionnaire() {
   return (
@@ -26,7 +29,7 @@ export default function PageAssuranceEmprunteurFonctionnaire() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

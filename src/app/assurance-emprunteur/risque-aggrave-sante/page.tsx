@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Risque aggravé de santé et assurance emprunteur : la convention AERAS | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Un problème de santé ne ferme pas la porte à l'assurance emprunteur. La convention AERAS et le droit à l'oubli, ce qu'ils changent concrètement pour votre dossier.",
   alternates: { canonical: "/assurance-emprunteur/risque-aggrave-sante" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageRisqueAggraveSante() {
   return (
@@ -25,7 +28,7 @@ export default function PageRisqueAggraveSante() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

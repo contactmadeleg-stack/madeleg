@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Loi Lemoine assurance emprunteur : ce qu'elle change | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Résiliation à tout moment, suppression du questionnaire médical sous conditions : ce que change concrètement la loi Lemoine sur votre assurance de prêt.",
   alternates: { canonical: "/assurance-emprunteur/loi-lemoine" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageLoiLemoine() {
   return (
@@ -25,7 +28,7 @@ export default function PageLoiLemoine() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

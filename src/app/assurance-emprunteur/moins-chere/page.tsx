@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur moins chère : les leviers réels | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Délégation, mode de calcul du capital assuré, quotité : les leviers concrets pour réduire le coût de votre assurance de prêt, sans changer de banque ni de crédit.",
   alternates: { canonical: "/assurance-emprunteur/moins-chere" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageAssuranceEmprunteurMoinsChere() {
   return (
@@ -25,7 +28,7 @@ export default function PageAssuranceEmprunteurMoinsChere() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

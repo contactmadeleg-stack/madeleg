@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Délégation d'assurance emprunteur : comment ça marche | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Remplacer le contrat d'assurance de votre banque par un contrat individuel équivalent, sans changer de banque ni de prêt : le principe de la délégation d'assurance.",
   alternates: { canonical: "/assurance-emprunteur/delegation-assurance" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageDelegationAssurance() {
   return (
@@ -26,7 +29,7 @@ export default function PageDelegationAssurance() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 

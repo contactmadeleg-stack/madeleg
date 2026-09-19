@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQSchema from "@/components/FAQSchema";
+import { formatDateMiseAJour } from "@/lib/dates";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur et diabète | Madeleg",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
     "Le diabète fait partie des risques aggravés de santé les plus fréquents en assurance emprunteur. Pourquoi comparer les assureurs compte particulièrement dans ce cas.",
   alternates: { canonical: "/assurance-emprunteur/diabete" },
 };
+
+const DATE_MISE_A_JOUR = "2026-09-19";
 
 export default function PageAssuranceEmprunteurDiabete() {
   return (
@@ -25,7 +28,7 @@ export default function PageAssuranceEmprunteurDiabete() {
         </p>
         <p className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
           Dernière mise à jour :{" "}
-          {new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}.
+          {formatDateMiseAJour(DATE_MISE_A_JOUR)}.
         </p>
       </header>
 
