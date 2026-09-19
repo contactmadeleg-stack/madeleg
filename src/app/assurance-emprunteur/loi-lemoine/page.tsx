@@ -85,7 +85,12 @@ export default function PageLoiLemoine() {
         <p>
           Un conseiller Madeleg identifie un contrat aux garanties équivalentes aux vôtres, prépare le dossier de
           substitution et suit l&apos;ensemble des échanges avec votre banque jusqu&apos;à validation. Vous
-          n&apos;avez pas à gérer vous-même les délais de réponse ni les allers-retours administratifs.
+          n&apos;avez pas à gérer vous-même les délais de réponse ni les allers-retours administratifs. Le détail de
+          la procédure, étape par étape, est expliqué sur notre page{" "}
+          <Link href="/assurance-emprunteur/resilier" className="underline">
+            résilier son assurance emprunteur
+          </Link>
+          .
         </p>
       </section>
 

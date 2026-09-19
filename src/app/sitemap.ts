@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/assurance-emprunteur/investissement-locatif`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/assurance-emprunteur/loi-lemoine`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/assurance-emprunteur/delegation-assurance`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/assurance-emprunteur/resilier`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/assurance-emprunteur/prix`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/assurance-emprunteur/moins-chere`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/assurance-emprunteur/comparer`, changeFrequency: "monthly", priority: 0.6 },

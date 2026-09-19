@@ -196,6 +196,15 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
+            href="/assurance-emprunteur/resilier"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Résilier son assurance emprunteur</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              La procédure étape par étape, et le délai légal de réponse de la banque.
+            </p>
+          </Link>
+          <Link
             href="/assurance-emprunteur/prix"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
