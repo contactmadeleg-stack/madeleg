@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { EDITEUR, MANDANT } from "@/lib/identite";
@@ -16,6 +17,15 @@ export default function PageQuiSommesNous() {
         <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full mb-4" style={{ backgroundColor: "var(--emerald-50)", color: "var(--emerald-600)" }}>
           Qui sommes-nous
         </span>
+        <Image
+          src="/images/romuald-dos-santos.jpg"
+          alt="Romuald Dos Santos, fondateur de Madeleg"
+          width={128}
+          height={128}
+          priority
+          className="rounded-full mx-auto mb-5 object-cover"
+          style={{ width: 128, height: 128 }}
+        />
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
           Romuald Dos Santos, fondateur de Madeleg
         </h1>
