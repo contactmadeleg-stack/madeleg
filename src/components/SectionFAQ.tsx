@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "./Reveal";
 import { IconeChevronBas } from "./Icones";
+import FAQSchema from "./FAQSchema";
 
 const QUESTIONS = [
   {
@@ -38,6 +39,7 @@ export default function SectionFAQ() {
 
   return (
     <section id="faq" className="mx-auto max-w-3xl px-4 py-16 sm:py-24 scroll-mt-20">
+      <FAQSchema entrees={QUESTIONS.map(({ q, r }) => ({ question: q, reponse: r }))} />
       <Reveal>
         <div className="text-center mb-10">
           <span className="inline-block text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full mb-4" style={{ backgroundColor: "var(--emerald-50)", color: "var(--emerald-600)" }}>

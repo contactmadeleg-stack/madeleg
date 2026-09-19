@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur investissement locatif | Madeleg",
@@ -68,6 +69,20 @@ export default function PageAssuranceEmprunteurInvestissementLocatif() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Faut-il assurer 100 % du capital emprunté sur un investissement locatif ?",
+              reponse:
+                "La répartition de la quotité assurée entre co-emprunteurs et le niveau de garantie retenu se déterminent au cas par cas avec votre banque et l'assureur, en fonction du montage de l'opération.",
+            },
+            {
+              question: "Un investisseur avec plusieurs crédits en cours peut-il quand même déléguer son assurance ?",
+              reponse:
+                "Oui, la loi Lemoine s'applique de la même façon. L'examen médical et tarifaire tient simplement compte du cumul de capitaux déjà assurés sur vos autres prêts.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

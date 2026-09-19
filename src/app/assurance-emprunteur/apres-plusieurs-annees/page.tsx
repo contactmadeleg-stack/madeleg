@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Changer d'assurance emprunteur après plusieurs années | Madeleg",
@@ -68,6 +69,20 @@ export default function PageChangerApresPlusieursAnnees() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Mon prêt a quinze ans, ça vaut vraiment le coup de vérifier ?",
+              reponse:
+                "Ça dépend du capital restant dû et du mode de calcul de votre contrat actuel. C'est justement ce qu'un conseiller vérifie avant de vous dire si la démarche est pertinente.",
+            },
+            {
+              question: "Dois-je prévenir ma banque avant de chercher un nouveau contrat ?",
+              reponse:
+                "Non, vous pouvez d'abord identifier un contrat aux garanties équivalentes avant de notifier votre banque de la résiliation.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

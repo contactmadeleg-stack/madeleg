@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Prix de l'assurance emprunteur : les critères qui comptent | Madeleg",
@@ -68,6 +69,20 @@ export default function PagePrixAssuranceEmprunteur() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Le tabagisme influence-t-il vraiment le prix ?",
+              reponse:
+                "Oui, c'est un critère standard du questionnaire de santé lorsque celui-ci s'applique, au même titre que l'âge ou les antécédents médicaux.",
+            },
+            {
+              question: "Le prix est-il fixé une fois pour toutes à la souscription ?",
+              reponse:
+                "Cela dépend du mode de calcul retenu par votre contrat. C'est précisément ce que nous vérifions avant de vous proposer une alternative.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

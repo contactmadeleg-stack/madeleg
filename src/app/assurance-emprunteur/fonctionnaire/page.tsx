@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur fonctionnaire | Madeleg",
@@ -74,6 +75,19 @@ export default function PageAssuranceEmprunteurFonctionnaire() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "La garantie prévoyance de mon administration remplace-t-elle l'assurance emprunteur ?",
+              reponse: "Non, ce sont deux contrats distincts : l'un ne dispense pas de l'autre.",
+            },
+            {
+              question: "Un contractuel de la fonction publique est-il concerné de la même façon qu'un titulaire ?",
+              reponse:
+                "Le principe est le même, mais le régime d'incapacité applicable diffère souvent selon le statut : c'est un point à vérifier au cas par cas dans votre dossier.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

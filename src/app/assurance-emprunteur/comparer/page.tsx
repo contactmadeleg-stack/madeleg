@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Comment comparer deux contrats d'assurance emprunteur | Madeleg",
@@ -67,6 +68,20 @@ export default function PageComparerAssuranceEmprunteur() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Un comparateur en ligne suffit-il pour choisir un nouveau contrat ?",
+              reponse:
+                "Il donne une première idée des tarifs, mais ne remplace pas la vérification précise de l'équivalence de garanties avec votre contrat actuel, propre à chaque dossier.",
+            },
+            {
+              question: "Le nouveau contrat doit-il être identique à l'ancien ?",
+              reponse:
+                "Non, équivalent suffit. Il peut même être plus adapté à votre situation réelle que le contrat groupe d'origine.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

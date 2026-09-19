@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur moins chère : les leviers réels | Madeleg",
@@ -69,6 +70,19 @@ export default function PageAssuranceEmprunteurMoinsChere() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Réduire mon assurance de prêt peut-il faire baisser mes garanties sans que je m'en aperçoive ?",
+              reponse:
+                "Non. La loi impose une équivalence de garanties avec votre contrat actuel : un contrat moins cher mais moins protecteur ne peut pas être accepté par votre banque.",
+            },
+            {
+              question: "Faut-il attendre la fin d'une période pour changer d'assurance moins chère ?",
+              reponse: "Non, la loi Lemoine permet de résilier à tout moment, sans attendre une date anniversaire.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

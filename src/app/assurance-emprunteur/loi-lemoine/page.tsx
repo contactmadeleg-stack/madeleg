@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Loi Lemoine assurance emprunteur : ce qu'elle change | Madeleg",
@@ -86,6 +87,20 @@ export default function PageLoiLemoine() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "La loi Lemoine s'applique-t-elle à un contrat signé il y a plusieurs années ?",
+              reponse:
+                "Oui. Le droit de résilier à tout moment s'applique aux contrats en cours, quelle que soit leur date de signature.",
+            },
+            {
+              question: "La banque peut-elle refuser ma demande de résiliation ?",
+              reponse:
+                "Elle ne peut refuser que si le nouveau contrat n'offre pas des garanties équivalentes. C'est précisément ce que nous vérifions avant de déposer votre dossier de substitution.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

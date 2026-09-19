@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Questionnaire de santé assurance emprunteur : comment ça marche | Madeleg",
@@ -76,6 +77,20 @@ export default function PageQuestionnaireSante() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Ma banque peut-elle voir mes réponses au questionnaire de santé ?",
+              reponse:
+                "Non. Seul le service médical de l'assureur y a accès. Votre banque ne reçoit que la décision finale sur votre dossier.",
+            },
+            {
+              question: "Puis-je changer d'assureur si le premier questionnaire aboutit à une surprime ?",
+              reponse:
+                "Oui, chaque assureur évalue votre dossier selon sa propre grille. Un second avis peut aboutir à une proposition différente.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

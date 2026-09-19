@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur et diabète | Madeleg",
@@ -68,6 +69,20 @@ export default function PageAssuranceEmprunteurDiabete() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Un diabète bien équilibré entraîne-t-il forcément une surprime ?",
+              reponse:
+                "Pas systématiquement. Cela dépend de l'assureur sollicité et de la stabilité du traitement, d'où l'intérêt de comparer plusieurs propositions plutôt que de s'arrêter à la première.",
+            },
+            {
+              question: "Faut-il refaire une déclaration si mon traitement change en cours de prêt ?",
+              reponse:
+                "Le contrat est évalué à la souscription. Un changement de traitement ultérieur ne remet pas en cause la garantie acceptée, sauf clause spécifique prévue par votre contrat.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

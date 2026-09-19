@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur profession libérale | Madeleg",
@@ -73,6 +74,20 @@ export default function PageAssuranceEmprunteurProfessionLiberale() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Ma caisse de prévoyance professionnelle suffit-elle pour mon prêt immobilier ?",
+              reponse:
+                "Non, ce sont deux contrats distincts. Votre caisse professionnelle ne rembourse pas votre crédit immobilier à votre place.",
+            },
+            {
+              question: "Le changement d'assurance emprunteur est-il différent pour une société d'exercice (SEL, SCP) ?",
+              reponse:
+                "Le principe reste le même. C'est votre situation personnelle d'emprunteur, pas la structure juridique de votre exercice, qui détermine les garanties applicables.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

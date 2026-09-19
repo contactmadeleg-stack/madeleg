@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Assurance emprunteur indépendant | Madeleg",
@@ -73,6 +74,20 @@ export default function PageAssuranceEmprunteurIndependant() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Un auto-entrepreneur peut-il changer d'assurance emprunteur comme un autre indépendant ?",
+              reponse:
+                "Oui, la procédure est la même. Seule l'évaluation de vos revenus professionnels par l'assureur diffère selon votre régime.",
+            },
+            {
+              question: "Le délai de carence est-il négociable ?",
+              reponse:
+                "Il varie selon les contrats et les assureurs. C'est un des critères que nous comparons avec vous lors de l'étude de votre dossier.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

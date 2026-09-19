@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Délégation d'assurance emprunteur : comment ça marche | Madeleg",
@@ -69,6 +70,20 @@ export default function PageDelegationAssurance() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Déléguer son assurance retarde-t-il l'obtention du prêt ?",
+              reponse:
+                "Un dossier de délégation bien préparé, avec l'équivalence de garanties déjà vérifiée, ne ralentit pas l'instruction du prêt par la banque.",
+            },
+            {
+              question: "Quelle différence entre délégation d'assurance et substitution d'assurance ?",
+              reponse:
+                "La délégation intervient avant la signature de l'offre de prêt, la substitution après. Le principe d'équivalence de garanties est identique dans les deux cas.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>

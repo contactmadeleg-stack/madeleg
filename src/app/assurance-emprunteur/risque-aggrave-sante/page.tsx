@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Risque aggravé de santé et assurance emprunteur : la convention AERAS | Madeleg",
@@ -82,6 +83,20 @@ export default function PageRisqueAggraveSante() {
       </section>
 
       <section className="mb-12">
+        <FAQSchema
+          entrees={[
+            {
+              question: "Un risque aggravé de santé signifie-t-il un refus automatique ?",
+              reponse:
+                "Non. Cela peut se traduire par une surprime ou une exclusion ciblée, et la convention AERAS prévoit un examen renforcé, automatique, avant tout refus définitif.",
+            },
+            {
+              question: "Le droit à l'oubli s'applique-t-il à toutes les pathologies ?",
+              reponse:
+                "Non, il ne concerne que le cancer et l'hépatite C, 5 ans après la fin du traitement. Les autres pathologies chroniques relèvent de la grille de référence, un mécanisme distinct.",
+            },
+          ]}
+        />
         <h2 className="text-2xl font-bold mb-5">Questions fréquentes</h2>
         <div className="space-y-5">
           <div>
