@@ -75,8 +75,11 @@ export default function PageRisqueAggraveSante() {
         <h2 className="text-2xl font-bold mt-8 mb-3">Droit à l&apos;oubli et grille de référence : deux mécanismes distincts</h2>
         <p>
           Le droit à l&apos;oubli dispense totalement de déclarer certaines pathologies après un délai donné, mais il
-          ne concerne que le cancer et l&apos;hépatite C. Pour les autres pathologies chroniques (diabète, maladies
-          cardiovasculaires, VIH, entre autres), la convention AERAS prévoit une grille de référence distincte : elle
+          ne concerne que le cancer et l&apos;hépatite C. Pour les autres pathologies chroniques (diabète,{" "}
+          <Link href="/assurance-emprunteur/maladies-cardiovasculaires" className="underline">
+            maladies cardiovasculaires
+          </Link>
+          , VIH, entre autres), la convention AERAS prévoit une grille de référence distincte : elle
           n&apos;écarte pas l&apos;obligation de déclaration, mais encadre les surprimes et exclusions applicables
           lorsque la pathologie est stabilisée depuis un délai défini par la grille.
         </p>

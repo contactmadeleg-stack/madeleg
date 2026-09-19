@@ -49,6 +49,8 @@ FINSPOT SAS (Pretto), courtier en assurance (ORIAS 17000916).
 - [Diabète](https://www.madeleg.fr/assurance-emprunteur/diabete)
 - [VIH](https://www.madeleg.fr/assurance-emprunteur/vih): grille de référence
   AERAS pour les personnes séropositives.
+- [Maladies cardiovasculaires](https://www.madeleg.fr/assurance-emprunteur/maladies-cardiovasculaires):
+  infarctus, valvulopathie opérée, grille de référence AERAS.
 
 ### Informations légales
 
