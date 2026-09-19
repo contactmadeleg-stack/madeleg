@@ -56,9 +56,13 @@ export default function PageRisqueAggraveSante() {
             loi Lemoine
           </Link>{" "}
           a réduit le délai du droit à l&apos;oubli à 5 ans après la fin du protocole thérapeutique, sans rechute,
-          pour l&apos;ensemble des cancers et l&apos;hépatite C, sans distinction d&apos;âge au moment du diagnostic
-          (contre 10 ans auparavant, hors exception déjà applicable à certains cancers pédiatriques). Passé ce délai,
-          vous n&apos;avez plus à déclarer cet antécédent dans le{" "}
+          pour l&apos;ensemble des{" "}
+          <Link href="/assurance-emprunteur/cancer" className="underline">
+            cancers
+          </Link>{" "}
+          et l&apos;hépatite C, sans distinction d&apos;âge au moment du diagnostic (contre 10 ans auparavant, hors
+          exception déjà applicable à certains cancers pédiatriques). Passé ce délai, vous n&apos;avez plus à
+          déclarer cet antécédent dans le{" "}
           <Link href="/assurance-emprunteur/questionnaire-sante" className="underline">
             questionnaire de santé
           </Link>

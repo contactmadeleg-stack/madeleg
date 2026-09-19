@@ -244,6 +244,15 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
+            href="/assurance-emprunteur/cancer"
+            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
+          >
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Cancer</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Le droit à l&apos;oubli après 5 ans, et ce qui se passe avant ce délai.
+            </p>
+          </Link>
+          <Link
             href="/assurance-emprunteur/questionnaire-sante"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
