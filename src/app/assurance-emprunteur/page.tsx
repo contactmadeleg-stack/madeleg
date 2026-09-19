@@ -56,7 +56,7 @@ export default async function PageAssuranceEmprunteur() {
           La banque propose presque toujours son propre contrat d&apos;assurance groupe au moment du prêt. Ce contrat
           n&apos;est pas obligatoire : vous pouvez le remplacer par un contrat individuel, chez un autre assureur, à
           condition qu&apos;il offre des garanties équivalentes. C&apos;est ce qu&apos;on appelle la{" "}
-          <Link href="/assurance-emprunteur/droits/delegation-assurance" className="underline">
+          <Link href="/changer-assurance-emprunteur/vos-droits/delegation-assurance" className="underline">
             délégation d&apos;assurance
           </Link>
           .
@@ -65,7 +65,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mt-8 mb-3">La loi Lemoine : changer d&apos;assurance à tout moment</h2>
         <p>
           Depuis juin 2022, la{" "}
-          <Link href="/assurance-emprunteur/droits/loi-lemoine" className="underline">
+          <Link href="/changer-assurance-emprunteur/vos-droits/loi-lemoine" className="underline">
             loi Lemoine
           </Link>{" "}
           vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais de résiliation ni
@@ -133,172 +133,55 @@ export default async function PageAssuranceEmprunteur() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-5">Selon votre situation</h2>
+        <h2 className="text-2xl font-bold mb-5">Explorez par catégorie</h2>
         <div className="grid sm:grid-cols-2 gap-4">
-          <Link
-            href="/assurance-emprunteur/profil/fonctionnaire"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Fonctionnaire</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Ce que votre statut change réellement, et ce qu&apos;il ne change pas.
-            </p>
+          <Link href="/garanties-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Les garanties</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>DC, PTIA, IPT, ITT : ce que couvre chaque garantie.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/profil/independant"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Travailleur indépendant</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Pourquoi le délai de carence compte plus pour vous que pour un salarié.
-            </p>
+          <Link href="/changer-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Changer d&apos;assurance</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Vos droits et la procédure, loi Lemoine incluse.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/profil/profession-liberale"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Profession libérale</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Caisse de prévoyance professionnelle et assurance de prêt : deux contrats distincts.
-            </p>
+          <Link href="/profil-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Selon votre profil</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Fonctionnaire, indépendant, profession libérale, investisseur.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/profil/investissement-locatif"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Investissement locatif</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Pourquoi la garantie ne se pense pas comme pour une résidence principale.
-            </p>
+          <Link href="/assurances-groupes" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Assurance de votre banque</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Ce qu&apos;est le contrat groupe, et pourquoi vous pouvez le remplacer.</p>
           </Link>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-5">Comprendre vos droits</h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <Link
-            href="/assurance-emprunteur/droits/loi-lemoine"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Loi Lemoine</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Résiliation à tout moment, questionnaire médical : ce qu&apos;elle change concrètement.
-            </p>
-          </Link>
-          <Link
-            href="/assurance-emprunteur/droits/delegation-assurance"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Délégation d&apos;assurance</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Comment remplacer le contrat de votre banque par un contrat individuel équivalent.
-            </p>
-          </Link>
-          <Link
-            href="/assurance-emprunteur/droits/resilier"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Résilier son assurance emprunteur</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              La procédure étape par étape, et le délai légal de réponse de la banque.
-            </p>
-          </Link>
-          <Link
-            href="/assurance-emprunteur/droits/prix"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Prix de l&apos;assurance emprunteur</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Les critères qui déterminent réellement votre tarif.
-            </p>
-          </Link>
-          <Link
-            href="/assurance-emprunteur/droits/moins-chere"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Assurance moins chère</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Les leviers concrets pour réduire votre cotisation.
-            </p>
-          </Link>
-          <Link
-            href="/assurance-emprunteur/droits/comparer"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Comparer deux contrats</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Pourquoi le taux affiché ne suffit pas à comparer.
-            </p>
-          </Link>
-          <Link
-            href="/assurance-emprunteur/droits/apres-plusieurs-annees"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Changer après plusieurs années</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Est-ce trop tard si votre prêt a déjà plusieurs années ?
-            </p>
-          </Link>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-5">Votre état de santé et votre dossier</h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <Link
-            href="/assurance-emprunteur/sante/risque-aggrave-sante"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
+          <Link href="/risque-aggrave-sante" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Risque aggravé de santé</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              La convention AERAS et le droit à l&apos;oubli, ce qu&apos;ils changent concrètement.
-            </p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>La convention AERAS et le droit à l&apos;oubli.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/sante/cancer"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Cancer</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Le droit à l&apos;oubli après 5 ans, et ce qui se passe avant ce délai.
-            </p>
+          <Link href="/cout-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Le coût de l&apos;assurance</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Calcul de la prime, TAEA, dégressive ou constante.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/sante/questionnaire-sante"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Questionnaire de santé</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Quand il s&apos;applique, ce qu&apos;il couvre, qui y a accès.
-            </p>
+          <Link href="/sinistre-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>En cas de sinistre</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Déclaration, délais d&apos;indemnisation, recours en cas de refus.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/sante/diabete"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Diabète</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Pourquoi comparer les assureurs compte particulièrement dans ce cas.
-            </p>
+          <Link href="/cadre-legal-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Le cadre légal</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Lois Lagarde, Hamon, Bourquin, Lemoine, expliquées.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/sante/vih"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>VIH</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Ce que change la grille de référence AERAS pour les personnes séropositives.
-            </p>
+          <Link href="/assurance-par-type-de-pret" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Selon le type de prêt</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Résidence principale, locatif, prêt relais : ce qui change.</p>
           </Link>
-          <Link
-            href="/assurance-emprunteur/sante/maladies-cardiovasculaires"
-            className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
-          >
-            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Maladies cardiovasculaires</p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Infarctus, valvulopathie opérée : ce que couvre la grille de référence AERAS.
-            </p>
+          <Link href="/lexique-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Le lexique</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Tous les termes techniques expliqués simplement.</p>
+          </Link>
+          <Link href="/choisir-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Bien choisir son assurance</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Les critères qui comptent, les erreurs à éviter.</p>
+          </Link>
+          <Link href="/cas-particuliers-assurance-emprunteur" className="mdl-card mdl-card--interactive mdl-card__pad block no-underline">
+            <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Cas particuliers</p>
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>Divorce, décès d&apos;un co-emprunteur, prêt ancien, indivision.</p>
           </Link>
         </div>
       </section>

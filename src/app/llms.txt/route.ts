@@ -15,42 +15,65 @@ FINSPOT SAS (Pretto), courtier en assurance (ORIAS 17000916).
 - [Qui sommes-nous](https://www.madeleg.fr/qui-sommes-nous): parcours du
   fondateur, Romuald Dos Santos, et statut réglementaire de Madeleg.
 
-### Vos droits
+### Vos droits (changer d'assurance emprunteur)
 
-- [Loi Lemoine](https://www.madeleg.fr/assurance-emprunteur/droits/loi-lemoine):
+- [Changer d'assurance emprunteur](https://www.madeleg.fr/changer-assurance-emprunteur):
+  page de catégorie, sommaire des droits ci-dessous.
+- [Loi Lemoine](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/loi-lemoine):
   résiliation à tout moment, suppression du questionnaire médical sous
   conditions.
-- [Résilier son assurance emprunteur](https://www.madeleg.fr/assurance-emprunteur/droits/resilier):
+- [Résilier son assurance emprunteur](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/resilier):
   la procédure étape par étape et le délai légal de réponse de la banque
   (dix jours ouvrés).
-- [Délégation d'assurance](https://www.madeleg.fr/assurance-emprunteur/droits/delegation-assurance):
+- [Délégation d'assurance](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/delegation-assurance):
   remplacer le contrat groupe de la banque par un contrat individuel
   équivalent.
-- [Comparer deux contrats](https://www.madeleg.fr/assurance-emprunteur/droits/comparer):
+- [Comparer deux contrats](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/comparer):
   la grille CCSF des 18 critères d'équivalence de garanties.
-- [Prix de l'assurance emprunteur](https://www.madeleg.fr/assurance-emprunteur/droits/prix)
-- [Assurance emprunteur moins chère](https://www.madeleg.fr/assurance-emprunteur/droits/moins-chere)
-- [Changer après plusieurs années](https://www.madeleg.fr/assurance-emprunteur/droits/apres-plusieurs-annees)
+- [Prix de l'assurance emprunteur](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/prix)
+- [Assurance emprunteur moins chère](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/moins-chere)
+- [Changer après plusieurs années](https://www.madeleg.fr/changer-assurance-emprunteur/vos-droits/apres-plusieurs-annees)
 
-### Selon votre situation
+### Selon votre situation (profil emprunteur)
 
-- [Fonctionnaire](https://www.madeleg.fr/assurance-emprunteur/profil/fonctionnaire)
-- [Travailleur indépendant](https://www.madeleg.fr/assurance-emprunteur/profil/independant)
-- [Profession libérale](https://www.madeleg.fr/assurance-emprunteur/profil/profession-liberale)
-- [Investissement locatif](https://www.madeleg.fr/assurance-emprunteur/profil/investissement-locatif)
+- [Profil emprunteur](https://www.madeleg.fr/profil-emprunteur):
+  page de catégorie, sommaire des profils ci-dessous.
+- [Fonctionnaire](https://www.madeleg.fr/profil-emprunteur/situation-professionnelle/fonctionnaire)
+- [Travailleur indépendant](https://www.madeleg.fr/profil-emprunteur/situation-professionnelle/independant)
+- [Profession libérale](https://www.madeleg.fr/profil-emprunteur/situation-professionnelle/profession-liberale)
+- [Investissement locatif](https://www.madeleg.fr/profil-emprunteur/situation-professionnelle/investissement-locatif)
 
 ### Risque aggravé de santé
 
-- [Risque aggravé de santé](https://www.madeleg.fr/assurance-emprunteur/sante/risque-aggrave-sante):
+- [Risque aggravé de santé](https://www.madeleg.fr/risque-aggrave-sante):
   convention AERAS, droit à l'oubli et grille de référence.
-- [Questionnaire de santé](https://www.madeleg.fr/assurance-emprunteur/sante/questionnaire-sante)
-- [Cancer et droit à l'oubli](https://www.madeleg.fr/assurance-emprunteur/sante/cancer):
+- [Questionnaire de santé](https://www.madeleg.fr/risque-aggrave-sante/questionnaire-et-declaration/questionnaire-sante)
+- [Cancer et droit à l'oubli](https://www.madeleg.fr/risque-aggrave-sante/pathologies/cancer):
   délai de 5 ans après la fin du traitement, sans distinction d'âge.
-- [Diabète](https://www.madeleg.fr/assurance-emprunteur/sante/diabete)
-- [VIH](https://www.madeleg.fr/assurance-emprunteur/sante/vih): grille de référence
+- [Diabète](https://www.madeleg.fr/risque-aggrave-sante/pathologies/diabete)
+- [VIH](https://www.madeleg.fr/risque-aggrave-sante/pathologies/vih): grille de référence
   AERAS pour les personnes séropositives.
-- [Maladies cardiovasculaires](https://www.madeleg.fr/assurance-emprunteur/sante/maladies-cardiovasculaires):
+- [Maladies cardiovasculaires](https://www.madeleg.fr/risque-aggrave-sante/pathologies/maladies-cardiovasculaires):
   infarctus, valvulopathie opérée, grille de référence AERAS.
+
+### Autres catégories
+
+- [Les garanties de l'assurance emprunteur](https://www.madeleg.fr/garanties-emprunteur):
+  DC, PTIA, IPT, IPP, ITT, quotité.
+- [Assurance de votre banque](https://www.madeleg.fr/assurances-groupes):
+  ce qu'est le contrat groupe, et pourquoi il peut être remplacé.
+- [Coût de l'assurance emprunteur](https://www.madeleg.fr/cout-assurance-emprunteur):
+  calcul de la prime, TAEA, assurance dégressive ou constante.
+- [Sinistre assurance emprunteur](https://www.madeleg.fr/sinistre-assurance-emprunteur):
+  déclaration, délais d'indemnisation, recours en cas de refus.
+- [Cadre légal de l'assurance emprunteur](https://www.madeleg.fr/cadre-legal-assurance-emprunteur):
+  lois Lagarde, Hamon, Bourquin et Lemoine.
+- [Assurance selon le type de prêt](https://www.madeleg.fr/assurance-par-type-de-pret):
+  résidence principale, locatif, prêt relais.
+- [Lexique de l'assurance emprunteur](https://www.madeleg.fr/lexique-assurance-emprunteur)
+- [Bien choisir son assurance emprunteur](https://www.madeleg.fr/choisir-assurance-emprunteur)
+- [Cas particuliers](https://www.madeleg.fr/cas-particuliers-assurance-emprunteur):
+  divorce, décès d'un co-emprunteur, prêt ancien, indivision.
 
 ### Informations légales
 
