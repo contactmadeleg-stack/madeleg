@@ -56,7 +56,7 @@ export default async function PageAssuranceEmprunteur() {
           La banque propose presque toujours son propre contrat d&apos;assurance groupe au moment du prêt. Ce contrat
           n&apos;est pas obligatoire : vous pouvez le remplacer par un contrat individuel, chez un autre assureur, à
           condition qu&apos;il offre des garanties équivalentes. C&apos;est ce qu&apos;on appelle la{" "}
-          <Link href="/assurance-emprunteur/delegation-assurance" className="underline">
+          <Link href="/assurance-emprunteur/droits/delegation-assurance" className="underline">
             délégation d&apos;assurance
           </Link>
           .
@@ -65,7 +65,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mt-8 mb-3">La loi Lemoine : changer d&apos;assurance à tout moment</h2>
         <p>
           Depuis juin 2022, la{" "}
-          <Link href="/assurance-emprunteur/loi-lemoine" className="underline">
+          <Link href="/assurance-emprunteur/droits/loi-lemoine" className="underline">
             loi Lemoine
           </Link>{" "}
           vous permet de résilier votre assurance de prêt immobilier à tout moment, sans frais de résiliation ni
@@ -136,7 +136,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mb-5">Selon votre situation</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Link
-            href="/assurance-emprunteur/fonctionnaire"
+            href="/assurance-emprunteur/profil/fonctionnaire"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Fonctionnaire</p>
@@ -145,7 +145,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/independant"
+            href="/assurance-emprunteur/profil/independant"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Travailleur indépendant</p>
@@ -154,7 +154,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/profession-liberale"
+            href="/assurance-emprunteur/profil/profession-liberale"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Profession libérale</p>
@@ -163,7 +163,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/investissement-locatif"
+            href="/assurance-emprunteur/profil/investissement-locatif"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Investissement locatif</p>
@@ -178,7 +178,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mb-5">Comprendre vos droits</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Link
-            href="/assurance-emprunteur/loi-lemoine"
+            href="/assurance-emprunteur/droits/loi-lemoine"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Loi Lemoine</p>
@@ -187,7 +187,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/delegation-assurance"
+            href="/assurance-emprunteur/droits/delegation-assurance"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Délégation d&apos;assurance</p>
@@ -196,7 +196,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/resilier"
+            href="/assurance-emprunteur/droits/resilier"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Résilier son assurance emprunteur</p>
@@ -205,7 +205,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/prix"
+            href="/assurance-emprunteur/droits/prix"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Prix de l&apos;assurance emprunteur</p>
@@ -214,7 +214,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/moins-chere"
+            href="/assurance-emprunteur/droits/moins-chere"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Assurance moins chère</p>
@@ -223,7 +223,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/comparer"
+            href="/assurance-emprunteur/droits/comparer"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Comparer deux contrats</p>
@@ -232,7 +232,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/apres-plusieurs-annees"
+            href="/assurance-emprunteur/droits/apres-plusieurs-annees"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Changer après plusieurs années</p>
@@ -247,7 +247,7 @@ export default async function PageAssuranceEmprunteur() {
         <h2 className="text-2xl font-bold mb-5">Votre état de santé et votre dossier</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Link
-            href="/assurance-emprunteur/risque-aggrave-sante"
+            href="/assurance-emprunteur/sante/risque-aggrave-sante"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Risque aggravé de santé</p>
@@ -256,7 +256,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/cancer"
+            href="/assurance-emprunteur/sante/cancer"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Cancer</p>
@@ -265,7 +265,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/questionnaire-sante"
+            href="/assurance-emprunteur/sante/questionnaire-sante"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Questionnaire de santé</p>
@@ -274,7 +274,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/diabete"
+            href="/assurance-emprunteur/sante/diabete"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Diabète</p>
@@ -283,7 +283,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/vih"
+            href="/assurance-emprunteur/sante/vih"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>VIH</p>
@@ -292,7 +292,7 @@ export default async function PageAssuranceEmprunteur() {
             </p>
           </Link>
           <Link
-            href="/assurance-emprunteur/maladies-cardiovasculaires"
+            href="/assurance-emprunteur/sante/maladies-cardiovasculaires"
             className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
           >
             <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>Maladies cardiovasculaires</p>
@@ -310,7 +310,7 @@ export default async function PageAssuranceEmprunteur() {
             {articles.map((article) => (
               <Link
                 key={article.slug}
-                href={`/assurance-emprunteur/${article.slug}`}
+                href={`/articles/${article.slug}`}
                 className="mdl-card mdl-card--interactive mdl-card__pad block no-underline"
               >
                 <p className="font-titres font-bold mb-1" style={{ color: "var(--text-strong)" }}>{article.titre}</p>
