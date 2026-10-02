@@ -1,7 +1,8 @@
 # Vidéo « Le parcours avec un courtier »
 
 Motion design de 15 s, format vertical 1080×1920 (Reels, TikTok, Stories, Shorts), 60 i/s,
-H.264 + AAC 48 kHz, sonie −14 LUFS. Fichier livré : `parcours-courtier-9x16.mp4`.
+H.264 + AAC 48 kHz, sonie −14 LUFS. Fichiers livrés : `parcours-courtier-9x16.mp4` et
+`couverture-9x16.png` (image de couverture pour les Reels).
 
 ## Déroulé
 
@@ -33,6 +34,7 @@ Itérations rapides :
 ```bash
 node render.mjs --stills 3.5,9.4,14.9   # images fixes + planche contact dans out/
 node render.mjs --preview               # 30 i/s sans flou de mouvement, ~20 s
+node render.mjs --stills 0.76 --cover   # image de couverture (stepper figé)
 ```
 
 ## Où modifier

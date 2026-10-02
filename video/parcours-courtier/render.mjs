@@ -3,6 +3,7 @@
 //   node render.mjs --stills 0.5,1.2,3       images fixes + planche contact
 //   node render.mjs --preview                30 i/s, demi-résolution, sans flou
 //   node render.mjs                          final : 60 i/s, 1080×1920, flou de mouvement ×6
+//   node render.mjs --stills 0.76 --cover    image de couverture (stepper figé)
 //
 // Options : --fps N --samples N --shutter 0.5 --scale 1 --workers 4 --from S --to S --out fichier.mp4
 import { chromium } from 'playwright';
@@ -30,7 +31,7 @@ const samples = Number(opt('samples', preview ? 1 : 6));
 const shutter = Number(opt('shutter', 0.5)); // fraction de la durée d'image (0.5 = 180°)
 const scale = Number(opt('scale', preview ? 0.5 : 1));
 const workers = Number(opt('workers', 4));
-const query = opt('guides', false) === true ? '?guides=1' : '';
+const query = opt('cover', false) === true ? '?cover=1' : '';
 
 async function openPage() {
   const browser = await chromium.launch({

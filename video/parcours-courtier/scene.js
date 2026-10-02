@@ -1282,9 +1282,12 @@
   L.worldInner.appendChild(penG);
   L.worldInner.appendChild(cursorG);
 
+  // ?cover : image de couverture, stepper figé à sa taille finale.
+  const COVER = new URLSearchParams(location.search).has('cover');
   function render(t) {
     tl.seek(Math.max(0, Math.min(DURATION, t)), true);
     for (const f of updaters) f(t);
+    if (COVER) for (const n of stNodes) n.a.s = 1;
     for (const a of actors) applyActor(a);
     // caméra (après les acteurs : certains updaters la pilotent)
     const [sx, sy] = shakeAt(t);
