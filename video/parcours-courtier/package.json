@@ -1,0 +1,14 @@
+{
+  "name": "parcours-courtier-video",
+  "private": true,
+  "type": "module",
+  "description": "Motion design 15 s : parcours client avec un courtier en prêt immobilier",
+  "scripts": {
+    "preview": "node render.mjs --preview",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "playwright": "^1.56.1"
+  }
+}
