@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Scripts tiers livrés avec les skills projet, pas notre code applicatif.
     ".claude/**",
+    // Projets vidéo autonomes (Node + navigateur), hors application Next.
+    "video/**",
   ]),
 ]);
 
